@@ -3,7 +3,6 @@ package com.EIE.demo.web;
 import com.EIE.demo.dao.CompteRepository;
 import com.EIE.demo.dao.PosteRepository;
 import com.EIE.demo.dao.ProfilRepository;
-import com.EIE.demo.dao.RegionRepository;
 import com.EIE.demo.dataService.WebService;
 import com.EIE.demo.model.Compte;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,8 +27,6 @@ public class CreateCompteController {
 	@Autowired
 	private ProfilRepository profilRepository;
 	@Autowired
-	private RegionRepository regionRepository;
-	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private PosteRepository posteRepository;
@@ -44,7 +41,6 @@ public class CreateCompteController {
 		model.put("listF", compteRepository.getAllCompte());
 		model.put("profiless", profilRepository.getAllProfil());
 		model.put("postes", posteRepository.getAllPoste());
-		model.put("regionss", regionRepository.getAllRegion());
 		model.put("type", "ajout");
 		model.put("Compte", null);
 		model.put("user",web.getCompteConnected());
@@ -52,58 +48,6 @@ public class CreateCompteController {
 
 	}
 
-
-	@RequestMapping(value = "/api/getAccount5/{page}/{size}/{type}", method = RequestMethod.GET)
-	public ModelAndView getAccount5(@PathVariable int page,@PathVariable int size, @PathVariable int type) {
-		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("listF", compteRepository.getAllCompteByRegion());
-		model.put("profiless", profilRepository.getAllProfil());
-		model.put("regionss", regionRepository.getAllRegion());
-		model.put("postes", posteRepository.getAllPoste());
-		Page<Compte> h=null;
-		if(type==0){
-			h = compteRepository.getAllCompteByRegionPage(new PageRequest(page, size));
-		}else{
-			h = compteRepository.getAllCompteByRegionPagePetitionnaire(new PageRequest(page, size));
-		}
-		if (h != null) {
-
-			List<Compte> searchResult = h.getContent();
-			model.put("listF", searchResult);
-			model.put("total", h.getTotalElements());
-			model.put("number", h.getNumber());
-			model.put("page", 0);
-			model.put("totalPage", h.getTotalPages());
-			model.put("size", h.getSize());
-			model.put("type", type);
-
-		} else {
-			model.put("totalPage", 0);
-		}
-		model.put("user",web.getCompteConnected());
-		return new ModelAndView("compte2/listeCompte", model);
-
-	}
-
-
-	/*@RequestMapping(value = "/api/addAccount5", method = RequestMethod.POST)
-	public   ModelAndView changerStatut5(@RequestBody Compte compte) throws JsonProcessingException {
-		if(compte.getPassword().length()>5){
-			String passWordCrypt= passwordEncoder.encode(compte.getPassword());
-			compte.setPassword(passWordCrypt);
-		}
-		else{
-			Compte c = compteRepository.getOne(compte.getCompteId());
-			compte.setPassword(c.getPassword());
-		}
-		Map<String, Object> model = new HashMap<String, Object>();
-		compteRepository.save(compte);
-		model.put("listF", compteRepository.getAllCompte());
-		model.put("profiless", profilRepository.getAllProfil());
-		model.put("regionss", regionRepository.getAllRegion());
-		return new ModelAndView("compte2/listeCompte", model);
-
-	}*/
 
 	@RequestMapping(value = "/api/addCompteAdmin", method = RequestMethod.POST)
 	public ModelAndView changerStatut5(@RequestBody Compte compte) throws JsonProcessingException {
@@ -140,7 +84,6 @@ public class CreateCompteController {
 
 		model.put("listF", compteRepository.getAllCompte());
 		model.put("profiless", profilRepository.getAllProfil());
-		model.put("regionss", regionRepository.getAllRegion());
 		model.put("postes", posteRepository.getAllPoste());
 		return new ModelAndView("compte2/listeCompte", model);
 
@@ -152,7 +95,6 @@ public class CreateCompteController {
 
 		model.put("Compte", compteRepository.getOne(id));
 		model.put("profiless", profilRepository.getAllProfil());
-		model.put("regionss", regionRepository.getAllRegion());
 		model.put("modifier","modifier");
 		model.put("postes", posteRepository.getAllPoste());
 		return new ModelAndView("compte2/AjouterCompte", model);
@@ -190,15 +132,7 @@ public class CreateCompteController {
 		model.put("listF", compteRepository.getAllCompteByIdProfilPage(id, new PageRequest(page, size)));
 		model.put("profiless", profilRepository.getAllProfil());
 		model.put("Idrefence", id);
-		model.put("regionss", regionRepository.getAllRegion());
-		Page<Compte> h = null;
-		if(id==0){
-			h = compteRepository.getAllCompteByRegionPage(new PageRequest(page, size));
-		}
-		else {
-			h = compteRepository.getAllCompteByIdProfilPage(id, new PageRequest(page, size));
-		}
-
+		Page<Compte> h = compteRepository.getAllCompteByIdProfilPage(id, new PageRequest(page, size));
 		if (h != null) {
 
 			List<Compte> searchResult = h.getContent();
@@ -220,10 +154,8 @@ public class CreateCompteController {
 	@RequestMapping(value = "/api/getAccountByProfilP/{page}/{size}/{type}", method = RequestMethod.GET)
 	public ModelAndView getAccountByprofil(@PathVariable int page, @PathVariable int size, @PathVariable int type) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("listF", compteRepository.getAllCompteByRegionPagePetitionnaire(new PageRequest(page, size)));
 		model.put("profiless", profilRepository.getAllProfil());
-		model.put("regionss", regionRepository.getAllRegion());
-		Page<Compte> h = compteRepository.getAllCompteByRegionPagePetitionnaire(new PageRequest(page, size));
+		Page<Compte> h = null;
 		model.put("type",type);
 		if (h != null) {
 

@@ -145,7 +145,7 @@
                             <th class="text-center">Login</th>
                             <th class="text-center"><spring:message code="label.Telephone"/></th>
                             <th class="text-center"><spring:message code="label.Profile"/></th>
-                            <th class="text-center"><spring:message code="label.Region"/></th>
+                            <%--<th class="text-center"><spring:message code="label.Region"/></th>--%>
                             <th class="text-center"><spring:message code="label.Action"/></th>
                         </tr>
                         </thead>
@@ -162,7 +162,7 @@
                                 <td>${f.email}</td>
                                 <td>${f.tel}</td>
                                 <td>${f.profil.nom}</td>
-                                <td>${f.region.nom_fr}</td>
+                                <%--<td>${f.region.nom_fr}</td>--%>
                                 <td class="text-center">
                                     <ul class="list-inline m-0">
                                         <li class="list-inline-item text-center">

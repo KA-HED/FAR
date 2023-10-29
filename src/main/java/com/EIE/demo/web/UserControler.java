@@ -484,11 +484,6 @@ public class UserControler {
 		web.addDocInfo(fileToUpload, id,check);
 	}
 
-	@RequestMapping(value = "/api/addDocRegion/{id}/{idRegion}", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public @ResponseBody void addDocRegion(@PathVariable int id,@PathVariable int idRegion, @RequestParam MultipartFile[] fileToUpload)
-			throws JsonParseException, JsonMappingException, IOException, MessagingException {
-		web.addDocInfoRegion(fileToUpload, id,idRegion);
-	}
 
 
 	@RequestMapping(value = "/api/getParamm/{profil}", method = RequestMethod.GET)

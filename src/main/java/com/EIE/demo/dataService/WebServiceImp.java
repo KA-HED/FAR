@@ -196,39 +196,7 @@ public class WebServiceImp implements WebService {
 	}
 
 
-	@Override
-	public ResponseEntity<RestResponsePage<Reponse>> getListReponseByIdQuestion(int id, PageRequest page) {
-		final String uri = urlRest+"/getListReponseByIdQuestion/"+page.getPageNumber()+"/"+page.getPageSize()+"/"+id;
-		RestTemplate restTemplate = new RestTemplate();
-		ParameterizedTypeReference<RestResponsePage<Reponse>> responseType = new ParameterizedTypeReference<RestResponsePage<Reponse>>() { };
-		ResponseEntity<RestResponsePage<Reponse>> result = restTemplate.exchange(uri, HttpMethod.GET, null/*httpEntity*/, responseType);
-		return result;
-	}
 
-	@Override
-	public void saveReponse(Reponse r,int id) {
-		final String uris = urlRest + "/saveReponse/"+id;
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForLocation(uris, r, Reponse.class);
-	}
-
-	@Override
-	public void deleteReponse(int id_ques, int idrep) {
-		final String uris = urlRest + "/deleteReponse/"+idrep+"/"+id_ques;
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getForObject(uris, Reponse.class);
-	}
-
-	@Override
-	public Reponse getReponseById(int id) {
-		final String uri = urlRest+"/getReponseById/"+id;
-		RestTemplate restTemplate = new RestTemplate();
-		Reponse  result = restTemplate.getForObject(uri, Reponse.class);
-		return result;
-	}
-
-//autorisation@2020
-//admin_auto
 
 
 }

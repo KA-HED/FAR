@@ -15,12 +15,8 @@ import org.springframework.stereotype.Service;
 
 import com.EIE.demo.dao.CompteRepository;
 import com.EIE.demo.dao.PrRoleRepository;
-import com.EIE.demo.dao.UserRepository;
-import com.EIE.demo.dao.UserRoleExistRepository;
 import com.EIE.demo.model.Compte;
 import com.EIE.demo.model.ProfilRole;
-import com.EIE.demo.model.User;
-import com.EIE.demo.model.UserRoleExist;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

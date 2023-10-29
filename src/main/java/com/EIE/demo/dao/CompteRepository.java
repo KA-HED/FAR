@@ -15,14 +15,6 @@ public interface CompteRepository extends JpaRepository<Compte, Integer> {
 	@Query("from Compte  where deleteDateTime is null order by compteId DESC  ")
 	public List<Compte> getAllCompte ();
 
-	@Query("from Compte  where deleteDateTime is null order by compteId DESC  ")
-	public List<Compte> getAllCompteByRegion ();
-
-	@Query("select c from Compte c where c.deleteDateTime is null order by c.compteId DESC  ")
-	public Page<Compte> getAllCompteByRegionPage (Pageable page);
-
-	@Query("select c from Compte c where c.deleteDateTime is null order by c.compteId DESC  ")
-	public Page<Compte> getAllCompteByRegionPagePetitionnaire (Pageable page);
 
 	@Query("from Compte  where deleteDateTime is null order by compteId DESC  ")
 	public List<Compte> getAllCompteNotSciete ();
@@ -30,11 +22,6 @@ public interface CompteRepository extends JpaRepository<Compte, Integer> {
 	@Query("select c from Compte c where c.deleteDateTime is null and c.auto_nv=:auto order by c.compteId DESC  ")
 	public Page<Compte> getAllCompteNotScietePagination (Pageable page,String auto);
 
-	@Query("from Compte  where deleteDateTime is null  and region.regionId=:regionId order by compteId DESC  ")
-	public List<Compte> getAllCompteNotScieteByRegion (int regionId);
-
-	@Query("select c from Compte c where c.deleteDateTime is null  and c.region.regionId=:regionId and c.auto_nv=:auto order by c.compteId DESC  ")
-	public Page<Compte> getAllCompteNotScieteByRegionPagination (Pageable page,int regionId,String auto);
 
 	@Query("from Compte fp  where fp.email=:a1 and fp.deleteDateTime is null order by fp.compteId DESC  ")
 	public Compte siExiste (@Param("a1") String a1);

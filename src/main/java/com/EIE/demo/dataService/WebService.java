@@ -24,9 +24,5 @@ public interface WebService {
 
 
 
-	ResponseEntity<RestResponsePage<Reponse>> getListReponseByIdQuestion(int id, PageRequest pageRequest);
 
-	public void saveReponse(Reponse r,int id);
-	public void deleteReponse(int id_ques, int idrep);
-	public Reponse getReponseById(int id);
 }

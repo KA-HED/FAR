@@ -160,9 +160,6 @@ public class Compte  implements Serializable {
 	@JoinColumn(name = "profilId")
 	private Profil profil;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "regionId")
-	private Region region;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_Poste")
@@ -205,13 +202,6 @@ public class Compte  implements Serializable {
 	private Date deleteDateTime;
 
 
-	public Region getRegion() {
-		return region;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
-	}
 
 	public String getTyperegion() {
 		return typeregion;
