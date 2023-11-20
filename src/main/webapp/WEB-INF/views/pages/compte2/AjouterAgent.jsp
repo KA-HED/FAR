@@ -95,7 +95,7 @@
 
     /* When the checkbox is checked, add a blue background */
     .container input:checked ~ .checkmark {
-        background-color:  #2196f3  ;
+        background-color:  #184a00bd  ;
     }
 
     /* Create the checkmark/indicator (hidden when not checked) */
@@ -1231,7 +1231,7 @@
              icon: 'warning',
              showCancelButton: true,
              confirmButtonColor: '#e0c44e',
-             cancelButtonColor: '#2196f3',
+             cancelButtonColor: '#184a00bd',
              confirmButtonText: 'Enregistrer',
              cancelButtonText: "Annuler",
          }, function (isConfirm) {
@@ -1255,7 +1255,7 @@
              icon: 'warning',
              showCancelButton: true,
              confirmButtonColor: '#e0c44e',
-             cancelButtonColor: '#2196f3',
+             cancelButtonColor: '#184a00bd',
              confirmButtonText: 'Enregistrer',
              cancelButtonText: "Annuler",
          }, function (isConfirm) {

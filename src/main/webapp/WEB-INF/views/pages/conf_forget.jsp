@@ -49,7 +49,7 @@
          margin-top: -38px;
          position: relative;
          z-index: 2;
-         color:  #2196f3   !important;
+         color:  #184a00bd   !important;
          cursor: pointer;
      }
     .toggle-password1 {
@@ -58,7 +58,7 @@
         margin-top: -38px;
         position: relative;
         z-index: 2;
-        color:  #2196f3   !important;
+        color:  #184a00bd   !important;
         cursor: pointer;
     }
     .modal-dialog{

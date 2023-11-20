@@ -42,27 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.authorizeRequests().
         antMatchers("/resources/**").permitAll()
-
-       .antMatchers("/api/getListeAutorisation/ZF/**").hasAnyRole("ADMIN","AUTORISATIONZF")
-       .antMatchers("/api/getListeAutorisation/ET/**").hasAnyRole("ADMIN","AUTORISATIONET")
-       .antMatchers("/api/getListeCollecte/**").hasAnyRole("ADMIN","AUTORISATIONCT")
-       .antMatchers("/api/getListeInstallation/**").hasAnyRole("ADMIN","AUTORISATIONIT")
-       .antMatchers("/api/getListeAutorisation/XD/**").hasAnyRole("ADMIN","AUTORISATIONXD")
-       .antMatchers("/api/getListeAutorisation/TR/**").hasAnyRole("ADMIN","AUTORISATIONTR")
-       .antMatchers("/api/getEie/**").hasAnyRole("ADMIN","EIE")
-
-       .antMatchers("/api/getDre/**").hasAnyRole("ADMIN","DRE")
-       .antMatchers("/api/getAccount5/**").hasAnyRole("ADMIN","COMPTE")
-       .antMatchers("/api/getFormToAdd").hasAnyRole("ADMIN","COMPTE")
-       .antMatchers("/api/getListProfile/**").hasAnyRole("ADMIN","COMPTE")
-       .antMatchers("/api/droit_acces/**").hasAnyRole("ADMIN","COMPTE")
-       .antMatchers("/api/getListAuditEie/**").hasAnyRole("ADMIN","AuditEie")
-       .antMatchers("/api/Audit/**").hasAnyRole("ADMIN","AUDIT")
-       .antMatchers("/api/statistique/**").hasAnyRole("ADMIN","STAT")
        .antMatchers("/api/param/**").hasAnyRole("ADMIN","PARAM")
-
+       .antMatchers("/OM/**").hasAnyRole("ADMIN","OM")
        .antMatchers("/api/aide/**").hasAnyRole("ADMIN","AIDE")
-       .antMatchers("/api/listRensignement/**").hasAnyRole("ADMIN","RENSEIGNEMENT")
        
         
         

@@ -127,13 +127,8 @@
     <div class="error error-5 d-flex flex-row-fluid bgi-size-cover bgi-position-center">
         <!--begin::Content-->
         <div class="container d-flex flex-row-fluid flex-column justify-content-md-center p-4 col-9 " >
-            <div class="notfound m-auto">
-                <div class="notfound-404">
-                    <h1 class="font-weight-boldest display-4 f-16  mt-10 mt-md-0 mb-12 m-auto " style="font-size: 25pt;color: #e22a7ff2">Désolé, quelque chose s'est mal passé</h1>
-                </div>
-            </div>
-            <h1 class="font-weight-boldest display-4 f-16  mt-2 mt-md-0 mb-12 m-auto " style="font-size: 25pt;color:  #2196f3  ">Veuillez réessayer plus tard</h1>
-            <p class="m-auto font-size-h3" style="color: #0a2730">nous y travaillons et nous le réparerons dès que possible.</p>
+
+            <h1 class="font-weight-boldest display-4 f-16  mt-2 mt-md-0 mb-12 m-auto " style="font-size: 25pt;color:  #184a00bd  ">Veuillez réessayer plus tard</h1>
             <br>
             <input type="hidden" name="error" id="error" value="${pageContext.exception.toString()}" />
             <input type="hidden" name="errorurl" id="errorurl" value="${pageContext.errorData.requestURI}" />

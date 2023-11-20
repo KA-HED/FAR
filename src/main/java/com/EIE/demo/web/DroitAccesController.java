@@ -8,8 +8,11 @@ import com.EIE.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
@@ -169,8 +172,9 @@ public class DroitAccesController {
     @RequestMapping(value = "/api/isAccessible/{id}", method = RequestMethod.GET)
     public @ResponseBody String isAccessible(@PathVariable int id) {
 
-        Compte ct = web.getCompteConnected();
+        Acteur ct = web.getCompteConnected();
         List<Integer> integerList = profilRoleRepository.getAllRoleByProfil(ct.getProfil().getProfilId());
+//        List<Integer> integerList = profilRoleRepository.getAllRoleByProfil(0);
 
         if(integerList.contains(id) || integerList.contains(1)){
             return "oui";

@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Role implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int roleId;
 	
 	public String getNom() {
@@ -28,9 +28,9 @@ public class Role implements Serializable {
 		this.nom = nom;
 	}
 
-	@Column(name = "nom",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nom")
 	private String nom;
-	@Column(name = "type",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "type")
 	private String type;
 
 	public String getType() {
@@ -41,7 +41,7 @@ public class Role implements Serializable {
 		this.type = type;
 	}
 
-	@Column(name = "nomFr",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nomFr")
 	private String nomFr;
 	
 	

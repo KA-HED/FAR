@@ -77,17 +77,17 @@ public class Compte  implements Serializable {
 	}
 
 	@Id
-    @GeneratedValue (strategy= GenerationType. IDENTITY)
+//    @GeneratedValue (strategy= GenerationType. IDENTITY)
     @Column (name="compteId")
     private int compteId;
 
-	@Column(name = "nom", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nom", nullable = true)
 	private String nom;
 
-	@Column(name = "emailRecup", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "emailRecup", nullable = true)
 	private String emailRecup;
 
-	@Column(name = "chequer", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "chequer", nullable = true)
 	private String chequer;
 
 	public String getEmailRecup() {
@@ -98,18 +98,18 @@ public class Compte  implements Serializable {
 		this.emailRecup = emailRecup;
 	}
 
-	@Column(name = "email", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "email", nullable = true)
 	private String email;
 
-	@Column(name = "auto_nv", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "auto_nv", nullable = true)
 	private String auto_nv;
 
-	@Column(name = "tel", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "tel", nullable = true)
 	private String tel;
-	@Column(name = "deleted", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "deleted", nullable = true)
 	private String deleted;
 
-	@Column(name = "interim", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "interim", nullable = true)
 	private String interim;
 
 	@Column(name = "active", nullable = true)
@@ -123,7 +123,7 @@ public class Compte  implements Serializable {
 	@Column(name = "dateFin", nullable = true)
 	private Date dateFin;
 
-	@Column(name = "password", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "password", nullable = true)
 	private String password;
 
 	public String getPassword() {
@@ -150,10 +150,10 @@ public class Compte  implements Serializable {
 		this.tel = tel;
 	}
 
-	@Column(name = "commission", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "commission", nullable = true)
 	private String commission;
 
-	@Column(name = "depot", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "depot", nullable = true)
 	private String depot;
 
 	@ManyToOne(fetch = FetchType.EAGER)

@@ -1,108 +1,102 @@
-
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<spring:url value="/resources/" var="resources" />
+         pageEncoding="UTF-8" %>
+<spring:url value="/resources/" var="resources"/>
 <!-- amal -->
 <html>
 <title>DE</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="#">
-    <meta name="keywords" content="Dentaire,dent Landing,Bootstrap,App,Template,Mobile, iOS, Android, apple, creative app">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content="#">
+<meta name="keywords" content="Dentaire,dent Landing,Bootstrap,App,Template,Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>
-<link rel="icon" href="${pageContext.request.contextPath}/assets/images/CC.jpg">
+<link rel="icon" href="${pageContext.request.contextPath}/assets/images/logo_1.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"/>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/chartist/dist/chartist.css" type="text/css" media="all">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/nvd3/build/nv.d3.css">
-<script src="${pageContext.request.contextPath}/assets/statistique/amcharts.js"></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/serial.js"></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/pie.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/select2.min.js" ></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/Chart.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/css/chart.js/dist/Chart.js"></script>
-<!-- amchart js -->
-<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/amcharts.js"></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/serial.js"></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/light.js"></script>
-<script src="${pageContext.request.contextPath}/assets/statistique/chart/statisticfr.js"></script>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/icon/icofont/css/icofont.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style_statistique.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style1.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style2.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style3.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/calendar.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/fullcalendar.min.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bt.css"/>
-<link href="https://fonts.cdnfonts.com/css/arvo" rel="stylesheet">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/chartist/dist/chartist.css" type="text/css" media="all">--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/nvd3/build/nv.d3.css">--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/amcharts.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/serial.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/pie.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/js/select2.min.js" ></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/Chart.min.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/assets/css/chart.js/dist/Chart.js"></script>--%>
+<%--<!-- amchart js -->--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/amcharts.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/serial.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/light.js"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/assets/statistique/chart/statisticfr.js"></script>--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/icon/icofont/css/icofont.css" />--%>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style_statistique.css"/>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style1.css" />--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style2.css" />--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style3.css" />--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/calendar.css" />--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/fullcalendar.min.css" />--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bt.css"/>--%>
+<%--<link href="https://fonts.cdnfonts.com/css/arvo" rel="stylesheet">--%>
+<%--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--%>
+<%--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"/>
-
-<link href="${pageContext.request.contextPath}/assets/css/smart_wizard_all.min.css">
-
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font.css" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" />
- <!-- CSS Files -->
+<%----%>
+<%--<link href="${pageContext.request.contextPath}/assets/css/smart_wizard_all.min.css">--%>
+<%----%>
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font.css" >--%>
+<%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" />--%>
+<!-- CSS Files -->
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.datetimepicker.min.css">
-    <!-- CSS Just for demo purpose, don't include it in your project -->
+<!-- CSS Just for demo purpose, don't include it in your project -->
 
 
-    <link rel="stylesheet" href=" ${pageContext.request.contextPath}/assets/vendors/sweet-alert/sweetalert.css">
-  <link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/base/vendor.bundle.base.css">
+<%--<link rel="stylesheet" href=" ${pageContext.request.contextPath}/assets/vendors/sweet-alert/sweetalert.css">--%>
+<%--<link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />--%>
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/mdi/css/materialdesignicons.min.css">--%>
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/base/vendor.bundle.base.css">--%>
 
-  <!--   //datatable-->
-    <link href="${pageContext.request.contextPath}/assets/css/datatable/bootstrap.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/assets/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/assets/css/datatable/responsive.bootstrap4.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/assets/css/datatable/fixedColumns.dataTables.min.css" rel="stylesheet">
-
-
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/toolbar/jquery.toolbar.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/toolbar/custom-toolbar.css">
-
-    <link href="${pageContext.request.contextPath}/assets/css/customcss.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/custom.css">
+<!--   //datatable-->
+<link href="${pageContext.request.contextPath}/assets/css/datatable/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/datatable/responsive.bootstrap4.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/datatable/fixedColumns.dataTables.min.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/select2.min.css">
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/toolbar/jquery.toolbar.css">--%>
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/toolbar/custom-toolbar.css">--%>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/datepicker/vitalets-bootstrap-datepicker-c7af15b/css/datepicker.css">
+<%--<link href="${pageContext.request.contextPath}/assets/css/customcss.css" rel="stylesheet">--%>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/custom.css">
+
+
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/select2.min.css">--%>
+
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/datepicker/vitalets-bootstrap-datepicker-c7af15b/css/datepicker.css">--%>
 
 <!-- sweetalert -->
 <link href="${pageContext.request.contextPath}/assets/css/sweet-alert.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.mCustomScrollbar.css">
-
+<%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.mCustomScrollbar.css">--%>
 
 
 <!---Youssef ---->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css_login/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css_login/custom.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css_login/bts_4.css" >
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css_login/bts_4.css">
 <!--flags -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flag.css" >
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flag.css">
 
 
 <!-------End-------->
 
 <style>
 
-    /*table{
-        text-align: center !important;
-    }*/
 
     li.select2-selection__choice {
         color: black !important;
@@ -111,7 +105,7 @@
 
     .button {
         border-radius: 4px;
-        background-color: #7fc241 ;
+        background-color: #7fc241;
         border: none;
         color: #FFFFFF;
         text-align: center;
@@ -159,61 +153,78 @@
         padding: 8px;
     }
 
-    #example tr:nth-child(even){background-color: #f2f2f2;}
+    #example tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-    #example tr:hover {background-color: #ddd;}
+    #example tr:hover {
+        background-color: #ddd;
+    }
 
     #example th {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: left;
-        background-color: #7fc241 ;
+        background-color: #7fc241;
         color: white;
     }
-    .button{
+
+    .button {
         font-family: Georgia;
         background-color: #7DC7BD;
-        color:white;
+        color: white;
     }
-    .col-3 h4{
+
+    .col-3 h4 {
         font-family: Georgia;
     }
-    .tablee{
+
+    .tablee {
         border-collapse: collapse;
         overflow: hidden;
         margin-left: -5px;
     }
-    .fr_btn{
-        background-color: #35b242;
+
+    .fr_btn {
+        background-color: #568a4091;
     }
-    .tablee thead{
-        background-color: #35b242;
-        color:white;
+
+    .tablee thead {
+        background-color: #568a4091;
+        color: white;
 
     }
-    .tablee thead th{
+
+    .tablee thead th {
         font-weight: bold;
-        text-align: left!important;
+        text-align: left !important;
     }
-    .tbodyy .btn:hover {background-color: #3e8e41}
+
+    .tbodyy .btn:hover {
+        background-color: #3e8e41
+    }
+
     .tbodyy .btn:hover {
         background-color: #3e8e41;
         box-shadow: 0 5px #666;
         transform: translateY(4px);
     }
-    .btn-block:hover{
+
+    .btn-block:hover {
         background-color: white;
         color: black;
         border: 2px solid #79ef7a;
     }
-    .btn-block{
+
+    .btn-block {
         border-radius: 3px;
         background-color: #79ef7a;
         color: white;
 
     }
-    .btn-block span{
-        color:white;
+
+    .btn-block span {
+        color: white;
     }
 
     .form-group .line {
@@ -226,6 +237,7 @@
         position: relative;
         top: -14px;
     }
+
     .ml6 {
         position: relative;
         font-weight: 500;
@@ -245,82 +257,99 @@
         display: inline-block;
         line-height: 1em;
     }
-    body{ font-family: 'Arvo', sans-serif !important; }
+
+    body {
+        font-family: 'Arvo', sans-serif !important;
+    }
 
     .form-group label {
-        color:#35b242;
-        float:${pageContext.response.locale=="ar"?'right':'left'};
+        color: #537842;
     }
 
-    .btn-success{
-        background-color: #35b242 !important;
+    .btn-success {
+        background-color: #568a4091 !important;
         color: #fff !important;
         border-radius: 25px !important;
     }
-    .btn-success:hover{
-        background-color: #35b242 !important;
+
+    .btn-success:hover {
+        background-color: #568a4091 !important;
         color: #fff !important;
         border-radius: 25px !important;
     }
-    .btn-danger-2{
+
+    .btn-danger-2 {
         background-color: #e0c44e !important;
         color: #fff !important;
         border-radius: 25px !important;
         border-color: white !important;
     }
-    .zone_tab h4{
+
+    .zone_tab h4 {
         text-align: right !important;
         margin-right: 1rem;
     }
-    #file01 h4{
+
+    #file01 h4 {
         text-align: right !important;
         margin-right: 1rem;
     }
-    .badge{
+
+    .badge {
         background-color: #d59d32 !important;
     }
-    .odd a{
+
+    .odd a {
         color: #0db8db;
     }
-    .even a{
+
+    .even a {
         color: #0db8db;
     }
-    table th{
+
+    table th {
         text-align: center !important;
         vertical-align: middle !important
     }
-    table p{
+
+    table p {
         background-color: #d53232 !important;
         text-align: center !important;
         background-size: 100% 100% !important;
         color: white !important;
     }
-    .border-secondary{
-       border-color:  #d59d32 !important;
-    }
-    .header-top-onex{
-        height:131px !important;
-    }
-    .header-top-onex{
-        background: url(../resources/static/assets/images/arabisc.png) top left repeat-x !important ;
-    }
-    .header-top-onex,
-    .header-style-one .header-upper .inner-container{
-        padding-left: 0!important;
-        padding-right: 0!important;
-    }
-    .header-top-onex{
-        background: none!important;
-        padding: 10px 40px!important;
-        font-size: 14px!important;
-        color: #ffffff!important;
+
+    .border-secondary {
+        border-color: #d59d32 !important;
     }
 
-    .radio-button{
+    .header-top-onex {
+        height: 131px !important;
+    }
+
+    .header-top-onex {
+        background: url(../resources/static/assets/images/arabisc.png) top left repeat-x !important;
+    }
+
+    .header-top-onex,
+    .header-style-one .header-upper .inner-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .header-top-onex {
+        background: none !important;
+        padding: 10px 40px !important;
+        font-size: 14px !important;
+        color: #ffffff !important;
+    }
+
+    .radio-button {
         display: inline-block;
         position: relative;
     }
-    .radio-button input[type=radio]{
+
+    .radio-button input[type=radio] {
         margin: auto;
         visibility: hidden;
         left: 0;
@@ -328,7 +357,8 @@
         bottom: 0;
         top: 0;
     }
-    .radio-button label{
+
+    .radio-button label {
         color: #555;
         background: #fff;
         font-size: 17px;
@@ -342,8 +372,9 @@
         z-index: 1;
         transition: all 0.3s ease 0s;
     }
+
     .radio-button label:before,
-    .radio-button label:after{
+    .radio-button label:after {
         content: "";
         width: 20px;
         height: 20px;
@@ -357,64 +388,46 @@
         z-index: -1;
         transition: all 0.3s ease 0s;
     }
-    .radio-button label:after{
+
+    .radio-button label:after {
         background: #2cc550;
         border: none;
         opacity: 0;
         transform: scale(0.3);
         left: 5px;
-        transition: opacity 0.3s,left 0.3s, transform 0.3s ease 0.2s;
+        transition: opacity 0.3s, left 0.3s, transform 0.3s ease 0.2s;
     }
-    .radio-button input[type=radio]:checked+label:before{ box-shadow: 0 0 3px #2cc550; }
-    .radio-button input[type=radio]:checked+label:after{
+
+    .radio-button input[type=radio]:checked + label:before {
+        box-shadow: 0 0 3px #2cc550;
+    }
+
+    .radio-button input[type=radio]:checked + label:after {
         opacity: 1;
         left: 0;
         transform: scale(0.65);
     }
-    @media only screen and (max-width:767px){
-        .radio-button{ margin: 0 0 20px; }
+
+    @media only screen and (max-width: 767px) {
+        .radio-button {
+            margin: 0 0 20px;
+        }
     }
 
-    .disabled{
+    .disabled {
         cursor: not-allowed !important;
         opacity: 0.8 !important;
     }
 
 
 </style>
-<c:if test="${pageContext.response.locale=='ar' }">
-<style>.user_nav{left: 10px;
-    right: auto;
-}
-.dropdown-content{
-    position: relative;
-}
-</style>
-</c:if>
-<c:if test="${pageContext.response.locale!='ar' }">
 
-<style>
-    .user_nav{right: 10px}
-    .dropdown-content{
-        position: absolute;
-    }
-</style>
-
-</c:if>
-<c:choose>
-<c:when test="${pageContext.response.locale=='ar'}">
-    <c:set var="drop_pp" value="dropdown-menu-left"/>
-</c:when>
-<c:otherwise>
-    <c:set var="drop_pp" value="dropdown-menu-right"/>
-</c:otherwise>
-</c:choose>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.btn-block').addClass("pt-2");
-        $('.btn-block span').css("color",'#28a745');
+        $('.btn-block span').css("color", '#28a745');
         $('.tablee .tbodyy').addClass('table-bordered');
-        $('.progress-bar').css("background-color","#7DC7BD")
+        $('.progress-bar').css("background-color", "#7DC7BD")
     });
 </script>
-    <script src="${pageContext.request.contextPath}/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/libs/jquery/dist/jquery.min.js"></script>

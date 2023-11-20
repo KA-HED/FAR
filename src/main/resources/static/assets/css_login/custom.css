@@ -25,7 +25,8 @@ padding-bottom: 8px !important;
 
 
 .img_cover{
-	background: url("../images/CC.jpeg");
+	/*background: url("../images/CC.jpeg");*/
+	background: url("../images/img_larg.png");
 	background-size: cover;
 
 }
@@ -153,7 +154,7 @@ a{
     border:none !important;
 }
 .btn-sms4{
-	background:  #2196f3   !important;
+	background:  #184a00bd   !important;
     color: white !important;
     border:none !important;
 }
@@ -173,9 +174,9 @@ a{
     background-size: cover;
 	display: block;
 	width: 107px;
-	height: 91px;
-	//position: absolute;
-	//left: -17px;
+	height: 133px;
+	/*position: absolute;*/
+	/*left: -17px;*/
 	top:10px;
 }
 

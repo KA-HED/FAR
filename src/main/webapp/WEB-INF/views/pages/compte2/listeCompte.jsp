@@ -204,8 +204,8 @@
                                     <c:set value="0" var="page_LAST"/>
                                 </c:if>
 
-                                <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
-                                <a  style="background-color: #2196f3   !important;" onclick="getParamCompte(${page_db}, ${type})" class="pageStyle">&laquo;</a>
+                                <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
+                                <a  style="background-color: #184a00bd   !important;" onclick="getParamCompte(${page_db}, ${type})" class="pageStyle">&laquo;</a>
 
                                 <c:set var="salary" value="${totalPage-page-1}"/>
                                 <c:choose>
@@ -219,7 +219,7 @@
 
                                 <c:if test="${totalPage>0}">
                                     <c:forEach begin="${page}" end="${page+toAdd}" var="c">
-                                        <a style="background-color: #2196f3   !important; ${page+toAdd}" onclick="getParamCompte(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
+                                        <a style="background-color: #184a00bd   !important; ${page+toAdd}" onclick="getParamCompte(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${(page)>=(totalPage-1)}">
@@ -230,8 +230,8 @@
                                     <c:set value="${page+1}" var="page_end"/>
                                 </c:if>
 
-                                <a style="background-color: #2196f3   !important;" onclick="getParamCompte(${page_end}, ${type})" class="pageStyle">&raquo;</a>
-                                <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
+                                <a style="background-color: #184a00bd   !important;" onclick="getParamCompte(${page_end}, ${type})" class="pageStyle">&raquo;</a>
+                                <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
 
                             </div>
                         </c:when>
@@ -310,8 +310,8 @@
                                 <c:set value="0" var="page_LAST"/>
                             </c:if>
 
-                            <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamCompteP(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
-                            <a  style="background-color: #2196f3   !important;" onclick="getParamCompteP(${page_db}, ${type})" class="pageStyle">&laquo;</a>
+                            <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompteP(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
+                            <a  style="background-color: #184a00bd   !important;" onclick="getParamCompteP(${page_db}, ${type})" class="pageStyle">&laquo;</a>
 
                             <c:set var="salary" value="${totalPage-page-1}"/>
                             <c:choose>
@@ -325,7 +325,7 @@
 
                             <c:if test="${totalPage>0}">
                                 <c:forEach begin="${page}" end="${page+toAdd}" var="c">
-                                    <a style="background-color: #2196f3   !important; ${page+toAdd}" onclick="getParamCompteP(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
+                                    <a style="background-color: #184a00bd   !important; ${page+toAdd}" onclick="getParamCompteP(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
                                 </c:forEach>
                             </c:if>
                             <c:if test="${(page)>=(totalPage-1)}">
@@ -336,8 +336,8 @@
                                 <c:set value="${page+1}" var="page_end"/>
                             </c:if>
 
-                            <a style="background-color: #2196f3   !important;" onclick="getParamCompteP(${page_end}, ${type})" class="pageStyle">&raquo;</a>
-                            <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamCompteP(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
+                            <a style="background-color: #184a00bd   !important;" onclick="getParamCompteP(${page_end}, ${type})" class="pageStyle">&raquo;</a>
+                            <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompteP(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
 
                         </div>
                     </c:when>

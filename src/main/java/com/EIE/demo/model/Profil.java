@@ -25,14 +25,14 @@ public class Profil implements Serializable {
 	}
 
 	@Id
-    @GeneratedValue (strategy=GenerationType.IDENTITY)
+//    @GeneratedValue (strategy=GenerationType.IDENTITY)
     @Column (name="profilId")
     private int profilId;
 	
-	@Column(name = "nom", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nom", nullable = true)
 	private String nom;
 
-	@Column(name = "detail", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "detail", nullable = true)
 	private String detail;
 
 	public String getDetail() {

@@ -107,7 +107,7 @@
 #sidebar ul li a {
   padding: 10px 0;
   display: block;
-  color: #35b242;
+  color: #537842;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 11px;}
 #sidebar ul li a:hover {
@@ -115,7 +115,7 @@
 #sidebar .dropdown-toggle:hover {
   margin: 10px -20px !important;
   color: white;
-  background-color: #35b242;
+  background-color: #568a4091;
   padding: 10px 10px}
 /*#sidebar ul li.active > a {
   background: transparent;
@@ -167,7 +167,7 @@ a[data-toggle="collapse"] {
 
 #sidebar {
   --scrollbarBG: #CFD8DC;
-  --thumbBG: #35b242;
+  --thumbBG: #568a4091;
 }
 #sidebar::-webkit-scrollbar {
   width: 11px;
@@ -187,7 +187,7 @@ a[data-toggle="collapse"] {
 
 #content {
   --scrollbarBG: #CFD8DC;
-  --thumbBG: #35b242;
+  --thumbBG: #568a4091;
 }
 #content::-webkit-scrollbar {
   width: 11px;
@@ -208,7 +208,7 @@ a[data-toggle="collapse"] {
 /*# sourceMappingURL=style.css.map */
 html {
   --scrollbarBG: #ddebf5;
-  --thumbBG: #35b242;
+  --thumbBG: #568a4091;
 }
 body::-webkit-scrollbar {
   width: 16px !important;

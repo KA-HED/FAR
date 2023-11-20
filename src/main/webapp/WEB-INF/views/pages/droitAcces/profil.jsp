@@ -13,7 +13,7 @@
             <div class="col-md-3 col-sm-12 col-lg-3" >
             </div>
             <div class="col-md-6 card p-4 col-sm-12 col-lg-6">
-                        <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #2196f3     ">
+                        <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #184a00bd     ">
                             <div class="col-md-12 my-4 text-center">
                                 <strong class="profil text-white"><spring:message code="label.Nouveauprofil"/><i class="ml-2 fa fa-user"></i></strong><br>
                             </div>

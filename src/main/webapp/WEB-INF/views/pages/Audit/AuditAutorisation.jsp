@@ -89,7 +89,7 @@
 
                 <table
                         class="table table-striped hover compact table-bordered text-md-nowrap" dir="${pageContext.response.locale=='ar'?'rtl':'ltr'}">
-                    <thead class="text-white" style="background-color: #35b242  !important">
+                    <thead class="text-white" style="background-color: #568a4091  !important">
 
                     <tr>
                         <th class="text-center"><spring:message code='label.Numerodedemande'/></th>

@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.EIE.demo.dao.ActeurRepository;
+import com.EIE.demo.model.Acteur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,13 +27,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 	private CompteRepository usersRepository;
 
 	@Autowired
+	private ActeurRepository acteurRepository;
+
+	@Autowired
 	private PrRoleRepository roless;
 
 	@Override
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Compte user = usersRepository.siExiste(username);
+		Compte user1 = usersRepository.siExiste(username);
+		Acteur user = acteurRepository.siExiste(username);
 
 		if (user == null)
 			throw new UsernameNotFoundException(username);
@@ -47,7 +53,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 			grantedAuthorities.add(new SimpleGrantedAuthority(i));
 		}
 
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+		return new org.springframework.security.core.userdetails.User(user.getNomUtilisateur(), user.getMotDePasse(),
 				grantedAuthorities);
 	}
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: #f3f3f3;
+    background-color: #87939a;
     font-size: .875em;
     overflow-x: hidden;
     color: #353c4e;
@@ -14434,8 +14434,8 @@ body.menu-bottom #collapse-menu {
 }
 
 .checkbox-primary input[type="checkbox"]:checked+label::before {
-    background-color: #2196f3;
-    border-color: #2196f3;
+    background-color: #184a00bd;
+    border-color: #184a00bd;
 }
 
 .checkbox-primary input[type="checkbox"]:checked+label::before {

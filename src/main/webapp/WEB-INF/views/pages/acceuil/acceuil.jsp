@@ -30,7 +30,7 @@
         width: 1000px;
     }
     .pr-0{
-    background:  #2196f3   !important;
+    background:  #184a00bd   !important;
     color:white !important;
     }
     .container-fluid{
@@ -80,12 +80,12 @@
                                 <span class="f-40 fa fa-tree" style="color:#d59d32;opacity: .4;"></span>
                             </div>
 
-                            <p class="  min_h"><spring:message code='label.EtudeImpactEnvironnemental'/></p>
+                            <p class="  min_h">EtudeImpactEnvironnemental</p>
 
                             <div class="col-12  p-0 m-0">
                                 <div class="row justify-content-center border-top border-secondary">
                                     <div class="col-md-5 btn-sm-12 mt-3 p-0">
-                                        <a href="/api/getEie/EE/0/40/0" class="btn  btn-sms4"> <span class="fa fa-plus-circle"></span> <spring:message code='label.Detail'/></a>
+                                        <a href="/api/getEie/EE/0/40/0" class="btn  btn-sms4"> <span class="fa fa-plus-circle"></span> Detail</a>
                                     </div>
                                 </div>
                             </div>

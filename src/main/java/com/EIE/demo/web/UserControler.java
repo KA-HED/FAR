@@ -51,6 +51,9 @@ public class UserControler {
 	@Autowired
 	private CompteRepository compteRepository;
 
+	@Autowired
+	private ActeurRepository acteurRepository;
+
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -132,7 +135,7 @@ public class UserControler {
 		List<Profil> pr = profilRepository.getAllProfil();
 
 		model.put("profil", pr);
-		List<Compte> rt = compteRepository.getAllCompte();
+		List<Acteur> rt = acteurRepository.getAllCompte();
 
 		model.put("comptes", rt);
 
@@ -148,7 +151,7 @@ public class UserControler {
 		List<Profil> pr = profilRepository.getAllProfil();
 
 		model.put("profil", pr);
-		List<Compte> rt = compteRepository.getAllCompte();
+		List<Acteur> rt = acteurRepository.getAllCompte();
 
 		model.put("comptes", rt);
 
@@ -156,15 +159,15 @@ public class UserControler {
 	}
 
 	@RequestMapping(value = "/api/getOneCompteId", method = RequestMethod.GET)
-	public ModelAndView getOneCompteId(@RequestParam int id) {
+	public ModelAndView getOneCompteId(@RequestParam Long id) {
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		List<Profil> pr = profilRepository.getAllProfil();
 
 		model.put("profil", pr);
-		Compte cpt = compteRepository.getOne(id);
+		Acteur cpt = acteurRepository.getOne(id);
 		model.put("cpt", cpt);
-		List<Compte> rt = compteRepository.getAllCompte();
+		List<Acteur> rt = acteurRepository.getAllCompte();
 
 		model.put("comptes", rt);
 
@@ -172,16 +175,16 @@ public class UserControler {
 	}
 
 	@RequestMapping(value = "/addCompte", method = RequestMethod.POST)
-	public ModelAndView addCompte(@RequestBody Compte cmt) {
+	public ModelAndView addCompte(@RequestBody Acteur cmt) {
 		Map<String, Object> model = new HashMap<String, Object>();
-		int id = cmt.getCompteId();
-		cmt.setPassword(passwordEncoder.encode(cmt.getPassword()));
-		compteRepository.save(cmt);
+		Long id = cmt.getActeurId();
+		cmt.setMotDePasse(passwordEncoder.encode(cmt.getMotDePasse()));
+		acteurRepository.save(cmt);
 
 		List<Profil> pr = profilRepository.getAllProfil();
 
 		model.put("profil", pr);
-		List<Compte> rt = compteRepository.getAllCompte();
+		List<Acteur> rt = acteurRepository.getAllCompte();
 
 		model.put("comptes", rt);
 
@@ -189,12 +192,11 @@ public class UserControler {
 	}
 
 	@RequestMapping(value = "/deleteCompte", method = RequestMethod.POST)
-	public @ResponseBody String addCompte(@RequestParam int id) {
+	public @ResponseBody String addCompte(@RequestParam Long id) {
 
-		Compte cmt = compteRepository.getOne(id);
-		cmt.setDeleted("oui");
-		cmt.setDeleteDateTime(new Date());
-		compteRepository.save(cmt);
+		Acteur cmt = acteurRepository.getOne(id);
+		cmt.setActive("0");
+		acteurRepository.save(cmt);
 
 		return "ok";
 	}
@@ -269,28 +271,8 @@ public class UserControler {
 		if (j_name != null) {
 			String s = secure.autologin(j_name, j_pass);
 			Date dated=new Date();
-			if (s.equals("oui")) {
-				Compte ct=web.getCompteConnected();
-					if(ct.getChequer().equals("no")){
-						return "redirect:/checkCompte/AH6543YLOK"+ct.getCompteId()+"GDTGD1213F";
-					}else{
-							if(Objects.equals(ct.getInterim(), "oui") && ct.getDateDebut().compareTo(dated)<=0 && ct.getDateFin().compareTo(dated)>0) {
-								return "redirect:/api/getMenu?lang=fr";
-							}else if(Objects.equals(ct.getInterim(), "no")){
-								return "redirect:/api/getMenu?lang=fr";
-							}
-							else{
-								return "redirect:/index";
-							}
-
-					}
-
-			} else {
-				return "redirect:/index";
-			}
-		} else {
-			return "redirect:/index";
-		}
+			if (s.equals("oui")) { return "redirect:/api/getMenu?lang=fr"; } else { return "redirect:/index"; }
+		} else { return "redirect:/index"; }
 	}
 
 
@@ -299,29 +281,12 @@ public class UserControler {
 	public ModelAndView getMenu(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			Principal principal, String dateF)  {
 		String v = principal.getName();
-		Compte u = compteRepository.siExiste(v);
+		Acteur u = acteurRepository.siExiste(v);
 
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		model.put("user", u);
-//		pour eliminer le calcul  de brouillons-demande-num...
-		List<Integer> ids = new ArrayList<Integer>();
-		ids.add(48);
-		ids.add(50);
-		ids.add(51);
-		ids.add(91);
-		ids.add(29);
-		ids.add(54);
-		ids.add(55);
-		ids.add(56);
-		ids.add(57);
-		/*statistique*/
-
-
-		Compte c = web.getCompteConnected();
-		model.put("auto",c.getAuto_nv());
-
-		return new ModelAndView("espcaepublic/acceuil", model);
+		return new ModelAndView("acceuil/acceuil", model);
 
 	}
 
@@ -330,7 +295,7 @@ public class UserControler {
 	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
 	public @ResponseBody String checkEmail(@RequestParam String val) {
 		String check = "non";
-		Compte fm = compteRepository.siExiste(val);
+		Acteur fm = acteurRepository.siExiste(val);
 		if (fm == null) {
 			check = "non";
 		} else {
@@ -478,24 +443,15 @@ public class UserControler {
 
 //	add doc pv+liste presence
 
-	@RequestMapping(value = "/api/addDoc/{id}/{check}", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public @ResponseBody void addDoc(@PathVariable int id,@PathVariable int check, @RequestParam MultipartFile[] fileToUpload)
-			throws JsonParseException, JsonMappingException, IOException, MessagingException {
-		web.addDocInfo(fileToUpload, id,check);
-	}
-
 
 
 	@RequestMapping(value = "/api/getParamm/{profil}", method = RequestMethod.GET)
 	public ModelAndView getParamProfil(@PathVariable String profil) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		if(profil.equals("list")){
-			model.put("listF",compteRepository.getAllCompte());
+			model.put("listF",acteurRepository.getAllCompte());
 		}
-		else {
-			model.put("listF", compteRepository.getAllCompteByProfil(profil));
-			model.put("color", profil);
-		}
+
 		return new ModelAndView("compte2/listeCompte", model);
 	}
 
@@ -517,24 +473,13 @@ public class UserControler {
 			type="R";
 		}
 		sr.setType_A(type);
-		sr.setCompte(compteRepository.getOne(cpt));
+		sr.setCompte(acteurRepository.getOne(cpt));
 		sr.setNotification(notifRepository.getOne(notif));
 		cptAffecteRepository.save(sr);
 
 
 	}*/
 
-	@RequestMapping(value = "/api/activepetitionnaire", method = RequestMethod.POST)
-	public @ResponseBody void activepetitionnaire(@RequestParam int id) throws JsonProcessingException {
-		Compte compte = compteRepository.getOne(id);
-		if(compte.isActive()){
-			compte.setActive(false);
-		}else{
-			compte.setActive(true);
-		}
-
-		compteRepository.save(compte);
-	}
 
 
 

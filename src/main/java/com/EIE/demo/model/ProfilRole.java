@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class ProfilRole implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int profilroleId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -97,13 +97,13 @@ public class ProfilRole implements Serializable {
 		this.annuler = annuler;
 	}
 
-	@Column(name = "valider",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "valider")
 	private String valider;
 	
-	@Column(name = "modifier",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "modifier")
 	private String modifier;
 	
-	@Column(name = "tous",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "tous")
 	private String tous;
 	
 	public String getTous() {
@@ -116,7 +116,7 @@ public class ProfilRole implements Serializable {
 		this.tous = tous;
 	}
 
-	@Column(name = "annuler",columnDefinition = "NVARCHAR(255)")
+	@Column(name = "annuler")
 	private String annuler;
 	
 	

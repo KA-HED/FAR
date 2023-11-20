@@ -60,8 +60,8 @@
                 <c:set value="0" var="page_LAST"/>
             </c:if>
 
-            <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="listComptes(0,6,'${type}',${idA})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
-            <a  style="background-color: #2196f3   !important;" onclick="listComptes(${page_db},6,'${type}',${idA})" class="pageStyle">&laquo;</a>
+            <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="listComptes(0,6,'${type}',${idA})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
+            <a  style="background-color: #184a00bd   !important;" onclick="listComptes(${page_db},6,'${type}',${idA})" class="pageStyle">&laquo;</a>
 
             <c:set var="salary" value="${totalPagee-pagee-1}"/>
             <c:choose>
@@ -75,7 +75,7 @@
 
             <c:if test="${totalPagee>0}">
                 <c:forEach begin="${pagee}" end="${pagee+toAdd}" var="c">
-                    <a style="background-color: #2196f3   !important;" onclick="listComptes(${c},6,'${type}',${idA})"  ${c==number ? 'class="  pageStyle"' : 'class=" pageStyle1"'}>${c+1}</a>
+                    <a style="background-color: #184a00bd   !important;" onclick="listComptes(${c},6,'${type}',${idA})"  ${c==number ? 'class="  pageStyle"' : 'class=" pageStyle1"'}>${c+1}</a>
                 </c:forEach>
             </c:if>
             <c:if test="${(pagee)>=(totalPagee-1)}">
@@ -86,8 +86,8 @@
                 <c:set value="${pagee+1}" var="page_end"/>
             </c:if>
 
-            <a style="background-color: #2196f3   !important;" onclick="listComptes(${page_end},6,'${type}',${idA})" class="pageStyle">&raquo;</a>
-            <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="listComptes(${totalPagee-1},6,'${type}',${idA})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
+            <a style="background-color: #184a00bd   !important;" onclick="listComptes(${page_end},6,'${type}',${idA})" class="pageStyle">&raquo;</a>
+            <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="listComptes(${totalPagee-1},6,'${type}',${idA})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
 
         </div>
     </c:when>

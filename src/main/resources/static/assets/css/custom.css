@@ -85,8 +85,8 @@ color: black;
 
 .btn-primary-2{
 color: #fff !important;
-background-color: #35b242 !important;
-border-color: #35b242 !important;
+background-color: #568a4091 !important;
+border-color: #568a4091 !important;
 }
 
 .btn-danger-2{
@@ -124,7 +124,7 @@ border-color: #ffc107 !important;
 	padding-left: 13px !important;
 }
 .btnss{
-	background: #35b242!important;
+	background: #568a4091!important;
 	border:none !important;
 	border-radius:0px !important;
 	//margin-bottom:4px !important;
@@ -209,15 +209,15 @@ btn_width{
 	display: none;
 }
 .my_menu{
-	background: #2196f3   !important;
+	background: #184a00bd   !important;
 	z-index: 9999999999999;
 }
 
 .myColor{
-	color: #35b242 !important;
+	color: #568a4091 !important;
 }
 .bgMyColor{
-	background-color: #35b242 !important;
+	background-color: #568a4091 !important;
 }
 .my_menu .navbar-toggler{
 	margin-top: 30px;
@@ -261,8 +261,8 @@ btn_width{
 }
 
 .btn-primary,.btn-success {
-	background: #35b242 !important;
-	border-color:#35b242 !important ;
+	background: #568a4091 !important;
+	border-color:#568a4091 !important ;
 	//border: none;
 	color: white;
 	
@@ -296,8 +296,8 @@ btn_width{
 	font-size: 12px;
 }
 .bg-vert{
-	background: #35b242!important;
-	border-color: #35b242!important;
+	background: #568a4091!important;
+	border-color: #568a4091!important;
 }
 .bg-vert td{
 	color: white;
@@ -361,7 +361,7 @@ btn_width{
 	padding: 0.75rem 1rem !important;
 	margin-bottom: 1rem !important;
 	list-style: none !important;
-	background-color: #35b242!important;
+	background-color: #568a4091!important;
 	border-radius: 0.25rem !important;
 }
 
@@ -370,13 +370,13 @@ btn_width{
 }
 
 .btn_btn_bleu{
-	background-color: #35b242!important;
+	background-color: #568a4091!important;
 }
 
 .pageStyle1{
 	padding-left: 8px;
 	padding-right: 8px;
-	background-color:#35b242 !important;
+	background-color:#568a4091 !important;
 	color: #fff !important;
 }
 

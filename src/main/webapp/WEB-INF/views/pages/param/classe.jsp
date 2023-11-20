@@ -211,8 +211,8 @@
                                     <c:set value="0" var="page_LAST"/>
                                 </c:if>
 
-                                <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamClasse(0)" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
-                                <a  style="background-color: #2196f3   !important;" onclick="getParamClasse(${page_db})" class="pageStyle">&laquo;</a>
+                                <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamClasse(0)" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>
+                                <a  style="background-color: #184a00bd   !important;" onclick="getParamClasse(${page_db})" class="pageStyle">&laquo;</a>
 
                                 <c:set var="salary" value="${totalPage-page-1}"/>
                                 <c:choose>
@@ -226,7 +226,7 @@
 
                                 <c:if test="${totalPage>0}">
                                     <c:forEach begin="${page}" end="${page+toAdd}" var="c">
-                                        <a style="background-color: #2196f3   !important; ${page+toAdd}" onclick="getParamClasse(${c})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
+                                        <a style="background-color: #184a00bd   !important; ${page+toAdd}" onclick="getParamClasse(${c})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>
                                     </c:forEach>
                                 </c:if>
                                 <c:if test="${(page)>=(totalPage-1)}">
@@ -237,8 +237,8 @@
                                     <c:set value="${page+1}" var="page_end"/>
                                 </c:if>
 
-                                <a style="background-color: #2196f3   !important;" onclick="getParamClasse(${page_end})" class="pageStyle">&raquo;</a>
-                                <a style="background-color: #2196f3     ;text-align: center;background-size: 100% 100%" onclick="getParamClasse(${totalPage-1})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
+                                <a style="background-color: #184a00bd   !important;" onclick="getParamClasse(${page_end})" class="pageStyle">&raquo;</a>
+                                <a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamClasse(${totalPage-1})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>
 
                             </div>
                         </c:when>

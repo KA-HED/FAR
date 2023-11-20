@@ -20,15 +20,15 @@ public class Poste implements Serializable {
 	}
 
 	@Id
-    @GeneratedValue (strategy= GenerationType. IDENTITY)
+//    @GeneratedValue (strategy= GenerationType. IDENTITY)
     @Column (name="id_Poste")
     private int id_Poste;
 	
 	
-	@Column(name = "nom_fr", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nom_fr", nullable = true)
 	private String nom_fr;
 	
-	@Column(name = "nom_ar", nullable = true, columnDefinition = "NVARCHAR(255)")
+	@Column(name = "nom_ar", nullable = true)
 	private String nom_ar;
 
 
