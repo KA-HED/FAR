@@ -291,6 +291,20 @@ public class UserControler {
 	}
 
 
+	@RequestMapping(value = "/api/getMenuAEB", method = RequestMethod.GET)
+	public ModelAndView getMenuAEB(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+			Principal principal, String dateF)  {
+		String v = principal.getName();
+		Acteur u = acteurRepository.siExiste(v);
+
+		Map<String, Object> model = new HashMap<String, Object>();
+
+		model.put("user", u);
+		return new ModelAndView("acceuil/acceuil_AEB", model);
+
+	}
+
+
 
 	@RequestMapping(value = "/checkEmail", method = RequestMethod.GET)
 	public @ResponseBody String checkEmail(@RequestParam String val) {

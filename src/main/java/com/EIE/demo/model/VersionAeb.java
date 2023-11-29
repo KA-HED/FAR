@@ -1,10 +1,22 @@
 package com.EIE.demo.model;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "VERSION_AEB", schema = "AEB")
 public class VersionAeb {
 
+    // Constructors, getters, and setters
+    private String value;
+
+    @PersistenceConstructor
+    public VersionAeb(String value) {
+        this.versionId =  Long.parseLong(value);
+    }
+    public VersionAeb() {
+        // Constructeur par défaut (sans paramètres)
+    }
     @Id
     @Column(name = "VERSION_ID", nullable = false)
     private Long versionId;

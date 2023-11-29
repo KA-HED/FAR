@@ -88,37 +88,176 @@
                     <div class="row justify-content-center card mx-2">
                         <div class="card-body col-md-12" style="background-color: white">
 
-                            <%--<div class="col-md-6 card p-4 col-sm-12 col-lg-6">--%>
-                                <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #184a00bd     ">
-                                    <div class="col-md-12 my-4 text-center">
-                                        <strong class="profil text-white">Catégorie du matériel <i class="ml-2 fa fa-list-alt"></i></strong><br>
-                                    </div>
-                                </div>
-                                <div class="row mt-5">
-                                    <form id="myForm">
-                                        <div class="col-md-12 col-sm-12 col-lg-12" >
-                                            <div class="form-group">
-                                                <label>DESIGNATION</label>
-                                                <input class="form-control" type="hidden" name="catId" id="catId" value="${CategorieAEB.catId}">
-                                                <input class="form-control" type="text" name="desigCat" id="desigCat" value="${CategorieAEB.desigCat}" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>ABREVIATION </label>
-                                                <%--<textarea class="form-control" type="text" name="abrCat" id="abrCat" rows="3">${CategorieAEB.abrCat}</textarea>--%>
-                                                <input class="form-control" type="text" name="abrCat" id="abrCat" value="${CategorieAEB.abrCat}" required>
-                                            </div>
+                            <ul class="nav nav-tabs nav-justified nav-inline navbar-primary-menu">
+                                <li class="active"><a href="#div1" data-toggle="tab">Catégorie du matériel</a></li>
+                                <li><a href="#div2" data-toggle="tab">Sous-Catégorie du matériel</a></li>
+
+                            </ul>
+                            <div class="tab-content" >
+                                <div class="tab-pane active" id="div1">
+                                    <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #184a00bd     ">
+                                        <div class="col-md-12 my-4 text-center">
+                                            <strong class="profil text-white">Catégorie du matériel <i class="ml-2 fa fa-list-alt"></i></strong><br>
                                         </div>
+                                    </div>
+                                    <div class="row mt-5">
+                                        <form id="myForm">
+                                            <div class="col-md-12 col-sm-12 col-lg-12" >
+                                                <div class="form-group">
+                                                    <label>DESIGNATION</label>
+                                                    <input class="form-control" type="hidden" name="catId" id="catId" value="${CategorieAEB.catId}">
+                                                    <input class="form-control" type="text" name="desigCat" id="desigCat" value="${CategorieAEB.desigCat}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>ABREVIATION </label>
+                                                    <%--<textarea class="form-control" type="text" name="abrCat" id="abrCat" rows="3">${CategorieAEB.abrCat}</textarea>--%>
+                                                    <input class="form-control" type="text" name="abrCat" id="abrCat" value="${CategorieAEB.abrCat}" required>
+                                                </div>
+                                            </div>
 
-                                    </form>
+                                        </form>
 
-                                </div>
-                                <div class="row justify-content-center sw">
+
+                                    </div>
+                                    <div class="row justify-content-center sw">
                                     <div class="col-5 toolbar">
                                         <button class="btn sw-btn-next btn-danger-2 " onclick="goToList()"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i><spring:message code="label.Retour"/></button>
                                         <button class="btn btn-success float-right" onclick="save()"><i class="ml-2 fa fa-save"></i><spring:message code="label.Enregistrer"/></button>
 
                                     </div>
                                 </div>
+                                </div>
+                                <div class="tab-pane" id="div2">
+
+                                    <%--<div class="" style="padding: 10px;    max-width: 1000px;">--%>
+                                        <%--<label class="label_card">liste Sous-Catégorie  </label>--%>
+                                        <div id="ta" class="container__inner content__description" style="padding-bottom: 10px;   min-height: 201px;">
+                                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+
+                                            <table class="table table-bordered table-checkable  tablee table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <%--<th class="text-center"></th>--%>
+                                                    <th class="text-center">DESIGNATION</th>
+                                                    <th class="text-center">ABREVIATION</th>
+                                                    <th class="text-center"><spring:message code="label.Action"/></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="myTable">
+                                                <c:forEach items="${listF}" var="f">
+
+                                                    <tr id="tr-${f.sCatId}">
+                                                        <td>${f.desigSCat}</td>
+                                                        <td>${f.abrSCat}</td>
+                                                        <td class="text-center">
+                                                            <ul class="list-inline m-0">
+                                                                <li class="list-inline-item text-center">
+                                                                    <a href="/api/param/formToAddCategorie_materiel/${f.sCatId}"
+                                                                       class="btn btn-outline-warning btn-sm rounded-circle tab_edit text-center"
+                                                                       type="button" data-toggle="tooltip" data-placement="top" title="Editer"
+                                                                       style="background-color: white">
+                                                                        <div class="icon_trash_1">
+                                                                    <span class="fas fa-pencil-alt"
+                                                                          style="color: orange;margin-top: 10px"></span>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <button onclick="deleteCompte(${f.sCatId})"
+                                                                            class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
+                                                                            type="button" data-toggle="tooltip" data-placement="top"
+                                                                            title="Supprimer" style="background-color: white">
+                                                                        <div class="icon_trash_1">
+                                                                            <span class="fas fa-trash" style="color: red"></span>
+                                                                        </div>
+                                                                    </button>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <%--</div>--%>
+
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddParametre_T_Form">
+                                        Ajoute Sous-Catégorie.
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="AddParametre_T_Form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 60px;">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel1">Ajoute Sous-Catégorie.</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <form class="col-12 from_add" id="classeForm" name="classeForm" >
+                                                        <div class="row justify-content-center">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width: 29%; background-color: seagreen" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-10 mt-4" >
+
+                                                                <div class="row p-0 m-0 mt-5">
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-9">
+                                                                        <label>Sous-Catégorie</label>
+                                                                        <select id="inputState" class="form-control">
+                                                                            <option selected>Choose...</option>
+                                                                            <option>...</option>
+                                                                        </select>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center mb-4" style="margin:14px;">
+                                                            <div class="col-md-5">
+                                                                <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addAgent_classe()"><spring:message code="label.Enregistrer"/></button>
+                                                                <button type="button"  class="btn btn-danger-2  col-md-5 m-1" id="close_form_cl" data-dismiss="modal">
+                                                                    <spring:message code="label.Annuler"/>
+                                                                </button>
+                                                                <%--<a type="button" class="btn btn-danger-2  col-md-5 m-1" href="#"  data-dismiss="modal" aria-label="Close"><span style="color: white"> <spring:message code="label.Annuler"/></span></a>--%>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+
                                 <div class="col-md-1 col-sm-12 col-lg-1" ></div>
                             <%--</div>--%>
                         </div>

@@ -1,26 +1,21 @@
 package com.EIE.demo.model;
-import org.springframework.data.annotation.PersistenceConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "MARQUE_AEB", schema = "AEB")
-public class MarqueAEB {
+@Table(name = "Services_bureaux", schema = "AEB")
+public class Services_bureaux {
 
     @Id
     @GeneratedValue
-    @Column(name = "MARQUE_ID", nullable = false)
+    @Column(name = "Services_bureaux_ID", nullable = false)
     private Long marqueId;
 
-    @Column(name = "DESI_MARQUE", nullable = false, length = 50)
+    @Column(name = "DESI_Services_bureaux", nullable = false, length = 50)
     private String desiMarque;
 
-    @Column(name = "ABR_MARQUE", length = 10)
+    @Column(name = "ABR_Services_bureaux", length = 10)
     private String abrMarque;
 
     @Column(name = "CODE_B4", length = 2)
@@ -33,16 +28,6 @@ public class MarqueAEB {
     private String vTypeChange;
 
     // Constructors, getters, and setters
-    // Constructors, getters, and setters
-    private String value;
-
-    @PersistenceConstructor
-    public MarqueAEB(String value) {
-        this.marqueId =  Long.parseLong(value);
-    }
-    public MarqueAEB() {
-        // Constructeur par défaut (sans paramètres)
-    }
 
     public Long getMarqueId() {
         return marqueId;

@@ -1,5 +1,7 @@
 package com.EIE.demo.model;
 
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -32,6 +34,15 @@ public class CategorieAEB {
     private BigDecimal cp;
 
     // Constructors, getters, and setters
+    private String value;
+
+    @PersistenceConstructor
+    public CategorieAEB(String value) {
+        this.catId =  Long.parseLong(value);
+    }
+    public CategorieAEB() {
+        // Constructeur par défaut (sans paramètres)
+    }
 
     public Long getCatId() {
         return catId;

@@ -22975,7 +22975,7 @@ select.tt-hint {
   padding: .4375rem .75rem;
   border: 0;
   outline: 1px solid #eaecef;
-  color: #d8d8d8;
+  color: #100f0f;
 }
 
 select.form-control:focus, select.asColorPicker-input:focus, .dataTables_wrapper select:focus,

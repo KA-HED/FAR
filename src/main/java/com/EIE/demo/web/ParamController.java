@@ -1,19 +1,14 @@
 package com.EIE.demo.web;
 
 
-import com.EIE.demo.dao.CategorieAEBRepository;
-import com.EIE.demo.dao.SCategorieAEBRepository;
+import com.EIE.demo.dao.*;
 import com.EIE.demo.dataService.WebService;
-import com.EIE.demo.model.CategorieAEB;
-import com.EIE.demo.model.SCategorieAEB;
+import com.EIE.demo.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -27,6 +22,30 @@ public class ParamController {
     private CategorieAEBRepository categorieAEBRepository;
     @Autowired
     private SCategorieAEBRepository sCategorieAEBRepository;
+    @Autowired
+    private MarqueAEBRepository marqueAEBRepository;
+    @Autowired
+    private Services_bureauxRepository services_bureauxRepository;
+    @Autowired
+    private AbcDetenteurRepository abcDetenteurRepository;
+    @Autowired
+    private DetenteurRepository detenteurRepository;
+    @Autowired
+    private Detachement_VehiculesRepository detachement_VehiculesRepository;
+    @Autowired
+    private ArtRepository artRepository;
+    @Autowired
+    private TedAebRepository tedAebRepository;
+    @Autowired
+    private TypeAEBRepository typeAEBRepository;
+    @Autowired
+    private VersionAebRepository versionAebRepository;
+    @Autowired
+    private MarRepository marRepository;
+    @Autowired
+    private ModeleAebRepository modeleAebRepository;
+    @Autowired
+    private PaysRepository paysRepository;
     @Autowired
     WebService web;
 
@@ -113,6 +132,410 @@ public class ParamController {
 
 //**************************************************************************
 //**************************************************************************
+//*******************************************************************************
+//MarqueAEB
+
+    @RequestMapping(value = "/addMarqueAEB", method = RequestMethod.POST)
+    public ModelAndView addMarqueAEB(@RequestBody MarqueAEB ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        marqueAEBRepository.save(ed);
+
+        return new ModelAndView("param/listeMarqueAEB", model);
+    }
+
+    @RequestMapping(value = "/listeMarqueAEB", method = RequestMethod.GET)
+    public ModelAndView listeMarqueAEB() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<MarqueAEB> searchResult = marqueAEBRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeMarqueAEB", model);
+    }
+
+    @RequestMapping(value = "/formToAddMarqueAEB/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddMarqueAEB(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        MarqueAEB h = null;
+        if (id != 0) {
+
+            h = marqueAEBRepository.getOne(id);
+            model.put("MarqueAEB", h);
+        } else {
+            model.put("MarqueAEB", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddMarqueAEB", model);
+    }
+
+//**************************************************************************
+//**************************************************************************//*******************************************************************************
+//Services_bureaux
+
+    @RequestMapping(value = "/addServices_bureaux", method = RequestMethod.POST)
+    public ModelAndView addServices_bureaux(@RequestBody Services_bureaux ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        services_bureauxRepository.save(ed);
+
+        return new ModelAndView("param/listeServices_bureaux", model);
+    }
+
+    @RequestMapping(value = "/listeServices_bureaux", method = RequestMethod.GET)
+    public ModelAndView listeServices_bureaux() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<Services_bureaux> searchResult = services_bureauxRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeServices_bureaux", model);
+    }
+
+    @RequestMapping(value = "/formToAddServices_bureaux/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddServices_bureaux(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        Services_bureaux h = null;
+        if (id != 0) {
+
+            h = services_bureauxRepository.getOne(id);
+            model.put("Services_bureaux", h);
+        } else {
+            model.put("Services_bureaux", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddServices_bureaux", model);
+    }
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//AbcDetenteur
+
+    @RequestMapping(value = "/addAbcDetenteur", method = RequestMethod.POST)
+    public ModelAndView addAbcDetenteur(@RequestBody AbcDetenteur ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        abcDetenteurRepository.save(ed);
+
+        return new ModelAndView("param/listeAbcDetenteur", model);
+    }
+
+    @RequestMapping(value = "/listeAbcDetenteur", method = RequestMethod.GET)
+    public ModelAndView listeAbcDetenteur() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<AbcDetenteur> searchResult = abcDetenteurRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeAbcDetenteur", model);
+    }
+
+    @RequestMapping(value = "/formToAddAbcDetenteur/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddAbcDetenteur(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        AbcDetenteur h = null;
+        if (id != 0) {
+
+            h = abcDetenteurRepository.getOne(id);
+            model.put("AbcDetenteur", h);
+        } else {
+            model.put("AbcDetenteur", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddAbcDetenteur", model);
+    }
+
+//**************************************************************************
+//**************************************************************************
+
+
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//Detenteur
+
+    @RequestMapping(value = "/addDetenteur", method = RequestMethod.POST)
+    public ModelAndView addDetenteur(@RequestBody Detenteur ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        detenteurRepository.save(ed);
+
+        return new ModelAndView("param/listeDetenteur", model);
+    }
+
+    @RequestMapping(value = "/listeDetenteur", method = RequestMethod.GET)
+    public ModelAndView listeDetenteur() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<Detenteur> searchResult = detenteurRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeDetenteur", model);
+    }
+
+    @RequestMapping(value = "/formToAddDetenteur/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddDetenteur(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        Detenteur h = null;
+        if (id != 0) {
+
+            h = detenteurRepository.getOne(id);
+            model.put("Detenteur", h);
+        } else {
+            model.put("Detenteur", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddDetenteur", model);
+    }
+
+//**************************************************************************
+//**************************************************************************
+
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//Detachement_Vehicules
+
+    @RequestMapping(value = "/addDetachement_Vehicules", method = RequestMethod.POST)
+    public ModelAndView addDetachement_Vehicules(@RequestBody Detachement_Vehicules ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        detachement_VehiculesRepository.save(ed);
+
+        return new ModelAndView("param/listeDetachement_Vehicules", model);
+    }
+
+    @RequestMapping(value = "/listeDetachement_Vehicules", method = RequestMethod.GET)
+    public ModelAndView listeDetachement_Vehicules() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<Detachement_Vehicules> searchResult = detachement_VehiculesRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeDetachement_Vehicules", model);
+    }
+
+    @RequestMapping(value = "/formToAddDetachement_Vehicules/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddDetachement_Vehicules(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        Detachement_Vehicules h = null;
+        if (id != 0) {
+
+            h = detachement_VehiculesRepository.getOne(id);
+            model.put("Detachement_Vehicules", h);
+        } else {
+            model.put("Detachement_Vehicules", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddDetachement_Vehicules", model);
+    }
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//ModeleAeb
+
+    @RequestMapping(value = "/addModeleAeb", method = RequestMethod.POST)
+    public ModelAndView addModeleAeb(@RequestBody ModeleAeb ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        if(ed.getModeleId()==null){
+            ed.setModeleId(modeleAebRepository.getmaxid());
+//            ed.setNomineralogique("ok");
+//            ed.setNumChassis("ok");
+//            ed.setUntIdEmg(1L);
+//            ed.setPosIdEmg("349");
+        }
+        modeleAebRepository.save(ed);
+
+        return new ModelAndView("param/listeModeleAeb", model);
+    }
+
+    @RequestMapping(value = "/listeModeleAeb", method = RequestMethod.GET)
+    public ModelAndView listeModeleAeb() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<ModeleAeb> searchResult = modeleAebRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeModeleAeb", model);
+    }
+
+    @RequestMapping(value = "/formToAddModeleAeb/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddModeleAeb(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        ModeleAeb h = null;
+        if (id != 0) {
+
+            h = modeleAebRepository.getOne(id);
+            model.put("ModeleAeb", h);
+        } else {
+            model.put("ModeleAeb", null);
+        }
+        List<CategorieAEB> cat = categorieAEBRepository.findAll();
+        List<SCategorieAEB> scat = sCategorieAEBRepository.findAll();
+        List<MarqueAEB> marq = marqueAEBRepository.findAll();
+        List<TypeAEB> typeAEBS = typeAEBRepository.findAll();
+        List<VersionAeb> versionAeb = versionAebRepository.findAll();
+        model.put("CategorieAEB", cat);
+        model.put("SCategorieAEB", scat);
+        model.put("MarqueAEB", marq);
+        model.put("TypeAEB", typeAEBS);
+        model.put("VersionAeb", versionAeb);
+        model.put("Pays", paysRepository.findAll());
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddModeleAeb", model);
+    }
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//Art
+
+    @RequestMapping(value = "/addArt", method = RequestMethod.POST)
+    public ModelAndView addArt(@RequestBody Art ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        if(ed.getnNomencl()==null){
+            ed.setnNomencl(artRepository.getmaxid());
+            ed.setNomineralogique("ok");
+            ed.setNumChassis("ok");
+            ed.setUntIdEmg(1L);
+            ed.setPosIdEmg("349");
+        }
+        artRepository.save(ed);
+
+        return new ModelAndView("param/listeArt", model);
+    }
+
+    @RequestMapping(value = "/listeArt", method = RequestMethod.GET)
+    public ModelAndView listeArt() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<Art> searchResult = artRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeArt", model);
+    }
+
+    @RequestMapping(value = "/formToAddArt/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddArt(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        Art h = null;
+        if (id != 0) {
+
+            h = artRepository.getOne(id);
+            model.put("Art", h);
+        } else {
+            model.put("Art", null);
+        }
+        List<CategorieAEB> cat = categorieAEBRepository.findAll();
+        List<SCategorieAEB> scat = sCategorieAEBRepository.findAll();
+        List<MarqueAEB> marq = marqueAEBRepository.findAll();
+        List<TypeAEB> typeAEBS = typeAEBRepository.findAll();
+        List<VersionAeb> versionAeb = versionAebRepository.findAll();
+        model.put("CategorieAEB", cat);
+        model.put("SCategorieAEB", scat);
+        model.put("MarqueAEB", marq);
+        model.put("TypeAEB", typeAEBS);
+        model.put("VersionAeb", versionAeb);
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddArt", model);
+    }
+//**************************************************************************
+//**************************************************************************
+
+
+//**************************************************************************
+//**************************************************************************//**************************************************************************//*******************************************************************************
+//Mar
+
+    @RequestMapping(value = "/addMar", method = RequestMethod.POST)
+    public ModelAndView addMar(@RequestBody Mar ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        marRepository.save(ed);
+
+        return new ModelAndView("param/listeMar", model);
+    }
+
+    @RequestMapping(value = "/listeMar", method = RequestMethod.GET)
+    public ModelAndView listeMar() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<Mar> searchResult = marRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeMar", model);
+    }
+
+    @RequestMapping(value = "/formToAddMar/{id}", method = RequestMethod.GET)
+    public ModelAndView formToAddMar(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+
+        Mar h = null;
+        if (id != 0) {
+
+            h = marRepository.getOne(id);
+            model.put("Mar", h);
+        } else {
+            model.put("Mar", null);
+        }
+
+
+        model.put("user", web.getCompteConnected());
+
+        return new ModelAndView("param/formToAddMar", model);
+    }
+
+//**************************************************************************
+
+
+    @GetMapping(value = "/getsCategorieAEBbyCat/{id}")
+    public ModelAndView getsCategorieAEBbyCat(@PathVariable Long id) {
+        Map<String, Object> model = new HashMap<>();
+
+        List<SCategorieAEB> SCategorieAEB = sCategorieAEBRepository.getsCategorieAEBbyCat(id);
+        model.put("SCategorieAEB", SCategorieAEB);
+
+        model.put("id", id);
+        return new ModelAndView("param/selectop", model);
+    }
+
+//**************************************************************************
+
+
 
     @RequestMapping(value = "/listeCategorie_materiel/{page}/{size}/{type}", method = RequestMethod.GET)
     public ModelAndView listeCategorie_materiel(@PathVariable int page, @PathVariable int size, @PathVariable int type) {

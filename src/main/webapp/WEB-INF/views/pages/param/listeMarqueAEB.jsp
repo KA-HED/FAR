@@ -96,12 +96,12 @@
                                             <div class="row m-0 pt-5">
                                                 <div class="col-6 pl-0">
                                                     <h4 class="ml6">
-                                                        <span>OM changement classification</span>
+                                                        <span>Marque  </span>
                                                     </h4>
                                                 </div>
                                                 <div class="col-6">
                                                     <a class="button text-white bgMyColor float-right"
-                                                       href="/OM/formToAddOM_changement_classification/0"><span>Ajouter</span>
+                                                       href="/api/param/formToAddMarqueAEB/0"><span>Ajouter </span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -117,22 +117,21 @@
                                             <thead>
                                             <tr>
                                                 <%--<th class="text-center"></th>--%>
-                                                <th class="text-center">ref OM changement classification</th>
-                                                <th class="text-center">date OM changement classification</th>
+                                                <th class="text-center">DESIGNATION</th>
+                                                <th class="text-center">ABREVIATION</th>
                                                 <th class="text-center"><spring:message code="label.Action"/></th>
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
                                                 <c:forEach items="${listF}" var="f">
 
-                                                <tr id="tr-${f.omId}">
-                                                    <td>${f.typeOM}</td>
-                                                    <td>${f.refOM}</td>
-                                                    <%--<td>${f.degreUrg}</td>--%>
+                                                <tr id="tr-${f.marqueId}">
+                                                    <td>${f.desiMarque}</td>
+                                                    <td>${f.abrMarque}</td>
                                                     <td class="text-center">
                                                         <ul class="list-inline m-0">
                                                             <li class="list-inline-item text-center">
-                                                                <a href="/OM/formToAddOM_changement_classification/${f.omId}"
+                                                                <a href="/api/param/formToAddCategorie_materiel/${f.marqueId}"
                                                                    class="btn btn-outline-warning btn-sm rounded-circle tab_edit text-center"
                                                                    type="button" data-toggle="tooltip" data-placement="top" title="Editer"
                                                                    style="background-color: white">
@@ -143,7 +142,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <button onclick="deleteCompte(${f.omId})"
+                                                                <button onclick="deleteCompte(${f.marqueId})"
                                                                         class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
                                                                         title="Supprimer" style="background-color: white">
@@ -164,8 +163,8 @@
                                         <%--<thead>--%>
                                         <%--<tr>--%>
                                             <%--&lt;%&ndash;<th class="text-center"></th>&ndash;%&gt;--%>
-                                            <%--<th class="text-center">desigCat</th>--%>
-                                            <%--<th class="text-center">abrCat</th>--%>
+                                            <%--<th class="text-center">desigSCat</th>--%>
+                                            <%--<th class="text-center">abrSCat</th>--%>
                                             <%--<th class="text-center"><spring:message code="label.Action"/></th>--%>
                                         <%--</tr>--%>
                                         <%--</thead>--%>

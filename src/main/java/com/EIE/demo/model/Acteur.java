@@ -1,11 +1,24 @@
 package com.EIE.demo.model;
 
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "ACTEUR", schema = "SEC")
 public class Acteur {
+
+    // Constructors, getters, and setters
+    private String value;
+
+    @PersistenceConstructor
+    public Acteur(String value) {
+        this.acteurId =  Long.parseLong(value);
+    }
+    public Acteur() {
+        // Constructeur par défaut (sans paramètres)
+    }
 
     @Id
     @Column(name = "ACTEUR_ID", nullable = false)

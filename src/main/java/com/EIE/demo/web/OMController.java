@@ -1,8 +1,9 @@
 package com.EIE.demo.web;
 
 
-import com.EIE.demo.dao.OMRepository;
+import com.EIE.demo.dao.*;
 import com.EIE.demo.dataService.WebService;
+import com.EIE.demo.model.LigneOm;
 import com.EIE.demo.model.OM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,16 @@ public class OMController {
     @Autowired
     private OMRepository oMRepository;
     @Autowired
+    private ActeurRepository acteurRepository;
+    @Autowired
+    private PosRepository posRepository;
+    @Autowired
+    private UnitesCribleesRepository unitesCribleesRepository;
+    @Autowired
+    private LigneOmRepository ligneOmRepository;
+    @Autowired
+    private ArtRepository artRepository;
+    @Autowired
     WebService web;
 
 // OM
@@ -31,6 +42,13 @@ public class OMController {
     public ModelAndView addOM(@RequestBody OM ed) {
         Map<String, Object> model = new HashMap<String, Object>();
 
+        if(ed.getOmId()==null){
+            ed.setOmId(oMRepository.getmaxid());
+//            ed.setNomineralogique("ok");
+//            ed.setNumChassis("ok");
+//            ed.setUntIdEmg(1L);
+//            ed.setPosIdEmg("349");
+        }
         oMRepository.save(ed);
 
         return new ModelAndView("om/addOM", model);
@@ -62,7 +80,14 @@ public class OMController {
         }
 
 
+        List<LigneOm> lOM =  ligneOmRepository.getLigneOmbyOM(id);
+        model.put("acteur",acteurRepository.findAll());
+        model.put("Pos",posRepository.findAll());
+        model.put("unt",unitesCribleesRepository.findAll());
+        model.put("lOM",lOM);
+        model.put("art",artRepository.findAll());
         model.put("user",web.getCompteConnected());
+        model.put("id_om",id);
 
         return new ModelAndView("om/formToAddOM", model);
     }

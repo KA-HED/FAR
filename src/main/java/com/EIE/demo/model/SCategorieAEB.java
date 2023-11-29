@@ -1,14 +1,24 @@
 package com.EIE.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.Table;
-
+import java.io.Serializable;
+/*
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+* */
 @Entity
 @Table(name = "S_CATEGORIE_AEB", schema = "AEB")
-public class SCategorieAEB {
+//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+//@RequiredArgsConstructor
+public class SCategorieAEB  implements Serializable {
 
     @Id
     @GeneratedValue
@@ -24,7 +34,15 @@ public class SCategorieAEB {
     @Column(name = "CODE_B4", length = 2)
     private String codeB4;
 
-    // Constructors, getters, and setters
+    private String value;
+
+    @PersistenceConstructor
+    public SCategorieAEB(String value) {
+        this.sCatId =  Long.parseLong(value);
+    }
+    public SCategorieAEB() {
+        // Constructeur par défaut (sans paramètres)
+    }
 
     public Long getsCatId() {
         return sCatId;

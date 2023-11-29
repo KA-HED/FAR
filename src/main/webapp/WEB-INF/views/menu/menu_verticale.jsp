@@ -1,11 +1,14 @@
 ﻿<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
+
         <nav class="navbar navbar-expand-xl navbar-light position-fixed bg-light w-100 my_menu" >
                 <a class="navbar-brand " href="#">
                         <div class=" mr-auto logo position-relative">
                                 <a href="/api/getMenu" style="text-decoration: none">
-                                        <img src="${pageContext.request.contextPath}/assets/images/logo_1.png" style="width: 80px;background:
+                                        <img src="${pageContext.request.contextPath}/assets/images/logo_1.png" style="width: 55px;background:
                                         white;border-radius: 5px;" class="d-inline-block align-top pos-absolute shadow " alt="">
                                 </a>
                         </div>
@@ -22,24 +25,46 @@
                                         <spring:message code="label.accueil"/>
                                         <span class="sr-only">(current)</span></a>
                                         </li>
-                                        <li class="nav-item ">
-                                        <a class="nav-link nl" href="/api/getMenu"><i class="fa fa-file" style="color: #e0e0e0"></i> Ordre de
-                                        mutation<span class="sr-only">(current)</span></a>
+
+                                        <li class="nav-item dropdown">
+                                        <a class="nav-link nl dropdown-toggle" href="#" id="om" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-cog" style="color: #e0e0e0"></i> Factures
+                                        </a>
+                                        <div class="dropdown-menu" >
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">COMPTE-RENDU </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 entré  </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 sortie </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M15 </a>
+
+                                        </div>
                                         </li>
                                         <li class="nav-item dropdown">
-                                        <a class="nav-link btn bottom-navbar" href="#" id="om" data-toggle="dropdown" role="button"
+                                        <a class="nav-link nl dropdown-toggle" href="#" id="om" data-toggle="dropdown" role="button"
                                         aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-cog" style="color: #e0e0e0"></i> Ordre de mutation
                                         </a>
-                                        <div class="dropdown-menu " >
+                                        <div class="dropdown-menu" >
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">OM</a>
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM_changement_classification',10)">OM changement classification</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Création du matériel </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeMateriel',12)">Matériel </a>
+
+                                        </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                        <a class="nav-link nl dropdown-toggle" href="#" id="om" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-cog" style="color: #e0e0e0"></i> TED
+                                        </a>
+                                        <div class="dropdown-menu" >
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/TedAeb/listeTedAeb',10)">TED</a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM_changement_classification',10)">Consultation Globale des TED</a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Consultation des TED par Inspection</a>
 
                                         </div>
                                         </li>
                                         <li class="nav-item ">
-                                        <a class="nav-link nl" href="/TedAeb/listeTedAeb"><i class="fa fa-file" style="color: #e0e0e0"></i> TED<span
+                                        <a class="nav-link nl" href="/TedAeb/listeINDISPONIBILITES"><i class="fa fa-file" style="color: #e0e0e0"></i> INDISPONIBILITES<span
                                         class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">
@@ -53,22 +78,18 @@
                                         du matériel </a>
                                         <a class="dropdown-item" type="button"
                                         onclick="goToLien_menu('/api/param/listeSCategorieAEB',10)">Sous-Catégorie du matériel </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/NT/0/6/0',13)">Catégorie et
-                                        Sous-Catégorie</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Marque </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Sous-Catégorie et
-                                        marque</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Paramètres techniques
-                                        </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Services et
-                                        bureaux</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Détenteurs des
-                                        véhicules </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Détachement des
+                                        <%--<a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/NT/0/6/0',13)">Catégorie et--%>
+                                        <%--Sous-Catégorie</a>--%>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeMarqueAEB',12)">Marque </a>
+                                        <%--<a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Sous-Catégorie et marque</a>--%>
+                                        <%--<a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Paramètres techniques                                        </a>--%>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeServices_bureaux',12)">Services et bureaux</a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeDetenteur',12)">Détenteurs des                                        véhicules </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeDetachement_Vehicules',12)">Détachement des
                                         véhicules</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Classification du
-                                        matériel</a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Marché Fermé</a>
+                                        <%--<a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeArt',12)">Classification du matériel</a>--%>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeModeleAeb',12)">Classification du matériel</a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/param/listeMar',12)">Marché Fermé</a>
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">Création du matériel
                                         </a>
                                         <%--<a class="dropdown-item" type="button" onclick="goToLien_menu('/api/getEie/AE/0/6/0',12)">ici</a>--%>

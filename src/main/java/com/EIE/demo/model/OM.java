@@ -1,9 +1,6 @@
 package com.EIE.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -29,14 +26,16 @@ public class OM {
     @Column(name = "TYPE_OM", nullable = false, length = 2)
     private String typeOM;
 
-    @Column(name = "ACT_ORDRE")
-    private Long actOrdre;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ACT_ORDRE")
+    private Acteur actOrdre;
 
     @Column(name = "DATE_ORDRE")
     private Date dateOrdre;
 
-    @Column(name = "ACT_RECEPTION")
-    private Long actReception;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ACT_RECEPTION")
+    private Acteur actReception;
 
     @Column(name = "DATE_RECEPTION", length = 10)
     private String dateReception;
@@ -109,12 +108,20 @@ public class OM {
         this.typeOM = typeOM;
     }
 
-    public Long getActOrdre() {
+    public Acteur getActOrdre() {
         return actOrdre;
     }
 
-    public void setActOrdre(Long actOrdre) {
+    public void setActOrdre(Acteur actOrdre) {
         this.actOrdre = actOrdre;
+    }
+
+    public Acteur getActReception() {
+        return actReception;
+    }
+
+    public void setActReception(Acteur actReception) {
+        this.actReception = actReception;
     }
 
     public Date getDateOrdre() {
@@ -123,14 +130,6 @@ public class OM {
 
     public void setDateOrdre(Date dateOrdre) {
         this.dateOrdre = dateOrdre;
-    }
-
-    public Long getActReception() {
-        return actReception;
-    }
-
-    public void setActReception(Long actReception) {
-        this.actReception = actReception;
     }
 
     public String getDateReception() {

@@ -9,76 +9,6 @@
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<style>
-    .form-container {
-        margin-top: 80px;
-        padding: 30px;
-        border-raduis: 10px;
-        box-shadow: 0px 0px 5px 0px #000;
-
-    }
-
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 45px;
-        height: 18px;
-    }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 10px;
-        width: 10px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    input:checked + .slider {
-        background-color: #2196F3;
-    }
-
-    input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-        border-radius: 34px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
-    }
-</style>
-
 
 <div class="col-12 from_add"  style="margin: 60px 0px 20px 0px;">
     <div class="row p-0 m-0 justify-content-center">
@@ -88,39 +18,416 @@
                     <div class="row justify-content-center card mx-2">
                         <div class="card-body col-md-12" style="background-color: white">
 
-                            <%--<div class="col-md-6 card p-4 col-sm-12 col-lg-6">--%>
-                                <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #184a00bd     ">
-                                    <div class="col-md-12 my-4 text-center">
-                                        <strong class="profil text-white">Catégorie du matériel <i class="ml-2 fa fa-list-alt"></i></strong><br>
-                                    </div>
-                                </div>
-                                <div class="row mt-5">
-                                    <form id="myForm">
-                                        <div class="col-md-12 col-sm-12 col-lg-12" >
-                                            <div class="form-group">
-                                                <label>DESIGNATION</label>
-                                                <input class="form-control" type="hidden" name="sCatId" id="sCatId" value="${SCategorieAEB.sCatId}">
-                                                <input class="form-control" type="text" name="desigSCat" id="desigSCat" value="${SCategorieAEB.desigSCat}" required>
+
+
+                                    <ul class="nav nav-tabs nav-justified nav-inline navbar-primary-menu">
+                                        <li class="active"><a href="#div1" data-toggle="tab">Sous-Catégorie du matériel</a></li>
+                                        <li><a href="#div3" data-toggle="tab">Classifications Textuelles</a></li>
+                                        <li><a href="#div4" data-toggle="tab">Classifications Datatives</a></li>
+                                        <li><a href="#div5" data-toggle="tab">Classifications Numériques</a></li>
+                                    </ul>
+                                    <div class="tab-content" >
+                                        <div class="tab-pane active" id="div1">
+                                            <div class="" style="height: 70px; display: flex; justify-content: center;background-color: #184a00bd     ">
+                                                <div class="col-md-12 my-4 text-center">
+                                                    <strong class="profil text-white">Sous-Catégorie du matériel <i class="ml-2 fa fa-list-alt"></i></strong><br>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label>ABREVIATION </label>
-                                                <%--<textarea class="form-control" type="text" name="abrSCat" id="abrSCat" rows="3">${SCategorieAEB.abrSCat}</textarea>--%>
-                                                <input class="form-control" type="text" name="abrSCat" id="abrSCat" value="${SCategorieAEB.abrSCat}" required>
+                                            <div class="row mt-5">
+                                                <form id="myForm">
+                                                    <div class="col-md-12 col-sm-12 col-lg-12" >
+                                                        <div class="form-group">
+                                                            <label>DESIGNATION</label>
+                                                            <input class="form-control" type="hidden" name="sCatId" id="sCatId" value="${SCategorieAEB.sCatId}">
+                                                            <input class="form-control" type="text" name="desigSCat" id="desigSCat" value="${SCategorieAEB.desigSCat}" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>ABREVIATION </label>
+                                                            <%--<textarea class="form-control" type="text" name="abrSCat" id="abrSCat" rows="3">${SCategorieAEB.abrSCat}</textarea>--%>
+                                                            <input class="form-control" type="text" name="abrSCat" id="abrSCat" value="${SCategorieAEB.abrSCat}" required>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+
                                             </div>
+                                            <div class="row justify-content-center sw">
+                                                <div class="col-5 toolbar">
+                                                    <button class="btn sw-btn-next btn-danger-2 " onclick="goToList()"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i><spring:message code="label.Retour"/></button>
+                                                    <button class="btn btn-success float-right" onclick="save()"><i class="ml-2 fa fa-save"></i><spring:message code="label.Enregistrer"/></button>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-12 col-lg-1" ></div>
+
                                         </div>
 
-                                    </form>
+                                        <div class="tab-pane" id="div3">
+                                            <div id="Div_paramT">
+                                                <table style="margin-bottom:12px;" class="table tablee table-hover">
 
-                                </div>
-                                <div class="row justify-content-center sw">
-                                    <div class="col-5 toolbar">
-                                        <button class="btn sw-btn-next btn-danger-2 " onclick="goToList()"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i><spring:message code="label.Retour"/></button>
-                                        <button class="btn btn-success float-right" onclick="save()"><i class="ml-2 fa fa-save"></i><spring:message code="label.Enregistrer"/></button>
+                                                    <tr>
+                                                        <th class="text-center"> Paramètre </th>
+                                                        <th class="text-center"> Général </th>
+                                                        <th class="text-center"> Particulier </th>
+
+
+                                                    </tr>
+
+                                                    <tbody class="tbodyy table-bordered">
+                                                    <tr>
+                                                        <td>Paramètre Textuelles 1</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Textuelles 2</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Textuelles 3</td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                    </tr>
+                                                    <%--<c:forEach items="${parametre_Textuelles}" var="f">--%>
+
+                                                        <%--<tr id="tr-${f.agentParamètreId}" style="background-color: ${f.etat=="0"?"#c9d4dd7a":"#ecffde" };">--%>
+                                                            <%--<td>${f.classe.nom}</td>--%>
+                                                            <%--<td>${f.datedebut}</td>--%>
+                                                            <%--<td>${f.datefin}</td>--%>
+
+                                                        <%--</tr>--%>
+                                                    <%--</c:forEach>--%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddParametre_T_Form">
+                                                Ajoute Paramètre.
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="AddParametre_T_Form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 60px;">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel1">Ajoutez Classification Textuelle.</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <form class="col-12 from_add" id="classeForm" name="classeForm" >
+                                                                <div class="row justify-content-center">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 29%; background-color: seagreen" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-10 mt-4" >
+
+                                                                        <div class="row p-0 m-0 mt-5">
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-12">
+                                                                                <div class="form-group">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-8 col-sm-8">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Paramètre</label>
+                                                                                    <input class="form-control" type="text" name="desigSCat" id="desigSCat" value="${SCategorieAEB.desigSCat}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Général</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="General" value="${SCategorieAEB.desigSCat}" checked>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Particulier</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="Particulier" value="${SCategorieAEB.desigSCat}" >
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row justify-content-center mb-4" style="margin:14px;">
+                                                                    <div class="col-md-5">
+                                                                        <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addAgent_classe()"><spring:message code="label.Enregistrer"/></button>
+                                                                        <button type="button"  class="btn btn-danger-2  col-md-5 m-1" id="close_form_cl" data-dismiss="modal">
+                                                                            <spring:message code="label.Annuler"/>
+                                                                        </button>
+                                                                        <%--<a type="button" class="btn btn-danger-2  col-md-5 m-1" href="#"  data-dismiss="modal" aria-label="Close"><span style="color: white"> <spring:message code="label.Annuler"/></span></a>--%>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="div4">
+                                            <div id="Div_paramD">
+                                                <table style="margin-bottom:12px;" class="table tablee table-hover">
+
+                                                    <tr>
+                                                        <th class="text-center"> Paramètre </th>
+                                                        <th class="text-center"> Général </th>
+                                                        <th class="text-center"> Particulier </th>
+
+
+                                                    </tr>
+
+                                                    <tbody class="tbodyy table-bordered">
+                                                    <tr>
+                                                        <td>Paramètre Datatives 1</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Datatives 2</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Datatives 3</td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                    </tr>
+                                                    <%--<c:forEach items="${parametre_Datatives}" var="f">--%>
+
+                                                    <%--<tr id="tr-${f.agentParamètreId}" style="background-color: ${f.etat=="0"?"#c9d4dd7a":"#ecffde" };">--%>
+                                                    <%--<td>${f.classe.nom}</td>--%>
+                                                    <%--<td>${f.datedebut}</td>--%>
+                                                    <%--<td>${f.datefin}</td>--%>
+
+                                                    <%--</tr>--%>
+                                                    <%--</c:forEach>--%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddParametre_D_Form">
+                                                Ajoute Paramètre.
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="AddParametre_D_Form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 60px;">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="AddParametre_D_FormLabel1">Ajoutez Classification Datative.</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <form class="col-12 from_add" id="classeForm" name="classeForm" >
+                                                                <div class="row justify-content-center">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 29%; background-color: seagreen" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-10 mt-4" >
+
+                                                                        <div class="row p-0 m-0 mt-5">
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-12">
+                                                                                <div class="form-group">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-8 col-sm-8">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Paramètre</label>
+                                                                                    <input class="form-control" type="text" name="desigSCat" id="desigSCat" value="${SCategorieAEB.desigSCat}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Général</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="General" value="${SCategorieAEB.desigSCat}" checked>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Particulier</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="Particulier" value="${SCategorieAEB.desigSCat}" >
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row justify-content-center mb-4" style="margin:14px;">
+                                                                    <div class="col-md-5">
+                                                                        <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addAgent_classe()"><spring:message code="label.Enregistrer"/></button>
+                                                                        <button type="button"  class="btn btn-danger-2  col-md-5 m-1" id="close_form_cl" data-dismiss="modal">
+                                                                            <spring:message code="label.Annuler"/>
+                                                                        </button>
+                                                                        <%--<a type="button" class="btn btn-danger-2  col-md-5 m-1" href="#"  data-dismiss="modal" aria-label="Close"><span style="color: white"> <spring:message code="label.Annuler"/></span></a>--%>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="tab-pane" id="div5">
+                                            <div id="Div_paramN">
+                                                <table style="margin-bottom:12px;" class="table tablee table-hover">
+
+                                                    <tr>
+                                                        <th class="text-center"> Paramètre </th>
+                                                        <th class="text-center"> Général </th>
+                                                        <th class="text-center"> Particulier </th>
+
+
+                                                    </tr>
+
+                                                    <tbody class="tbodyy table-bordered">
+                                                    <tr>
+                                                        <td>Paramètre Numériques 1</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Numériques 2</td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Paramètre Numériques 3</td>
+                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                        <td><input class="form-control" type="radio" name="" checked></td>
+                                                    </tr>
+                                                    <%--<c:forEach items="${parametre_Numériques}" var="f">--%>
+
+                                                    <%--<tr id="tr-${f.agentParamètreId}" style="background-color: ${f.etat=="0"?"#c9d4dd7a":"#ecffde" };">--%>
+                                                    <%--<td>${f.classe.nom}</td>--%>
+                                                    <%--<td>${f.datedebut}</td>--%>
+                                                    <%--<td>${f.datefin}</td>--%>
+
+                                                    <%--</tr>--%>
+                                                    <%--</c:forEach>--%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddParametre_N_Form">
+                                                Ajoute Paramètre.
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="AddParametre_N_Form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 60px;">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel1">Ajoutez Classification Numérique.</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <form class="col-12 from_add" id="classeForm" name="classeForm" >
+                                                                <div class="row justify-content-center">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: 29%; background-color: seagreen" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100">
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-10 mt-4" >
+
+                                                                        <div class="row p-0 m-0 mt-5">
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-12">
+                                                                                <div class="form-group">
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-8 col-sm-8">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Paramètre</label>
+                                                                                    <input class="form-control" type="text" name="desigSCat" id="desigSCat" value="${SCategorieAEB.desigSCat}" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Général</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="General" value="${SCategorieAEB.desigSCat}" checked>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <div class="form-group text-left">
+                                                                                    <label >Particulier</label>
+                                                                                    <input class="form-control" type="radio" name="desigSCat" id="Particulier" value="${SCategorieAEB.desigSCat}" >
+                                                                                </div>
+                                                                            </div>
+
+
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row justify-content-center mb-4" style="margin:14px;">
+                                                                    <div class="col-md-5">
+                                                                        <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addAgent_classe()"><spring:message code="label.Enregistrer"/></button>
+                                                                        <button type="button"  class="btn btn-danger-2  col-md-5 m-1" id="close_form_cl" data-dismiss="modal">
+                                                                            <spring:message code="label.Annuler"/>
+                                                                        </button>
+                                                                        <%--<a type="button" class="btn btn-danger-2  col-md-5 m-1" href="#"  data-dismiss="modal" aria-label="Close"><span style="color: white"> <spring:message code="label.Annuler"/></span></a>--%>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                     </div>
-                                </div>
-                                <div class="col-md-1 col-sm-12 col-lg-1" ></div>
-                            <%--</div>--%>
                         </div>
                     </div>
                 </div>

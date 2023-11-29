@@ -1,5 +1,7 @@
 package com.EIE.demo.model;
 
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -10,6 +12,14 @@ import javax.persistence.JoinColumn;
 @Entity
 @Table(name = "TYPE_AEB", schema = "AEB")
 public class TypeAEB {
+
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public TypeAEB(String value) {
+        this.typeId =  Long.parseLong(value);
+    }
+    public TypeAEB() {}
 
     @Id
     @Column(name = "TYPE_ID", nullable = false)
