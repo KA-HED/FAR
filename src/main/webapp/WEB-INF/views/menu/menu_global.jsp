@@ -31,14 +31,10 @@
                                                                 <i class="fas fa-key text-primary mr-2 pl-1 f-10 " ></i>
                                                                 <spring:message code='label.gestionprofils'/>
                                                                 </a>
-                                                                <a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/0',11)" class="dropdown-item">
-                                                                <i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>
-                                                                <spring:message code='label.gestioncomptes'/>
-                                                                </a>
-                                                                <a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/1',11)" class="dropdown-item">
-                                                                <i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>
-                                                                <spring:message code='label.gestioncomptesP'/>
-                                                                </a>
+                                                                <%--<a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/0',11)" class="dropdown-item">--%>
+                                                                <%--<i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>--%>
+                                                                <%--<spring:message code='label.gestioncomptes'/>--%>
+                                                                <%--</a>--%>
                                                                 <a href="/logout" class="dropdown-item">
                                                         <i class="mdi mdi-logout text-primary mr-2 pl-1 f-10" ></i>
                                                         <spring:message code='label.SeDeconnecter'/>

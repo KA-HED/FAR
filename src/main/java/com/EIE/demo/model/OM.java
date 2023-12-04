@@ -1,11 +1,21 @@
 package com.EIE.demo.model;
 
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "OM", schema = "AEB")
 public class OM {
+
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public OM(String value) {
+        this.omId =  Long.parseLong(value);
+    }
+    public OM() {}
 
     @Id
     @Column(name = "OM_ID", nullable = false)

@@ -1,20 +1,30 @@
 package com.EIE.demo.model;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "DETENTEUR", schema = "AEB")
 public class Detenteur {
-
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public Detenteur(String value) {
+        this.detenteurId =  Long.parseLong(value);
+    }
+    public Detenteur() {}
     @Id
     @Column(name = "DETENTEUR_ID", nullable = false)
     private Long detenteurId;
 
-    @Column(name = "GRADE_ID")
-    private Integer gradeId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "GRADE_ID")
+    private Grade grade;
 
-    @Column(name = "UNT_ID")
-    private Long untId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "UNT_ID")
+    private UnitesCriblees untId;
 
     @Column(name = "NOM", nullable = false)
     private String nom;
@@ -55,9 +65,16 @@ public class Detenteur {
     @Column(name = "GROUPE_DET_ID")
     private Integer groupeDetId;
 
-    // Getters and setters for the fields (omitted for brevity)
 
     // You can also include constructors and additional methods as needed
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public Long getDetenteurId() {
         return detenteurId;
@@ -67,19 +84,19 @@ public class Detenteur {
         this.detenteurId = detenteurId;
     }
 
-    public Integer getGradeId() {
-        return gradeId;
+    public Grade getGrade() {
+        return grade;
     }
 
-    public void setGradeId(Integer gradeId) {
-        this.gradeId = gradeId;
+    public void setGrade(Grade grade) {
+        this.grade = grade;
     }
 
-    public Long getUntId() {
+    public UnitesCriblees getUntId() {
         return untId;
     }
 
-    public void setUntId(Long untId) {
+    public void setUntId(UnitesCriblees untId) {
         this.untId = untId;
     }
 

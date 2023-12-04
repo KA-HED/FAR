@@ -6,13 +6,8 @@ import com.EIE.demo.dataService.WebService;
 import com.EIE.demo.model.LigneOm;
 import com.EIE.demo.model.OM;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -31,15 +26,45 @@ public class OMController {
     @Autowired
     private UnitesCribleesRepository unitesCribleesRepository;
     @Autowired
+    private DetenteurRepository detenteurRepository;
+    @Autowired
     private LigneOmRepository ligneOmRepository;
     @Autowired
     private ArtRepository artRepository;
     @Autowired
     WebService web;
 
+// LigneOm
+    @RequestMapping(value = "/addLigneOm", method = RequestMethod.POST)
+    public ModelAndView addLigneOm(@RequestBody LigneOm ed) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        if(ed.getLigneOmId()==null){
+            ed.setLigneOmId(ligneOmRepository.getmaxid());
+//            ed.setNomineralogique("ok");
+//            ed.setNumChassis("ok");
+//            ed.setUntIdEmg(1L);
+//            ed.setPosIdEmg("349");
+        }
+        ligneOmRepository.save(ed);
+        List<LigneOm> lOM =  ligneOmRepository.getLigneOmbyOM(ed.getOm().getOmId());
+        model.put("lOM",lOM);
+
+
+        return new ModelAndView("om/LigneOmListe", model);
+    }
+    @RequestMapping(value = "/deleteligneOm", method = RequestMethod.POST)
+    public @ResponseBody String deleteligneOm(@RequestParam Long id) {
+
+        LigneOm lm = ligneOmRepository.getOne(id);
+        ligneOmRepository.delete(lm);
+
+        return "ok";
+    }
+//    *****************************************************************
 // OM
     @RequestMapping(value = "/addOM", method = RequestMethod.POST)
-    public ModelAndView addOM(@RequestBody OM ed) {
+    public @ResponseBody String addOM(@RequestBody OM ed) {
         Map<String, Object> model = new HashMap<String, Object>();
 
         if(ed.getOmId()==null){
@@ -51,7 +76,7 @@ public class OMController {
         }
         oMRepository.save(ed);
 
-        return new ModelAndView("om/addOM", model);
+        return ed.getOmId()+"";
     }
 
     @RequestMapping(value = "/listeOM", method = RequestMethod.GET)
@@ -84,6 +109,7 @@ public class OMController {
         model.put("acteur",acteurRepository.findAll());
         model.put("Pos",posRepository.findAll());
         model.put("unt",unitesCribleesRepository.findAll());
+        model.put("detenteur",detenteurRepository.findAll());
         model.put("lOM",lOM);
         model.put("art",artRepository.findAll());
         model.put("user",web.getCompteConnected());

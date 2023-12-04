@@ -81,9 +81,9 @@
                                 <span class="fas fa-save" style="color: #228b49"></span>
                             </div>
                         </button>
-                        <button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
+                        <button class="btn"
                                  type="button" data-toggle="tooltip" data-placement="top"
-                                 title="Supprimer" style="background-color: white">
+                                 title="Supprimer">
                         <div class="icon_trash_1">
                             <span class="fas fa-trash" style="color: red"></span>
                         </div>
@@ -99,9 +99,9 @@
                                 <span class="fas fa-save" style="color: #228b49"></span>
                             </div>
                         </button>
-                        <button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
+                        <button class="btn"
                                  type="button" data-toggle="tooltip" data-placement="top"
-                                 title="Supprimer" style="background-color: white">
+                                 title="Supprimer">
                         <div class="icon_trash_1">
                             <span class="fas fa-trash" style="color: red"></span>
                         </div>
@@ -117,8 +117,8 @@
                             <span class="fas fa-save" style="color: #228b49"></span>
                         </div>
                     </button>
-                        <button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
-                                 type="button" title="Supprimer" style="background-color: white">
+                        <button class="btn"
+                                 type="button" title="Supprimer">
                         <div class="icon_trash_1">
                             <span class="fas fa-trash" style="color: red"></span>
                         </div>

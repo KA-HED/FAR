@@ -1,9 +1,19 @@
 package com.EIE.demo.model;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "UNITES_CRIBLEES", schema = "GEST_REP")
 public class UnitesCriblees {
+
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public UnitesCriblees(String value) {
+        this.untId =  Long.parseLong(value);
+    }
+    public UnitesCriblees() {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

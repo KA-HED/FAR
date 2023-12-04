@@ -56,8 +56,9 @@ public class LigneOm {
     @Column(name = "ANNULE")
     private Long annule;
 
-    @Column(name = "DETENTEUR_ORIG")
-    private Long detenteurOrig;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "DETENTEUR_ORIG")
+    private Detenteur detenteurOrig;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "UNT_ELEMENT_ORIG")
@@ -67,8 +68,9 @@ public class LigneOm {
     @JoinColumn(name = "UNT_DETACH_DEST")
     private UnitesCriblees untDetachDest;
 
-    @Column(name = "DETENTEUR_DEST")
-    private Long detenteurDest;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "DETENTEUR_DEST")
+    private Detenteur detenteurDest;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "UNT_ELEMENT_DEST")
@@ -194,51 +196,53 @@ public class LigneOm {
         this.annule = annule;
     }
 
-    public Long getDetenteurOrig() {
-        return detenteurOrig;
-    }
 
-    public void setDetenteurOrig(Long detenteurOrig) {
-        this.detenteurOrig = detenteurOrig;
-    }
-
-    public Long getUntElementOrig() {
+    public UnitesCriblees getUntElementOrig() {
         return untElementOrig;
     }
 
-    public void setUntElementOrig(Long untElementOrig) {
+    public void setUntElementOrig(UnitesCriblees untElementOrig) {
         this.untElementOrig = untElementOrig;
     }
 
-    public Long getUntDetachDest() {
+    public UnitesCriblees getUntDetachDest() {
         return untDetachDest;
     }
 
-    public void setUntDetachDest(Long untDetachDest) {
+    public void setUntDetachDest(UnitesCriblees untDetachDest) {
         this.untDetachDest = untDetachDest;
     }
 
-    public Long getDetenteurDest() {
-        return detenteurDest;
-    }
 
-    public void setDetenteurDest(Long detenteurDest) {
-        this.detenteurDest = detenteurDest;
-    }
-
-    public Long getUntElementDest() {
+    public UnitesCriblees getUntElementDest() {
         return untElementDest;
     }
 
-    public void setUntElementDest(Long untElementDest) {
+    public void setUntElementDest(UnitesCriblees untElementDest) {
         this.untElementDest = untElementDest;
     }
 
-    public Long getUntDetachOrig() {
+    public UnitesCriblees getUntDetachOrig() {
         return untDetachOrig;
     }
 
-    public void setUntDetachOrig(Long untDetachOrig) {
+    public void setUntDetachOrig(UnitesCriblees untDetachOrig) {
         this.untDetachOrig = untDetachOrig;
+    }
+
+    public Detenteur getDetenteurOrig() {
+        return detenteurOrig;
+    }
+
+    public void setDetenteurOrig(Detenteur detenteurOrig) {
+        this.detenteurOrig = detenteurOrig;
+    }
+
+    public Detenteur getDetenteurDest() {
+        return detenteurDest;
+    }
+
+    public void setDetenteurDest(Detenteur detenteurDest) {
+        this.detenteurDest = detenteurDest;
     }
 }

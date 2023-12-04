@@ -10680,7 +10680,7 @@ pre code {
 
 .table th,
 .table td {
-  padding: 1.25rem 0.9375rem;
+  padding: 0.25rem 0.25rem;
   vertical-align: top;
   border-top: 1px solid #f1f6f8;
 }
@@ -21876,9 +21876,9 @@ dl li {
   line-height: 1;
 }
 
-.table td {
-  font-size: 1rem;
-}
+/*.table td {*/
+  /*font-size: 1rem;*/
+/*}*/
 
 .table td img {
   width: 36px;
@@ -23735,8 +23735,8 @@ border-radius: 50%;
 }
 
 .tab_trash{
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   padding-left: 9px;
   padding-top: 4px;
 }

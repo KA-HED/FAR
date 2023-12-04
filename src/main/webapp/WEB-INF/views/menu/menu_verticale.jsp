@@ -32,7 +32,7 @@
                                         <i class="fa fa-cog" style="color: #e0e0e0"></i> Factures
                                         </a>
                                         <div class="dropdown-menu" >
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">COMPTE-RENDU </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeCOMPTE_RENDU',10)">COMPTE-RENDU </a>
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 entré  </a>
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 sortie </a>
                                         <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M15 </a>
@@ -111,14 +111,10 @@
                                                                 <i class="fas fa-key text-primary mr-2 pl-1 f-10 " ></i>
                                                                 <spring:message code='label.gestionprofils'/>
                                                                 </a>
-                                                                <a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/0',11)" class="dropdown-item">
-                                                                <i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>
-                                                                <spring:message code='label.gestioncomptes'/>
-                                                                </a>
-                                                                <a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/1',11)" class="dropdown-item">
-                                                                <i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>
-                                                                <spring:message code='label.gestioncomptesP'/>
-                                                                </a>
+                                                                <%--<a type="button" onclick="goToLien_menu('/api/getAccount5/0/6/0',11)" class="dropdown-item">--%>
+                                                                <%--<i class="fa fa-users text-primary mr-2 pl-1 f-10" ></i>--%>
+                                                                <%--<spring:message code='label.gestioncomptes'/>--%>
+                                                                <%--</a>--%>
                                                                 <a href="/logout" class="dropdown-item">
                                                         <i class="mdi mdi-logout text-primary mr-2 pl-1 f-10" ></i>
                                                         <spring:message code='label.SeDeconnecter'/>

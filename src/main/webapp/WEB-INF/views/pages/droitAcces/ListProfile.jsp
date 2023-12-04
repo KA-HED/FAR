@@ -94,7 +94,7 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <button onclick="deleteProfile(${f.profilId})" class="btn btn-outline-danger btn-sm rounded-circle tab_trash" type="button" data-toggle="tooltip" data-placement="top" title="Supprimer" style="background-color: white">
+                                        <button onclick="deleteProfile(${f.profilId})" class="btn" type="button" data-toggle="tooltip" data-placement="top" title="Supprimer">
                                             <div class="icon_trash_1">
                                                 <span class="fas fa-trash" style="color: red"></span>
                                             </div>
@@ -186,7 +186,7 @@
                             <td class="text-center">
                                 <ul class="list-inline m-0">
                                     <li class="list-inline-item text-center">
-                                        <a href="/api/getProfilDetails/${f.profilId}" class="btn btn-outline-warning btn-sm rounded-circle tab_edit text-center" type="button" data-toggle="tooltip" data-placement="top" title="Editer" >
+                                        <a href="/api/getProfilDetails/${f.profilId}" class="btn" type="button" data-toggle="tooltip" data-placement="top" title="Editer" >
                                             <div class="icon_trash_1">
                                                 <span class="fas fa-edit text-success animated " style="margin-top: 10px"></span>
                                             </div>

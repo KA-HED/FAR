@@ -28,8 +28,9 @@ public class DetailMar {
     @Column(name = "MONT_ENGAGE_ART")
     private Double montEngageArt;
 
-    @Column(name = "MODELE_ID", nullable = false)
-    private Long modeleId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "MODELE_ID", nullable = false)
+    private ModeleAeb modeleId;
 
     // Getters and setters
     // Constructors

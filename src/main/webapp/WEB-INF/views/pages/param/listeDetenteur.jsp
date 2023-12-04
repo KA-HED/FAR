@@ -100,9 +100,9 @@
                                                     </h4>
                                                 </div>
                                                 <div class="col-6">
-                                                    <a class="button text-white bgMyColor float-right"
-                                                       href="/api/param/formToAddAbcDetenteur/0"><span>Ajouter </span>
-                                                    </a>
+                                                    <%--<a class="button text-white bgMyColor float-right"--%>
+                                                       <%--href="/api/param/formToAddAbcDetenteur/0"><span>Ajouter </span>--%>
+                                                    <%--</a>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                                     <td>${f.prenom}</td>
                                                     <td>${f.grade.libGrade}</td>
                                                     <td></td>
-                                                    <td>${f.untId}</td>
+                                                    <td>${f.untId.nomAbrege}</td>
                                                     <%--<td> </td>--%>
                                                     <td></td>
                                                     <td></td>
@@ -147,9 +147,8 @@
                                                         <ul class="list-inline m-0">
                                                             <li class="list-inline-item text-center">
                                                                 <a href="/api/param/formToAddCategorie_materiel/${f.detenteurId}"
-                                                                   class="btn btn-outline-warning btn-sm rounded-circle tab_edit text-center"
-                                                                   type="button" data-toggle="tooltip" data-placement="top" title="Editer"
-                                                                   style="background-color: white">
+                                                                   class="btn"
+                                                                   type="button" data-toggle="tooltip" data-placement="top" title="Editer">
                                                                     <div class="icon_trash_1">
                                                                 <span class="fas fa-pencil-alt"
                                                                       style="color: orange;margin-top: 10px"></span>
@@ -158,9 +157,9 @@
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <button onclick="deleteCompte(${f.detenteurId})"
-                                                                        class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
+                                                                        class="btn"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
-                                                                        title="Supprimer" style="background-color: white">
+                                                                        title="Supprimer">
                                                                     <div class="icon_trash_1">
                                                                         <span class="fas fa-trash" style="color: red"></span>
                                                                     </div>

@@ -64,6 +64,9 @@ public class DroitAccesController {
     @RequestMapping(value = "/api/saveProfile", method = RequestMethod.POST)
     public @ResponseBody int saveProfile(@RequestBody Profil profil) {
         Map<String, Object> model = new HashMap<String, Object>();
+        if (profil.getProfilId()==0){
+            profil.setProfilId(profilRepository.getmaxid());
+        }
         profilRepository.save(profil);
         int fr=profil.getProfilId();
         return fr;
@@ -106,6 +109,9 @@ public class DroitAccesController {
             profils.setValider("oui");
             profils.setProfil(profilRepository.getOne(profil));
             profils.setRole(roleRepository.getOne(id));
+            if(profils.getProfilroleId()==0){
+                profils.setProfilroleId(profilRoleRepository.getmaxid());
+            }
             profilRoleRepository.save(profils);
         }
         else{

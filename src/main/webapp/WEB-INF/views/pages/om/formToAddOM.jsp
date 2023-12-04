@@ -13,7 +13,7 @@
 
 <div class="col-12"  style="margin: 60px 0px 0px 0px;">
     <div class="row p-0 m-0 justify-content-center">
-        <div class="col-md-8 mt-5 col-sm-12">
+        <div class="col-md-11 mt-5 col-sm-12">
             <div class="card-body col-md-12" style="background-color: white">
 
                 <ul class="nav nav-tabs nav-justified nav-inline navbar-primary-menu">
@@ -24,7 +24,7 @@
                 <div class="tab-content" >
                     <div class="tab-pane active" id="div1">
                         <form id="myForm">
-                        <div class="card" style="padding: 10px;    max-width: 1000px;">
+                        <div class="card" style="padding: 10px;    ">
                             <label class="label_card">Référence </label>
                             <div class="form-row">
                                 <div class="form-group col-md-2">
@@ -55,7 +55,7 @@
                                     <label>DU</label>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <input  type="date"  class="form-control datepicker"  name="dateOM" value="${OM.dateOM}">
+                                    <input  type="date"  class="form-control datepicker"  name="dateOM"  value="${fn:substring(OM.dateOM, 0, 10)}" >
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>Type OM </label>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <%--<div class="card-body col-md-12" style="background-color: white">--%>
-                            <div class="card" style="padding: 10px;    max-width: 1000px;">
+                            <div class="card" style="padding: 10px;    ">
                                 <label class="label_card">Acteurs </label>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -113,14 +113,15 @@
                                         <label>Date Ordre </label>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input  type="date"  class="form-control datepicker"  >
+                                        <input  type="date" name="dateOrdre" value="${fn:substring(OM.dateOrdre, 0, 10)}" class="form-control datepicker"  >
                                     </div>
 
                                     <div class="form-group col-md-2">
                                         <label>Date Demande </label>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input  type="date"  class="form-control datepicker"  >
+                                        <%--<input  type="date" name="dateReception" value="${OM.dateReception}" class="form-control datepicker"  >--%>
+                                        <input  type="date" name="dateReception" value="${fn:replace(OM.dateReception,' 00:00:00.0','')}" class="form-control datepicker"  >
                                     </div>
 
                                 </div>
@@ -137,9 +138,9 @@
                     </div>
                     <div class="tab-pane " id="div2">
 
-                        <div class="card-body col-md-12" style="background-color: white">
+                        <div class="card-body col-md-12" style="background-color: white" id="LigneOmListe">
                             <table class="table table-bordered">
-                                <tr>
+                                <tr class="thead-dark">
                                     <th rowspan="2">N° Vhle</th>
                                     <th rowspan="2">Désignation</th>
                                     <th rowspan="2">N° Chassis</th>
@@ -152,7 +153,7 @@
                                     <th rowspan="2">Etat</th>
                                     <th rowspan="2">Action</th>
                                 </tr>
-                                <tr>
+                                <tr class="thead-dark">
                                     <th >unité</th>
                                     <th>Position</th>
                                     <th>unité </th>
@@ -160,30 +161,25 @@
                                 </tr>
 
                                 <c:forEach items="${lOM}" var="ed">
-                                    <tr>
+                                    <tr id="tr_${ed.ligneOmId}">
                                         <td>${ed.art.numMoteur}</td>
                                         <td>${ed.art.obsDesig}</td>
                                         <td>${ed.art.numChassis}</td>
                                         <td>${ed.untDest.nomAbrege}</td>
-                                        <td>${ed.untDetachDest}</td>
-                                        <%--<td>3</td>--%>
-                                        <%--<td>4</td>--%>
-                                        <%--<td>5</td>--%>
-                                        <td>6</td>
-                                        <td>7</td>
-                                        <td>8</td>
-                                        <td>9</td>
-                                        <td>10</td>
-                                        <td>11</td>
+                                        <td>${ed.posOrigine.posAbrev}</td>
+                                            <%--<td>3</td>--%>
+                                            <%--<td>4</td>--%>
+                                            <%--<td>5</td>--%>
+                                        <td>${ed.untDest.nomAbrege}</td>
+                                        <td>${ed.posDest.posAbrev}</td>
+                                        <td>${ed.untElementOrig.nomAbrege}</td>
+                                        <td>${ed.untDetachDest.nomAbrege}</td>
+                                        <td>${ed.detenteurDest.nom} ${ed.detenteurDest.prenom}</td>
+                                        <td>${ed.etatLigne==1?'Réserve':'Disponible'}</td>
                                         <td>
-                                            <button class="btn btn-outline-success btn-sm rounded-circle tab_trash"
-                                                    type="button" title="Enregistrer" style="background-color: white">
-                                                <div class="icon_trash_1">
-                                                    <span class="fas fa-save" style="color: #228b49"></span>
-                                                </div>
-                                            </button>
-                                            <button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
-                                                    type="button" title="Supprimer" style="background-color: white">
+
+                                            <button class="btn" onclick="deleteligneOm(${ed.ligneOmId})"
+                                                    type="button" title="Supprimer">
                                                 <div class="icon_trash_1">
                                                     <span class="fas fa-trash" style="color: red"></span>
                                                 </div>
@@ -211,101 +207,122 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                    <div class="card" style="padding: 10px;    max-width: 1000px;">
-                                        <label class="label_card">Articles </label>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-3">
-                                                <label>N° Vhle</label>
-                                                <select id="art" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${art}" var="ed">
-                                                        <option value="${ed.nNomencl }"  >${ed.obsDesig } </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Désignation </label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>N° Chassis  </label>
-                                                <input type="text" class="form-control" >
-                                            </div>
+                                    <div class="card" style="padding: 10px;    ">
+                                        <form id="myForm_l_om">
+                                            <label class="label_card">Articles </label>
+                                            <input type="hidden" name="om" id="om" value="${OM.omId}">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3">
+                                                    <label>N° Vhle</label>
+                                                    <select id="art" name="art" class="form-control selectpicker"  data-live-search="true" onchange="selectvl()" >
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${art}" var="ed">
+                                                            <option value="${ed.nNomencl }" id="vl-${ed.nNomencl}"
+                                                                    data-vl-${ed.nNomencl}="${ed.obsDesig}"
+                                                                    data-n_cha-${ed.nNomencl}="${ed.numChassis}"
+                                                                    data-n_unt-${ed.nNomencl}="${ed.unitesCriblees.untId}"
+                                                                    data-n_pos-${ed.nNomencl}="${ed.pos.posId}"
+                                                                    data-n_mod-${ed.nNomencl}="${ed.modeleId}"
+                                                            >${ed.obsDesig } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <input type="hidden" id="modeleAeb" name="modeleAeb">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label>Désignation </label>
+                                                    <input type="text" class="form-control" id="desig">
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>N° Chassis  </label>
+                                                    <input type="text" class="form-control"id="n_chassis">
+                                                </div>
 
 
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-3">
-                                                <label>unité Origine  </label>
-                                                <select id="untOrigine" name="untOrigine" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${unt}" var="ed">
-                                                        <option value="${ed.untId }" >${ed.nomAbrege } </option>
-                                                    </c:forEach>
-                                                </select>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <label> Position  </label>
-                                                <input type="text" class="form-control" >
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3">
+                                                    <label>unité Origine  </label>
+                                                    <select id="untOrigine" name="untOrigine" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${unt}" var="ed">
+                                                            <option value="${ed.untId }" >${ed.nomAbrege } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label> Position  </label>
+                                                    <%--<input type="text" class="form-control" id="posOrigine" name="posOrigine">--%>
+                                                    <select id="posOrigine" name="posOrigine" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${Pos}" var="ed">
+                                                            <option value="${ed.posId }" >${ed.posAbrev } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>unité Destinataire   </label>
+                                                    <select id="untDest" name="untDest" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${unt}" var="ed">
+                                                            <option value="${ed.untId }" >${ed.nomAbrege } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label> Position  </label>
+                                                    <select id="posDest" name="posDest" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${Pos}" var="ed">
+                                                            <option value="${ed.posId }" >${ed.posAbrev } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <label>unité Destinataire   </label>
-                                                <select id="untDest" name="untDest" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${unt}" var="ed">
-                                                        <option value="${ed.untId }" >${ed.nomAbrege } </option>
-                                                    </c:forEach>
-                                                </select>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3">
+                                                    <label>unité Élémentaire  </label>
+                                                    <select id="untElementOrig" name="untElementOrig" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${unt}" var="ed">
+                                                            <option value="${ed.untId }" >${ed.nomAbrege } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label> unité Détachement  </label>
+                                                    <select id="untDetachDest" name="untDetachDest" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${unt}" var="ed">
+                                                            <option value="${ed.untId }" >${ed.nomAbrege } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <%--<input type="text" class="form-control" >--%>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Détenteur  </label>
+                                                    <select id="detenteurDest" name="detenteurDest" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <c:forEach items="${detenteur}" var="ed">
+                                                            <option value="${ed.detenteurId }" >${ed.nom } ${ed.prenom } </option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label> Etat  </label>
+                                                    <select id="etatLigne" name="etatLigne" class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <%--<c:forEach items="${unt}" var="ed">--%>
+                                                            <option value="1" >Réserve</option>
+                                                            <option value="2" >Disponible</option>
+                                                        <%--</c:forEach>--%>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <label> Position  </label>
-                                                <input type="text" class="form-control" >
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-3">
-                                                <label>unité Élémentaire  </label>
-                                                <select id="untElementOrig" name="untElementOrig" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${unt}" var="ed">
-                                                        <option value="${ed.untId }" >${ed.nomAbrege } </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label> unité Détachement  </label>
-                                                <select id="untDetachOrig" name="untElementOrig" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${unt}" var="ed">
-                                                        <option value="${ed.untId }" >${ed.nomAbrege } </option>
-                                                    </c:forEach>
-                                                </select>
-                                                <%--<input type="text" class="form-control" >--%>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Détenteur  </label>
-                                                <select id="untDetachDest" name="untDetachDest" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <c:forEach items="${unt}" var="ed">
-                                                        <option value="${ed.untId }" >${ed.nomAbrege } </option>
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label> Etat  </label>
-                                                <select id="etatLigne" name="etatLigne" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <%--<c:forEach items="${unt}" var="ed">--%>
-                                                        <option value="1" > etat 1</option>
-                                                        <option value="2" >etat 2 </option>
-                                                    <%--</c:forEach>--%>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                         <div class="row justify-content-center mb-4" style="margin:14px;">
                                             <div class="col-md-5">
-                                                <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addAgent_classe()"><spring:message code="label.Enregistrer"/></button>
+                                                <button type="button" class="btn btn-success col-md-5 m-1" id="btnToParamètre" onclick="addLigneOm()"><spring:message code="label.Enregistrer"/></button>
                                                 <button type="button"  class="btn btn-danger-2  col-md-5 m-1" id="close_form_cl" data-dismiss="modal">
                                                     <spring:message code="label.Annuler"/>
                                                 </button>
@@ -328,117 +345,8 @@
     </div>
 </div>
 
-<%--<div class="row p-0 m-0 justify-content-center">--%>
-    <%--<div class="col-md-10 col-sm-12">--%>
-        <%--<div class="card-body col-md-12" style="background-color: white">--%>
-            <%--<table class="table table-bordered">--%>
-                <%--<tr>--%>
-                    <%--<th rowspan="2">N° Vhle</th>--%>
-                    <%--<th rowspan="2">Désignation</th>--%>
-                    <%--<th rowspan="2">N° Chassis</th>--%>
-                    <%--<th colspan="2">Origine</th>--%>
-                    <%--&lt;%&ndash;<th>4 </th>&ndash;%&gt;--%>
-                    <%--<th colspan="2">Destinataire</th>--%>
-                    <%--<th rowspan="2">unité Élémentaire</th>--%>
-                    <%--<th rowspan="2">unité Détachement  </th>--%>
-                    <%--<th rowspan="2">Détenteur</th>--%>
-                    <%--<th rowspan="2">Etat</th>--%>
-                    <%--<th rowspan="2">Action</th>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<th >unité</th>--%>
-                    <%--<th>Position</th>--%>
-                    <%--<th>unité </th>--%>
-                    <%--<th>Position</th>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td>1</td>--%>
-                    <%--<td>2</td>--%>
-                    <%--<td>3</td>--%>
-                    <%--<td>4</td>--%>
-                    <%--<td>5</td>--%>
-                    <%--<td>6</td>--%>
-                    <%--<td>7</td>--%>
-                    <%--<td>8</td>--%>
-                    <%--<td>9</td>--%>
-                    <%--<td>10</td>--%>
-                    <%--<td>11</td>--%>
-                    <%--<td>--%>
-                        <%--<button class="btn btn-outline-success btn-sm rounded-circle tab_trash"--%>
-                                <%--type="button" title="Enregistrer" style="background-color: white">--%>
-                            <%--<div class="icon_trash_1">--%>
-                                <%--<span class="fas fa-save" style="color: #228b49"></span>--%>
-                            <%--</div>--%>
-                        <%--</button>--%>
-                        <%--<button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"--%>
-                                 <%--type="button" data-toggle="tooltip" data-placement="top"--%>
-                                 <%--title="Supprimer" style="background-color: white">--%>
-                        <%--<div class="icon_trash_1">--%>
-                            <%--<span class="fas fa-trash" style="color: red"></span>--%>
-                        <%--</div>--%>
-                    <%--</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                    <%--<td>1</td>--%>
-                    <%--<td>2</td>--%>
-                    <%--<td>3</td>--%>
-                    <%--<td>4</td>--%>
-                    <%--<td>5</td>--%>
-                    <%--<td>6</td>--%>
-                    <%--<td>7</td>--%>
-                    <%--<td>8</td>--%>
-                    <%--<td>9</td>--%>
-                    <%--<td>10</td>--%>
-                    <%--<td>11</td>--%>
-                    <%--<td>--%>
-                        <%--<button class="btn btn-outline-success btn-sm rounded-circle tab_trash"--%>
-                                <%--type="button" title="Enregistrer" style="background-color: white">--%>
-                            <%--<div class="icon_trash_1">--%>
-                                <%--<span class="fas fa-save" style="color: #228b49"></span>--%>
-                            <%--</div>--%>
-                        <%--</button>--%>
-                        <%--<button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"--%>
-                                 <%--type="button" data-toggle="tooltip" data-placement="top"--%>
-                                 <%--title="Supprimer" style="background-color: white">--%>
-                        <%--<div class="icon_trash_1">--%>
-                            <%--<span class="fas fa-trash" style="color: red"></span>--%>
-                        <%--</div>--%>
-                    <%--</button></td>--%>
-                <%--</tr>--%>
-                <%--<tr>--%>
-                            <%--<td>1</td>--%>
-                            <%--<td>2</td>--%>
-                            <%--<td>3</td>--%>
-                            <%--<td>4</td>--%>
-                            <%--<td>5</td>--%>
-                            <%--<td>6</td>--%>
-                            <%--<td>7</td>--%>
-                            <%--<td>8</td>--%>
-                            <%--<td>9</td>--%>
-                            <%--<td>10</td>--%>
-                            <%--<td>11</td>--%>
-                    <%--<td>--%>
-                        <%--<button class="btn btn-outline-success btn-sm rounded-circle tab_trash"--%>
-                                 <%--type="button" title="Enregistrer" style="background-color: white">--%>
-                        <%--<div class="icon_trash_1">--%>
-                            <%--<span class="fas fa-save" style="color: #228b49"></span>--%>
-                        <%--</div>--%>
-                    <%--</button>--%>
-                        <%--<button class="btn btn-outline-danger btn-sm rounded-circle tab_trash"--%>
-                                 <%--type="button" title="Supprimer" style="background-color: white">--%>
-                        <%--<div class="icon_trash_1">--%>
-                            <%--<span class="fas fa-trash" style="color: red"></span>--%>
-                        <%--</div>--%>
-                    <%--</button>--%>
-                    <%--</td>--%>
-                        <%--</tr>--%>
-
-            <%--</table>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
 <div class="row p-0 m-0 justify-content-center">
-    <div class="col-md-8 col-sm-12">
+    <div class="col-md-11 col-sm-12">
 
     </div>
 </div>
@@ -446,9 +354,39 @@
 <jsp:include page="../../includes/footer.jsp"/>
 
 <script>
+    function selectvl(){
+        var vals1=$("#art").val();
+        $("#n_chassis").val($("#vl-"+vals1).data("n_cha-"+vals1));
+        $("#desig").val($("#vl-"+vals1).data("vl-"+vals1));
+        $("#modeleAeb").val($("#vl-"+vals1).data("n_mod-"+vals1));
+        var pos= $("#vl-"+vals1).data("n_pos-"+vals1);
+        $("#posOrigine").val(pos);
+        var unt=$("#vl-"+vals1).data("n_unt-"+vals1);
+        $('#untOrigine').val(unt);
+        //alert(vals2);
+    }
 
     function goToList() {
         window.location.href="/api/param/listeCategorie_materiel"
+    }
+
+    function deleteligneOm(id) {
+        // var trid= '#tr_'+id;
+
+        $.ajax({
+            type : "POST",
+            url :"/OM/deleteligneOm",
+            data:{
+                "id":id
+            },
+            success : function(data) {
+
+                $("#tr_"+id).css("display","none");
+            },
+            error : function(response) {
+                alert("error")
+            }
+        });
     }
 
     $.fn.serializeObject = function() {
@@ -523,8 +461,56 @@
 
             success: function (response) {
 
-                // $(".mpParam").html(response);
-                goToLien_menu('/OM/listeOM',12)
+                alert(response);
+                goToLien_menu('/OM/formToAddOM/'+response,12);
+                window.location.href="/OM/formToAddOM/"+response;
+            },
+            error: function (response) {
+
+                alert('Erreur ajout non effectu�');
+
+            }
+        });
+
+
+    }
+
+    function addLigneOm() {
+        var id =  $("#omId").val();
+        $("#om").val(id);
+
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        var obj = $("#myForm_l_om").serializeObject();
+
+        $.ajax({
+            type: "POST",
+
+            // url: "/api/param/addModeleAeb/0"+modeleId,
+            url: "/OM/addLigneOm",
+            contentType: 'application/json; charset=utf-8',
+
+            data: JSON.stringify(obj),
+
+            success: function (response) {
+                $("#LigneOmListe").empty();
+                $("#LigneOmListe").html(response);
+
+                // $("#close_form_cl").click();
             },
             error: function (response) {
 

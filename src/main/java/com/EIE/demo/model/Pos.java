@@ -1,10 +1,20 @@
 package com.EIE.demo.model;
 
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "G_POS_ADMIN", schema = "GEST_REP")
 public class Pos {
+
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public Pos(String value) {
+        this.posId = value;
+    }
+    public Pos() {}
 
     @Id
     @Column(name = "POS_ID", nullable = false)

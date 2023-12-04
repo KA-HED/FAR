@@ -1,4 +1,6 @@
 package com.EIE.demo.model;
+import org.springframework.data.annotation.PersistenceConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -6,8 +8,15 @@ import java.util.Date;
 @Table(name = "MODELE_AEB", schema = "AEB")
 public class ModeleAeb {
 
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public ModeleAeb(String value) {
+        this.modeleId =  Long.parseLong(value);
+    }
+    public ModeleAeb() {}
+
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MODELE_ID", nullable = false, unique = true)
     private Long modeleId;
 

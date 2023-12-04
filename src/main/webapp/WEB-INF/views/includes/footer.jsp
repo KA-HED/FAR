@@ -39,6 +39,8 @@
 
 <%--sweetAlert--%>
 <script src="${pageContext.request.contextPath}/assets/js/sweet-alert.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/sweetalert2.all.js"></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>--%>
 
 <%--VALIDATION FORM--%>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.validate.min.js"></script>

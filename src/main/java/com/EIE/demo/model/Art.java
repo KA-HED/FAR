@@ -1,5 +1,6 @@
 package com.EIE.demo.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,14 @@ import java.util.Date;
 @Table(name = "ART", schema = "AEB")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Art implements Serializable {
+
+    // Constructors, getters, and setters
+    private String value;
+    @PersistenceConstructor
+    public Art(String value) {
+        this.nNomencl =  Long.parseLong(value);
+    }
+    public Art() {}
 
     @Id
     @Column(name = "N_NOMENCL")

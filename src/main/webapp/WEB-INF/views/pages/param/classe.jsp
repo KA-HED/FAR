@@ -175,7 +175,7 @@
                                             <li class="list-inline-item">
                                                 <button onclick="updateClasse(${f.classeId})"
                                                         class="btn btn-outline-warning btn-sm rounded-circle tab_edit"
-                                                        type="button" title="Editer" style="background-color: white">
+                                                        type="button" title="Editer">
                                                     <div class="icon_trash_1">
                                                         <span class="fas fa-pencil-alt" style="color: orange"></span>
                                                     </div>
@@ -184,8 +184,8 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <button onclick="delete_Classe(${f.classeId})"
-                                                        class="btn btn-outline-danger btn-sm rounded-circle tab_trash"
-                                                        type="button" title="Supprimer" style="background-color: white">
+                                                        class="btn"
+                                                        type="button" title="Supprimer">
                                                     <div class="icon_trash_1">
                                                         <span class="fas fa-trash" style="color: red"></span>
                                                     </div>

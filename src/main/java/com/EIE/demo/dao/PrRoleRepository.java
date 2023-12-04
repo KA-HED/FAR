@@ -25,4 +25,8 @@ public interface PrRoleRepository extends JpaRepository<ProfilRole, Integer> {
 	@Query("from ProfilRole pr where pr.profil.profilId in(:ids)")
 	public List<ProfilRole> getAllProfilsRoles(@Param(value = "ids") int[] ids);
 
+	@Query(value ="select case when ((max( ProfilRole_ID)+1) is null) then 1 else (max( ProfilRole_ID)+1) end from profilerole", nativeQuery = true)
+	int getmaxid();
+
+
 }

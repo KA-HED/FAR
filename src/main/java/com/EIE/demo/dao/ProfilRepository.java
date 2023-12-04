@@ -21,4 +21,7 @@ public interface ProfilRepository extends JpaRepository<Profil, Integer> {
 	@Query("select g from Profil g where g.deleteDateTime is null order by g.profilId DESC ")
 	public Page<Profil> getAllProfils(Pageable page);
 
+	@Query(value ="select case when ((max( Profil_ID)+1) is null) then 1 else (max( Profil_ID)+1) end from Profil", nativeQuery = true)
+	int getmaxid();
+
 }

@@ -283,11 +283,8 @@
                                         </div>
 
                                     </div>
-                                    <div class="tab-pane" id="div2">
-                                        Segments B-C
-                                    </div>
 
-                                    <div class="tab-pane" id="div3">
+                                    <div class="tab-pane" id="div2">
                                         <div id="Div_paramT">
                                             <table style="margin-bottom:12px;" class="table tablee table-hover">
 
@@ -327,93 +324,6 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane" id="div4">
-                                        <div id="Div_paramD">
-                                            <table style="margin-bottom:12px;" class="table tablee table-hover">
-
-                                                <tr>
-                                                    <th class="text-center"> Paramètre </th>
-                                                    <th class="text-center"> Général </th>
-                                                    <th class="text-center"> Particulier </th>
-
-
-                                                </tr>
-
-                                                <tbody class="tbodyy table-bordered">
-                                                <tr>
-                                                    <td>Paramètre Datatives 1</td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paramètre Datatives 2</td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paramètre Datatives 3</td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                </tr>
-                                                <%--<c:forEach items="${parametre_Datatives}" var="f">--%>
-
-                                                <%--<tr id="tr-${f.agentParamètreId}" style="background-color: ${f.etat=="0"?"#c9d4dd7a":"#ecffde" };">--%>
-                                                <%--<td>${f.classe.nom}</td>--%>
-                                                <%--<td>${f.datedebut}</td>--%>
-                                                <%--<td>${f.datefin}</td>--%>
-
-                                                <%--</tr>--%>
-                                                <%--</c:forEach>--%>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="tab-pane" id="div5">
-                                        <div id="Div_paramN">
-                                            <table style="margin-bottom:12px;" class="table tablee table-hover">
-
-                                                <tr>
-                                                    <th class="text-center"> Paramètre </th>
-                                                    <th class="text-center"> Général </th>
-                                                    <th class="text-center"> Particulier </th>
-
-
-                                                </tr>
-
-                                                <tbody class="tbodyy table-bordered">
-                                                <tr>
-                                                    <td>Paramètre Numériques 1</td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paramètre Numériques 2</td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paramètre Numériques 3</td>
-                                                    <td><input class="form-control" type="radio" name="" ></td>
-                                                    <td><input class="form-control" type="radio" name="" checked></td>
-                                                </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="tab-pane " id="div6">
-                                        Fiche UC
-                                    </div>
-
-                                    <div class="tab-pane " id="div7">
-                                        Caractéristique consommation
                                     </div>
 
                                 </div>

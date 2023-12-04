@@ -76,20 +76,15 @@
 
                                                     <tbody class="tbodyy table-bordered">
                                                     <tr>
-                                                        <td>Paramètre Textuelles 1</td>
-                                                        <td><input class="form-control" type="radio" name="" checked></td>
-                                                        <td><input class="form-control" type="radio" name="" ></td>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Paramètre Textuelles 2</td>
-                                                        <td><input class="form-control" type="radio" name="" checked></td>
-                                                        <td><input class="form-control" type="radio" name="" ></td>
+                                                        <td style="text-align: center;"><input  type="radio" name="" checked></td>
+                                                        <td style="text-align: center;"><input  type="radio" name="" ></td>
+                                                    </tr><tr>
+                                                        <td>Paramètre Textuelles 2</td>
+                                                        <td style="text-align: center;"><input  type="radio" name="" checked></td>
+                                                        <td style="text-align: center;"><input  type="radio" name="" ></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Paramètre Textuelles 3</td>
-                                                        <td><input class="form-control" type="radio" name="" ></td>
-                                                        <td><input class="form-control" type="radio" name="" checked></td>
-                                                    </tr>
+
                                                     <%--<c:forEach items="${parametre_Textuelles}" var="f">--%>
 
                                                         <%--<tr id="tr-${f.agentParamètreId}" style="background-color: ${f.etat=="0"?"#c9d4dd7a":"#ecffde" };">--%>
