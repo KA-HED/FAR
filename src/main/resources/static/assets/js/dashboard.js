@@ -1169,5 +1169,5 @@
 			$('#pro-banner').slideUp();
     });
 	});
-$('.dropdown-toggle').dropdown();
-})(jQuery);
+// $('.dropdown-toggle').dropdown();
+// })(jQuery);

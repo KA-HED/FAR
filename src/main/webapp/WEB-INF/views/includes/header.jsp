@@ -52,11 +52,11 @@
 <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" />--%>
 <!-- CSS Files -->
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.datetimepicker.min.css">
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.datetimepicker.min.css">--%>
 <!-- CSS Just for demo purpose, don't include it in your project -->
 
 
-<link rel="stylesheet" href=" ${pageContext.request.contextPath}/assets/vendors/sweet-alert/sweetalert.css">
+<%--<link rel="stylesheet" href=" ${pageContext.request.contextPath}/assets/vendors/sweet-alert/sweetalert.css">--%>
 <%--<link href="${pageContext.request.contextPath}/assets/css/demo.css" rel="stylesheet" />--%>
 <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/mdi/css/materialdesignicons.min.css">--%>
 <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/vendors/base/vendor.bundle.base.css">--%>
@@ -89,8 +89,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css_login/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css_login/custom.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css_login/bts_4.css">
-<!--flags -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flag.css">
+<%--<!--flags -->--%>
+<%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flag.css">--%>
 
 
 <!-------End-------->
@@ -422,12 +422,4 @@
 
 </style>
 
-<script>
-    $(document).ready(function () {
-        $('.btn-block').addClass("pt-2");
-        $('.btn-block span').css("color", '#28a745');
-        $('.tablee .tbodyy').addClass('table-bordered');
-        $('.progress-bar').css("background-color", "#7DC7BD")
-    });
-</script>
 <script src="${pageContext.request.contextPath}/assets/libs/jquery/dist/jquery.min.js"></script>

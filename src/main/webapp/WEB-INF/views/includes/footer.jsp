@@ -34,8 +34,8 @@
 <script src="${pageContext.request.contextPath}/assets/vendors/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js"></script>
 <script src="${pageContext.request.contextPath}/assets/vendors/justgage/raphael-2.1.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/vendors/justgage/justgage.js"></script>
-<!-- Custom js for this page-->
-<script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>
+<%--<!-- Custom js for this page-->--%>
+<%--<script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>--%>
 
 <%--sweetAlert--%>
 <script src="${pageContext.request.contextPath}/assets/js/sweet-alert.min.js"></script>
@@ -118,7 +118,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/anime.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/MyJs.js"></script>
 
-
+<script src="${pageContext.request.contextPath}/assets/js/addObject.js"></script>
 
 <!--------End Js---->
 <script>
@@ -287,27 +287,7 @@ $(document).ready(function () {
             next.children(':first-child').clone().appendTo($(this));
         }
     });
-    <c:if test="${pageContext.response.locale!='ar' }">
-    //Youssef
-    var textWrapper = document.querySelector('.ml6 .letters');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-    anime.timeline({loop: true})
-        .add({
-            targets: '.ml6 .letter',
-            translateY: ["1.1em", 0],
-            translateZ: 0,
-            duration: 750,
-            delay: (el, i) => 50 * i
-        }).add({
-        targets: '.ml6',
-        opacity: 0,
-        duration: 1000,
-        easing: "easeOutExpo",
-        delay: 1000
-    });
-    </c:if>
 </script>
-<script src="${pageContext.request.contextPath}/assets/js/addObject.js"></script>
 <script>
     $(document).ready(function() {
         $('#DataTables_Table_1').DataTable().clear().destroy();
@@ -423,13 +403,6 @@ $(document).ready(function () {
 
     $(document).ready(function() {
 
-// Gets the video src from the data-src on each button
-
-        var $videoSrc;
-        $('.video-btn').click(function() {
-            $videoSrc = $(this).data( "src" );
-        });
-        console.log($videoSrc);
 
 
 
@@ -477,36 +450,6 @@ $(document).ready(function () {
         });
     }
 
-    function AnnulerDemande(idNotification,type) {
-        Swal.fire({
-                title: 'Confirmation !',
-                text: "<spring:message code="label.demandeAnnule"/>",
-                icon: 'warning',
-                confirmButtonColor: '#49d630',
-                confirmButtonText: '<spring:message code="label.Oui"/> !'
-            }
-        ).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: "/api/AnnulerDemande",
-                    type: "POST",
-
-                    data: {
-                        "id": idNotification,
-                        "type": type,
-                    },
-                    success: function (response) {
-                        swal("La demande à été annulé avec succéss","success");
-                        location.reload();
-                    },
-                    error: function (response) {
-                        alert("erruer");
-                    }
-                });
-            }
-        })
-    }
-
     //Ajouter un mois pour un date
     function addMonths(date, months) {
         date.setMonth(date.getMonth() + months);
@@ -519,7 +462,13 @@ $(document).ready(function () {
         return date.toLocaleDateString("fr-CA");
     }
 
-</script>
 
+    $(document).ready(function () {
+        $('.btn-block').addClass("pt-2");
+        $('.btn-block span').css("color", '#28a745');
+        $('.tablee .tbodyy').addClass('table-bordered');
+        $('.progress-bar').css("background-color", "#7DC7BD")
+    });
+</script>
 
 

@@ -79,9 +79,7 @@
                             <div class="row">
                                 <div class="col-lg-2 border-right pr-0 col-md-4" >
                                     <div class="card-body border-bottom">
-                                        <h4 class="card-title mt-2" style="text-align: ${pageContext.response.locale=='ar'?'right':'left'}">
-                                          <spring:message code='label.Evenement'/>
-                                        </h4>
+
                                     </div>
                                     <div class="card-body" style="text-align: ${pageContext.response.locale=='ar'?'right':'left'}">
                                         <div class="row">

@@ -64,7 +64,7 @@
                                         </div>
                                         </li>
                                         <li class="nav-item ">
-                                        <a class="nav-link nl" href="/TedAeb/listeINDISPONIBILITES"><i class="fa fa-file" style="color: #e0e0e0"></i> INDISPONIBILITES<span
+                                        <a class="nav-link nl" href="/TedAeb/listeIndispo"><i class="fa fa-file" style="color: #e0e0e0"></i> Indispo<span
                                         class="sr-only">(current)</span></a>
                                         </li>
                                         <li class="nav-item dropdown">

@@ -50,6 +50,8 @@ public class UserControler {
 	private PrRoleRepository profilRoleRepository;
 	@Autowired
 	private CompteRepository compteRepository;
+	@Autowired
+	private IndispoRepository indispoRepository;
 
 	@Autowired
 	private ActeurRepository acteurRepository;
@@ -495,6 +497,53 @@ public class UserControler {
 	}*/
 
 
+//**************************************************************************
+//**************************************************************************
+//  Indispo changement classification
+	@RequestMapping(value = "/addIndispo", method = RequestMethod.POST)
+	public ModelAndView addIndispo(@RequestBody Indispo ed) {
+		Map<String, Object> model = new HashMap<String, Object>();
+
+		indispoRepository.save(ed);
+
+		return new ModelAndView("om/addIndispo", model);
+	}
+
+	@RequestMapping(value = "/listeIndispo", method = RequestMethod.GET)
+	public ModelAndView listeIndispo() {
+		Map<String, Object> model = new HashMap<String, Object>();
+
+		List<Indispo> searchResult = indispoRepository.findAll();
+		model.put("listF", searchResult);
+		model.put("user",web.getCompteConnected());
+		return new ModelAndView("om/listeIndispo", model);
+	}
+
+	@RequestMapping(value = "/formToAddIndispo/{id}", method = RequestMethod.GET)
+	public ModelAndView formToAddIndispo(@PathVariable Long id) {
+		Map<String, Object> model = new HashMap<String, Object>();
+
+
+		Indispo h=null;
+		if(id!=0) {
+
+			h = indispoRepository.getOne(id);
+			model.put("Indispo", h);
+		}
+		else {
+			model.put("Indispo", null);
+		}
+
+
+		model.put("user",web.getCompteConnected());
+
+		return new ModelAndView("om/formToAddIndispo", model);
+	}
+
+
+
+//**************************************************************************
+//**************************************************************************
 
 
 }

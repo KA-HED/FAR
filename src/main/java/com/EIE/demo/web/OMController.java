@@ -41,11 +41,11 @@ public class OMController {
 
         if(ed.getLigneOmId()==null){
             ed.setLigneOmId(ligneOmRepository.getmaxid());
-//            ed.setNomineralogique("ok");
-//            ed.setNumChassis("ok");
-//            ed.setUntIdEmg(1L);
-//            ed.setPosIdEmg("349");
         }
+        if(ed.getDetenteurDest().getDetenteurId()==0)ed.setDetenteurDest(null);
+        if(ed.getUntElementOrig().getUntId()==0)ed.setUntElementOrig(null);
+        if(ed.getUntDetachDest().getUntId()==0)ed.setUntDetachDest(null);
+
         ligneOmRepository.save(ed);
         List<LigneOm> lOM =  ligneOmRepository.getLigneOmbyOM(ed.getOm().getOmId());
         model.put("lOM",lOM);
@@ -65,18 +65,11 @@ public class OMController {
 // OM
     @RequestMapping(value = "/addOM", method = RequestMethod.POST)
     public @ResponseBody String addOM(@RequestBody OM ed) {
-        Map<String, Object> model = new HashMap<String, Object>();
-
         if(ed.getOmId()==null){
             ed.setOmId(oMRepository.getmaxid());
-//            ed.setNomineralogique("ok");
-//            ed.setNumChassis("ok");
-//            ed.setUntIdEmg(1L);
-//            ed.setPosIdEmg("349");
         }
         oMRepository.save(ed);
-
-        return ed.getOmId()+"";
+        return ed.getOmId().toString();
     }
 
     @RequestMapping(value = "/listeOM", method = RequestMethod.GET)
@@ -116,6 +109,17 @@ public class OMController {
         model.put("id_om",id);
 
         return new ModelAndView("om/formToAddOM", model);
+    }
+
+
+    @RequestMapping(value = "/deleteCompte", method = RequestMethod.POST)
+    public @ResponseBody String addCompte(@RequestParam Long id) {
+
+        OM om = oMRepository.getOne(id);
+        //om.setActive("0");
+        oMRepository.delete(om);
+
+        return "ok";
     }
 
 

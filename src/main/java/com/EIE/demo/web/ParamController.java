@@ -64,6 +64,8 @@ public class ParamController {
         Map<String, Object> model = new HashMap<String, Object>();
 
         List<CategorieAEB> searchResult = categorieAEBRepository.findAll();
+        List<SCategorieAEB> sCategorieAEB = sCategorieAEBRepository.findAll();
+        model.put("sCategorieAEB", sCategorieAEB);
         model.put("listF", searchResult);
         model.put("user", web.getCompteConnected());
         return new ModelAndView("param/listeCategorieAEB", model);

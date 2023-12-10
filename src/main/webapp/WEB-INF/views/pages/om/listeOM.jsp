@@ -147,7 +147,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <button onclick="deleteCompte(${f.omId})"
+                                                                <button onclick="deleteOM(${f.omId})"
                                                                         class="btn"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
                                                                         title="Supprimer">
@@ -234,6 +234,26 @@
 </div>
 
 <script>
+
+    function deleteOM(id){
+
+        $.ajax({
+            type : "POST",
+            url :"/deleteOm",
+            data:{
+                "id":id
+            },
+            success : function(data) {
+
+                $("#tr-"+id).css("display","none");
+            },
+            error : function(response) {
+                alert("error")
+            }
+        });
+
+    }
+
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
