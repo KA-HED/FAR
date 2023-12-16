@@ -90,6 +90,30 @@ public class ParamController {
 
         return new ModelAndView("param/formToAddCategorie_materiel", model);
     }
+
+    //deleteCategorieAEB
+
+    @RequestMapping(value = "/deleteCategorieAEB", method = RequestMethod.POST)
+    public @ResponseBody String deleteCategorieAEB(@RequestParam Long id) {
+
+        CategorieAEB ma = categorieAEBRepository.getOne(id);
+        categorieAEBRepository.delete(ma);
+
+        return "ok";
+    }
+
+    //deleteScategorieAEB
+
+    @RequestMapping(value = "/deleteSCategorieAEB", method = RequestMethod.POST)
+    public @ResponseBody String deleteSCategorieAEB(@RequestParam Long id) {
+
+        SCategorieAEB ma = sCategorieAEBRepository.getOne(id);
+        sCategorieAEBRepository.delete(ma);
+
+        return "ok";
+    }
+
+
 //*******************************************************************************
 //SCategorieAEB
 
@@ -171,9 +195,23 @@ public class ParamController {
         }
 
 
+        List<TypeAEB> type = typeAEBRepository.findAll();
+        model.put("TypeAEB", type);
+        model.put("TypeAEBMarqueAEB",  typeAEBRepository.getsTypeAEBbymarque(id));
+        model.put("VersionAebMarqueAEB", versionAebRepository.getsVersionAebByTypeAEB(typeAEBRepository.getsoneTypeAEBbymarque(id).getTypeId()));
         model.put("user", web.getCompteConnected());
 
         return new ModelAndView("param/formToAddMarqueAEB", model);
+    }
+    //deleteMarqueAEB
+
+    @RequestMapping(value = "/deleteMarqueAEB", method = RequestMethod.POST)
+    public @ResponseBody String deleteMarqueAEB(@RequestParam Long id) {
+
+        MarqueAEB ma = marqueAEBRepository.getOne(id);
+        marqueAEBRepository.delete(ma);
+
+        return "ok";
     }
 
 //**************************************************************************
@@ -352,7 +390,7 @@ public class ParamController {
         }
 
 
-        model.put("user", web.getCompteConnected());
+//        model.put("user", web.getCompteConnected());
         model.put("user", web.getCompteConnected());
 
         return new ModelAndView("param/formToAddDetachement_Vehicules", model);
@@ -536,6 +574,96 @@ public class ParamController {
     }
 
 //**************************************************************************
+// TypeAEB
+@RequestMapping(value = "/addTypeAEB", method = RequestMethod.POST)
+public ModelAndView addTypeAEB(@RequestBody TypeAEB ed) {
+    Map<String, Object> model = new HashMap<String, Object>();
+    if(ed.getTypeId()==null){
+        ed.setTypeId(typeAEBRepository.getmaxid());
+    }
+    typeAEBRepository.save(ed);
+
+    model.put("TypeAEBMarqueAEB", typeAEBRepository.getsTypeAEBbymarque(ed.getMarque().getMarqueId()));
+
+    return new ModelAndView("param/addTypeAEB", model);
+}
+
+    @RequestMapping(value = "/listeTypeAEB", method = RequestMethod.GET)
+    public ModelAndView listeTypeAEB() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<TypeAEB> searchResult = typeAEBRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeTypeAEB", model);
+    }
+//    deleteTypeAEB
+    @RequestMapping(value = "/deleteTypeAEB", method = RequestMethod.POST)
+    public @ResponseBody String deleteTypeAEB(@RequestParam Long id) {
+
+        TypeAEB ed = typeAEBRepository.getOne(id);
+        typeAEBRepository.delete(ed);
+
+        return "ok";
+    }
+//*******************************************************************************
+//*******************************************************************************//**************************************************************************
+// VersionAeb
+@RequestMapping(value = "/addVersionAeb", method = RequestMethod.POST)
+public ModelAndView addVersionAeb(@RequestBody VersionAeb ed) {
+    Map<String, Object> model = new HashMap<String, Object>();
+    if(ed.getVersionId()==null){
+        ed.setVersionId(versionAebRepository.getmaxid());
+    }
+    versionAebRepository.save(ed);
+
+    model.put("VersionAebMarqueAEB", versionAebRepository.getsVersionAebByTypeAEB(ed.getTypeId()));
+
+    return new ModelAndView("param/addVersions", model);
+}
+
+    @RequestMapping(value = "/listeVersionAeb", method = RequestMethod.GET)
+    public ModelAndView listeVersionAeb() {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        List<VersionAeb> searchResult = versionAebRepository.findAll();
+        model.put("listF", searchResult);
+        model.put("user", web.getCompteConnected());
+        return new ModelAndView("param/listeVersionAeb", model);
+    }
+//    deleteVersionAeb
+    @RequestMapping(value = "/deleteVersionAeb", method = RequestMethod.POST)
+    public @ResponseBody String deleteVersionAeb(@RequestParam Long id) {
+
+        VersionAeb ed = versionAebRepository.getOne(id);
+        versionAebRepository.delete(ed);
+
+        return "ok";
+    }
+
+//    show_Versions2
+    @RequestMapping(value = "/show_Versions2", method = RequestMethod.POST)
+    public @ResponseBody ModelAndView show_Versions2(@RequestParam Long id) {
+
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("VersionAebMarqueAEB", versionAebRepository.getsVersionAebByTypeAEB(id));
+
+        return new ModelAndView("param/addVersions", model);
+    }
+
+    @RequestMapping(value = "/show_Versions", method = RequestMethod.POST)
+    public ModelAndView show_Versions(@RequestBody Long id) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+//        versionAebRepository.getsVersionAebByTypeAEB(id);
+
+        model.put("VersionAebMarqueAEB", versionAebRepository.getsVersionAebByTypeAEB(id));
+
+        return new ModelAndView("param/addVersions", model);
+    }
+
+//*******************************************************************************
+//*******************************************************************************
 
 
 

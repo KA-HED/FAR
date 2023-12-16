@@ -4,27 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%--<table class="table table-bordered">--%>
-    <%--<tr class="thead-dark">--%>
-        <%--<th rowspan="2">N° Vhle</th>--%>
-        <%--<th rowspan="2">Désignation</th>--%>
-        <%--<th rowspan="2">N° Chassis</th>--%>
-        <%--<th colspan="2">Origine</th>--%>
-        <%--&lt;%&ndash;<th>4 </th>&ndash;%&gt;--%>
-        <%--<th colspan="2">Destinataire</th>--%>
-        <%--<th rowspan="2">unité Élémentaire</th>--%>
-        <%--<th rowspan="2">unité Détachement  </th>--%>
-        <%--<th rowspan="2">Détenteur</th>--%>
-        <%--<th rowspan="2">Etat</th>--%>
-        <%--<th rowspan="2">Action</th>--%>
-    <%--</tr>--%>
-    <%--<tr class="thead-dark">--%>
-        <%--<th >unité</th>--%>
-        <%--<th>Position</th>--%>
-        <%--<th>unité </th>--%>
-        <%--<th>Position</th>--%>
-    <%--</tr>--%>
-
     <c:forEach items="${lOM}" var="ed">
         <tr id="tr_${ed.ligneOmId}">
             <td>${ed.art.numMoteur}</td>
@@ -51,6 +30,5 @@
 
     </c:forEach>
 
-<%--</table>--%>
 
 

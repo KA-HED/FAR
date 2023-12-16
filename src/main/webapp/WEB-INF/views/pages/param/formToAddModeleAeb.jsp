@@ -415,6 +415,16 @@
 <script>
 
 
+    function designation(){
+        var cat= $("#cat option:selected").text();
+        var scat= $("#id_sCategorieAEB option:selected").text();
+        var Marque= $("#Marque option:selected").text();
+        var type= $("#type option:selected").text();
+        var Version= $("#Version option:selected").text();
+
+
+        $("#designation").val(cat+"-"+scat+"-"+Marque+"-"+type+"-"+Version);
+    }
     function S_Cat(){
 var vals=$("#cat").val();
         $.ajax({
@@ -441,21 +451,21 @@ var vals=$("#cat").val();
         window.location.href="/api/param/listeModeleAeb"
     }
 
-    $.fn.serializeObject = function() {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
+    // $.fn.serializeObject = function() {
+    //     var o = {};
+    //     var a = this.serializeArray();
+    //     $.each(a, function() {
+    //         if (o[this.name]) {
+    //             if (!o[this.name].push) {
+    //                 o[this.name] = [o[this.name]];
+    //             }
+    //             o[this.name].push(this.value || '');
+    //         } else {
+    //             o[this.name] = this.value || '';
+    //         }
+    //     });
+    //     return o;
+    // };
 
     function save(){
         var id=$("#catId").val();
@@ -519,7 +529,7 @@ var vals=$("#cat").val();
             },
             error: function (response) {
 
-                alert('Erreur ajout non effectu�');
+                alert('Erreur ajout non effectué');
 
             }
         });

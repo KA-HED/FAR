@@ -30,6 +30,7 @@
 <%--<script src="${pageContext.request.contextPath}/assets/statistique/widget/amchart/light.js"></script>--%>
 <%--<script src="${pageContext.request.contextPath}/assets/statistique/chart/statisticfr.js"></script>--%>
 <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/icon/icofont/css/icofont.css" />--%>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bootstrap-select.min.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/style_statistique.css"/>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/fontawesome/css/all.min.css"/>
@@ -94,8 +95,34 @@
 
 
 <!-------End-------->
+                                                        <%--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />--%>
+
 
 <style>
+
+    input:focus{
+        outline: 2px solid orange;     /* oranges! yey */
+    }
+    select:focus {
+        /*color: green;*/
+        outline: 2px solid orange;
+    }
+    select {
+        height: 30px;
+    }
+    .btn:focus {
+        outline: 2px solid orange !important;
+    }
+
+
+
+    .bootstrap-select>.dropdown-toggle{
+        color: #0a0a0a !important;
+        height: 30px !important;
+        background-color: white !important;
+        font-size: 13px;
+    }
+
 
 
     li.select2-selection__choice {

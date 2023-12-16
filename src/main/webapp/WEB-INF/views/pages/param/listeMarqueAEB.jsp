@@ -131,7 +131,7 @@
                                                     <td class="text-center">
                                                         <ul class="list-inline m-0">
                                                             <li class="list-inline-item text-center">
-                                                                <a href="/api/param/formToAddCategorie_materiel/${f.marqueId}"
+                                                                <a href="/api/param/formToAddMarqueAEB/${f.marqueId}"
                                                                    class="btn"
                                                                    type="button" data-toggle="tooltip" data-placement="top" title="Editer">
                                                                     <div class="icon_trash_1">
@@ -141,7 +141,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <button onclick="deleteCompte(${f.marqueId})"
+                                                                <button onclick="deleteMarqueAEB(${f.marqueId})"
                                                                         class="btn"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
                                                                         title="Supprimer">
@@ -183,8 +183,8 @@
                                                     <%--<c:set value="0" var="page_LAST"/>--%>
                                                 <%--</c:if>--%>
 
-                                                <%--<a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>--%>
-                                                <%--<a  style="background-color: #184a00bd   !important;" onclick="getParamCompte(${page_db}, ${type})" class="pageStyle">&laquo;</a>--%>
+                                                <%--<a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamMarqueAEB(0, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-left m-0"></i></a>--%>
+                                                <%--<a  style="background-color: #184a00bd   !important;" onclick="getParamMarqueAEB(${page_db}, ${type})" class="pageStyle">&laquo;</a>--%>
 
                                                 <%--<c:set var="salary" value="${totalPage-page-1}"/>--%>
                                                 <%--<c:choose>--%>
@@ -198,7 +198,7 @@
 
                                                 <%--<c:if test="${totalPage>0}">--%>
                                                     <%--<c:forEach begin="${page}" end="${page+toAdd}" var="c">--%>
-                                                        <%--<a style="background-color: #184a00bd   !important; ${page+toAdd}" onclick="getParamCompte(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>--%>
+                                                        <%--<a style="background-color: #184a00bd   !important; ${page+toAdd}" onclick="getParamMarqueAEB(${c}, ${type})"  ${c==number ? 'class=" pageStyle1 active "' : 'class=" pageStyle"'}>${c+1}</a>--%>
                                                     <%--</c:forEach>--%>
                                                 <%--</c:if>--%>
                                                 <%--<c:if test="${(page)>=(totalPage-1)}">--%>
@@ -209,8 +209,8 @@
                                                     <%--<c:set value="${page+1}" var="page_end"/>--%>
                                                 <%--</c:if>--%>
 
-                                                <%--<a style="background-color: #184a00bd   !important;" onclick="getParamCompte(${page_end}, ${type})" class="pageStyle">&raquo;</a>--%>
-                                                <%--<a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamCompte(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>--%>
+                                                <%--<a style="background-color: #184a00bd   !important;" onclick="getParamMarqueAEB(${page_end}, ${type})" class="pageStyle">&raquo;</a>--%>
+                                                <%--<a style="background-color: #184a00bd     ;text-align: center;background-size: 100% 100%" onclick="getParamMarqueAEB(${totalPage-1}, ${type})" class="pageStyle"><i class="mdi mdi-arrow-collapse-right m-0"></i></a>--%>
 
                                             <%--</div>--%>
                                         <%--</c:when>--%>
@@ -228,6 +228,29 @@
 </div>
 
 <script>
+
+    function deleteMarqueAEB(id){
+
+        $.ajax({
+            type : "POST",
+            url :"/api/param/deleteMarqueAEB",
+            data:{
+                "id":id
+            },
+            success : function(data) {
+
+                $("#tr_"+id).css("display","none");
+            },
+            error : function(response) {
+                alert("error")
+            }
+        });
+
+
+    }
+
+
+
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();

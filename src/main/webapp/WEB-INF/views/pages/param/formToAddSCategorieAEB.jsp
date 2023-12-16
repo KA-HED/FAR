@@ -439,28 +439,12 @@
         window.location.href="/api/param/listeSCategorieAEB"
     }
 
-    $.fn.serializeObject = function() {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function() {
-            if (o[this.name]) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-
     function save(){
         var id=$("#sCatId").val();
         var se = $("#myForm").serializeObject();
 
             $.ajax({
-                url: '/api/param/addSCategorieAEB/'+id, // url where to submit the request
+                url: '/api/param/addSCategorieAEB/', // url where to submit the request
                 type : "POST", // type of action POST || GET
                 contentType : 'application/json; charset=utf-8',
                 data : JSON.stringify(se),

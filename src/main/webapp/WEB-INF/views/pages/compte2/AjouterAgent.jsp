@@ -1109,7 +1109,7 @@
                      },
                      error: function (response) {
 
-                         alert('Erreur ajout non effectu�');
+                         alert('Erreur ajout non effectué');
 
                      }
                  });
@@ -1136,7 +1136,7 @@
                          //window.location.href = '/api/updateAgent/'+agentid+"#div5"
                      },
                      error: function (response) {
-                         alert('Erreur ajout non effectu�');
+                         alert('Erreur ajout non effectué');
                      }
                  });
              } else {
@@ -1185,7 +1185,7 @@
                          //window.location.href = '/api/updateAgent/'+agentid+"#div5"
                      },
                      error: function (response) {
-                         alert('Erreur ajout non effectu�');
+                         alert('Erreur ajout non effectué');
                      }
                  });
              } else {
@@ -1212,7 +1212,7 @@
                          //window.location.href = '/api/updateAgent/'+agentid+"#div5"
                      },
                      error: function (response) {
-                         alert('Erreur ajout non effectu�');
+                         alert('Erreur ajout non effectué');
                      }
                  });
              } else {
@@ -1286,7 +1286,7 @@
                          //window.location.href = '/api/updateAgent/'+agentid+"#div5"
                      },
                      error: function (response) {
-                         alert('Erreur ajout non effectu�');
+                         alert('Erreur ajout non effectué');
                      }
                  });
              } else {

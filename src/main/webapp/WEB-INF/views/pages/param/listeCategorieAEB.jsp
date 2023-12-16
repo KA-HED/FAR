@@ -141,7 +141,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <button onclick="deleteCompte(${f.catId})"
+                                                                <button onclick="deleteCategorieAEB(${f.catId})"
                                                                         class="btn"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
                                                                         title="Supprimer">
@@ -228,6 +228,28 @@
 </div>
 
 <script>
+
+    function deleteCategorieAEB(id) {
+
+
+        $.ajax({
+            type : "POST",
+            url :"/api/param/deleteCategorieAEB",
+            data:{
+                "id":id
+            },
+            success : function(data) {
+
+                $("#tr-"+id).css("display","none");
+            },
+            error : function(response) {
+                alert("Impossible de supprimer cet élément")
+            }
+        });
+    }
+
+
+
     $(document).ready(function(){
         $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();

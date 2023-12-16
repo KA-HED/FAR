@@ -131,7 +131,7 @@
                                                     <td class="text-center">
                                                         <ul class="list-inline m-0">
                                                             <li class="list-inline-item text-center">
-                                                                <a href="/api/param/formToAddCategorie_materiel/${f.sCatId}"
+                                                                <a href="/api/param/formToAddSCategorieAEB/${f.sCatId}"
                                                                    class="btn"
                                                                    type="button" data-toggle="tooltip" data-placement="top" title="Editer">
                                                                     <div class="icon_trash_1">
@@ -141,7 +141,7 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <button onclick="deleteCompte(${f.sCatId})"
+                                                                <button onclick="deleteSCategorieAEB(${f.sCatId})"
                                                                         class="btn"
                                                                         type="button" data-toggle="tooltip" data-placement="top"
                                                                         title="Supprimer">
@@ -228,14 +228,25 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
+
+    function deleteSCategorieAEB(id) {
+
+
+        $.ajax({
+            type : "POST",
+            url :"/api/param/deleteSCategorieAEB",
+            data:{
+                "id":id
+            },
+            success : function(data) {
+
+                $("#tr-"+id).css("display","none");
+            },
+            error : function(response) {
+                alert("Impossible de supprimer cet élément")
+            }
         });
-    });
+    }
 
 </script>
 

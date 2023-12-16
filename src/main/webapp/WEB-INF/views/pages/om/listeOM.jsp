@@ -117,11 +117,11 @@
                                             <thead>
                                             <tr>
                                                 <%--<th class="text-center"></th>--%>
-                                                <th class="text-center">refOM</th>
-                                                <th class="text-center">dateOM</th>
-                                                <th class="text-center">degreUrg</th>
-                                                <th class="text-center">tracOM</th>
-                                                <th class="text-center">typeOM</th>
+                                                <th class="text-center">Référence</th>
+                                                <th class="text-center">Date OM</th>
+                                                <th class="text-center">Degré d’urgence</th>
+                                                <th class="text-center">Type OM</th>
+                                                <%--<th class="text-center">typeOM</th>--%>
                                                 <th class="text-center"><spring:message code="label.Action"/></th>
                                             </tr>
                                             </thead>
@@ -131,8 +131,8 @@
                                                 <tr id="tr-${f.omId}">
                                                     <td>${f.refOM}</td>
                                                     <td>${f.dateOM}</td>
-                                                    <td>${f.degreUrg}</td>
-                                                    <td>${f.tracOM}</td>
+                                                    <td>${f.degreUrg=='1'?'Normal':'Urgent'}</td>
+                                                    <%--<td>${f.tracOM}</td>--%>
                                                     <td>${f.typeOM}</td>
                                                     <td class="text-center">
                                                         <ul class="list-inline m-0">
@@ -239,7 +239,7 @@
 
         $.ajax({
             type : "POST",
-            url :"/deleteOm",
+            url :"/OM/deleteOm",
             data:{
                 "id":id
             },
@@ -254,14 +254,14 @@
 
     }
 
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
+    // $(document).ready(function(){
+    //     $("#myInput").on("keyup", function() {
+    //         var value = $(this).val().toLowerCase();
+    //         $("#myTable tr").filter(function() {
+    //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //         });
+    //     });
+    // });
 
 </script>
 

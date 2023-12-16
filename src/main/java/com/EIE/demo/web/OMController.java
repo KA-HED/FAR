@@ -3,6 +3,7 @@ package com.EIE.demo.web;
 
 import com.EIE.demo.dao.*;
 import com.EIE.demo.dataService.WebService;
+import com.EIE.demo.model.Art;
 import com.EIE.demo.model.LigneOm;
 import com.EIE.demo.model.OM;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,16 @@ public class OMController {
         if(ed.getUntDetachDest().getUntId()==0)ed.setUntDetachDest(null);
 
         ligneOmRepository.save(ed);
+        Art art= artRepository.getOne(ed.getArt().getnNomencl());
+        art.setEtat_om("Réserve");
+        artRepository.save(art);
+        model.put("acteur",acteurRepository.findAll());
+        model.put("Pos",posRepository.findAll());
+        model.put("unt",unitesCribleesRepository.findAll());
+        model.put("detenteur",detenteurRepository.findAll());
+        model.put("art",artRepository.getAllArt_Affecter());
+        model.put("user",web.getCompteConnected());
+
         List<LigneOm> lOM =  ligneOmRepository.getLigneOmbyOM(ed.getOm().getOmId());
         model.put("lOM",lOM);
 
@@ -57,6 +68,9 @@ public class OMController {
     public @ResponseBody String deleteligneOm(@RequestParam Long id) {
 
         LigneOm lm = ligneOmRepository.getOne(id);
+        Art art= artRepository.getOne(lm.getArt().getnNomencl());
+        art.setEtat_om("Affecter");
+        artRepository.save(art);
         ligneOmRepository.delete(lm);
 
         return "ok";
@@ -104,7 +118,7 @@ public class OMController {
         model.put("unt",unitesCribleesRepository.findAll());
         model.put("detenteur",detenteurRepository.findAll());
         model.put("lOM",lOM);
-        model.put("art",artRepository.findAll());
+        model.put("art",artRepository.getAllArt_Affecter());
         model.put("user",web.getCompteConnected());
         model.put("id_om",id);
 
@@ -112,8 +126,8 @@ public class OMController {
     }
 
 
-    @RequestMapping(value = "/deleteCompte", method = RequestMethod.POST)
-    public @ResponseBody String addCompte(@RequestParam Long id) {
+    @RequestMapping(value = "/deleteOm", method = RequestMethod.POST)
+    public @ResponseBody String deleteOm(@RequestParam Long id) {
 
         OM om = oMRepository.getOne(id);
         //om.setActive("0");

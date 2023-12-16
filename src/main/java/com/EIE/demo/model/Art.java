@@ -74,6 +74,9 @@ public class Art implements Serializable {
     @Column(name = "NUM_MOTEUR", length = 20)
     private String numMoteur;
 
+    @Column(name ="ETAT_OM", length = 20)
+    private String etat_om;
+
     @Column(name = "ANNEE_CONSTRUCTION")
     private Integer anneeConstruction;
 
@@ -314,6 +317,22 @@ public class Art implements Serializable {
 
     public void setNumMoteur(String numMoteur) {
         this.numMoteur = numMoteur;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getEtat_om() {
+        return etat_om;
+    }
+
+    public void setEtat_om(String etat_om) {
+        this.etat_om = etat_om;
     }
 
     public Integer getAnneeConstruction() {

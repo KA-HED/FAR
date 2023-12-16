@@ -21566,11 +21566,11 @@ height: 39px;
 .form-control, .typeahead,
 .tt-query,
 .tt-hint {
-  border: 1px solid #f1f6f8;
-  font-weight: 400;
-  font-size: 0.875rem;
-  height: 32px;
-margin-bottom: 12px;
+    border: 1px solid #f1f6f8 !important;
+    font-weight: 400;
+    font-size: 0.875rem !important;
+    height: 30px !important;
+    margin-bottom: 5px;
 }
 
 select.form-control, select.typeahead,
