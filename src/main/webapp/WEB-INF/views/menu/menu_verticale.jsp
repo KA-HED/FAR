@@ -32,10 +32,10 @@
                                         <i class="fa fa-cog" style="color: #e0e0e0"></i> Factures
                                         </a>
                                         <div class="dropdown-menu" >
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeCOMPTE_RENDU',10)">COMPTE-RENDU </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 entré  </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M16 sortie </a>
-                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/OM/listeOM',10)">M15 </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/ECGSM/listeCompte_Rendu',10)">COMPTE-RENDU </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/ECGSM/listeM16',10)">M16 entré  </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/ECGSM/listeM16',10)">M16 sortie </a>
+                                        <a class="dropdown-item" type="button" onclick="goToLien_menu('/ECGSM/listeM15',10)">M15 </a>
 
                                         </div>
                                         </li>

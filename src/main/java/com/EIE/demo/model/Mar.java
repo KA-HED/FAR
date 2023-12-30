@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
-@Table(name = "MAR", schema = "AEB")
+@Table(name = "MAR"/*, schema = "AEB"*/)
 public class Mar {
 
     @Id

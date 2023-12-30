@@ -453,7 +453,7 @@
                 }
 
                 return 0;
-            }); // https://github.com/jkup/focusable/blob/master/index.js
+            }); //--github--.com/jkup/focusable/blob/master/index.js
 
         var otherFocusableElements = toArray(getPopup().querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], audio[controls], video[controls]')).filter(function (el) {
             return el.getAttribute('tabindex') !== '-1';
@@ -601,7 +601,7 @@
     }();
 
 // Measure width of scrollbar
-// https://github.com/twbs/bootstrap/blob/master/js/modal.js#L279-L286
+//--github--.com/twbs/bootstrap/blob/master/js/modal.js#L279-L286
     var measureScrollbar = function measureScrollbar() {
         var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
@@ -1406,7 +1406,7 @@
         getTimerLeft: getTimerLeft
     });
 
-// https://github.com/Riim/symbol-polyfill/blob/master/index.js
+//--github--.com/Riim/symbol-polyfill/blob/master/index.js
 
     /* istanbul ignore next */
     var _Symbol = typeof Symbol === 'function' ? Symbol : function () {
@@ -1456,8 +1456,8 @@
      * This module containts `WeakMap`s for each effectively-"private  property" that a `swal` has.
      * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
      * This is the approach that Babel will probably take to implement private methods/fields
-     *   https://github.com/tc39/proposal-private-methods
-     *   https://github.com/babel/babel/pull/7555
+     * h-t-t-p-s://github.com/tc39/proposal-private-methods
+     * h-t-t-p-s://github.com/babel/babel/pull/7555
      * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
      *   then we can use that language feature.
      */

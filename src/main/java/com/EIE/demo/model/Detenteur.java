@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "DETENTEUR", schema = "AEB")
+@Table(name = "DETENTEUR"/*, schema = "AEB"*/)
 public class Detenteur {
     // Constructors, getters, and setters
     private String value;

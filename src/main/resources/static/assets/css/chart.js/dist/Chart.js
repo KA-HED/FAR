@@ -1,6 +1,6 @@
 /*!
  * Chart.js v2.9.3
- * https://www.chartjs.org
+ * h-t-t-p-s://www.chartjs.org
  * (c) 2019 Chart.js Contributors
  * Released under the MIT License
  */
@@ -1070,7 +1070,7 @@ var conversions_15 = conversions.gray;
 
 function buildGraph() {
 	var graph = {};
-	// https://jsperf.com/object-keys-vs-for-in-with-closure/3
+	//h-t-t-p-s://jsperf.com/object-keys-vs-for-in-with-closure/3
 	var models = Object.keys(conversions);
 
 	for (var len = models.length, i = 0; i < len; i++) {
@@ -1085,7 +1085,7 @@ function buildGraph() {
 	return graph;
 }
 
-// https://en.wikipedia.org/wiki/Breadth-first_search
+//h-t-t-p-s://en.wikipedia.org/wiki/Breadth-first_search
 function deriveBFS(fromModel) {
 	var graph = buildGraph();
 	var queue = [fromModel]; // unshift -> queue -> pop
@@ -1920,7 +1920,7 @@ Color.prototype = {
 
 	/**
 	 * Ported from sass implementation in C
-	 * https://github.com/sass/libsass/blob/0e6b4a2850092356aa3ece07c6b249f0221caced/functions.cpp#L209
+	 * h-t-t-p-s://github.com/sass/libsass/blob/0e6b4a2850092356aa3ece07c6b249f0221caced/functions.cpp#L209
 	 */
 	mix: function (mixinColor, weight) {
 		var color1 = this;
@@ -2812,8 +2812,8 @@ var exports$1 = {
 			// almost a circle. 0.516 (instead of 0.5) produces results with visually
 			// closer proportion to the previous impl and it is inscribed in the
 			// circle with `radius`. For more details, see the following PRs:
-			// https://github.com/chartjs/Chart.js/issues/5597
-			// https://github.com/chartjs/Chart.js/issues/5858
+			//--github--.com/chartjs/Chart.js/issues/5597
+			//--github--.com/chartjs/Chart.js/issues/5858
 			cornerRadius = radius * 0.516;
 			size = radius - cornerRadius;
 			xOffset = Math.cos(rad + QUARTER_PI) * size;
@@ -3521,7 +3521,7 @@ var core_animations = {
 			numSteps = animation.numSteps;
 
 			// Make sure that currentStep starts at 1
-			// https://github.com/chartjs/Chart.js/issues/6104
+			//--github--.com/chartjs/Chart.js/issues/6104
 			nextStep = Math.floor((Date.now() - animation.startTime) / animation.duration * numSteps) + 1;
 			animation.currentStep = Math.min(nextStep, numSteps);
 
@@ -7386,7 +7386,7 @@ var platform_basic = {
 	}
 };
 
-var platform_dom = "/*\n * DOM element rendering detection\n * https://davidwalsh.name/detect-node-insertion\n */\n@keyframes chartjs-render-animation {\n\tfrom { opacity: 0.99; }\n\tto { opacity: 1; }\n}\n\n.chartjs-render-monitor {\n\tanimation: chartjs-render-animation 0.001s;\n}\n\n/*\n * DOM element resizing detection\n * https://github.com/marcj/css-element-queries\n */\n.chartjs-size-monitor,\n.chartjs-size-monitor-expand,\n.chartjs-size-monitor-shrink {\n\tposition: absolute;\n\tdirection: ltr;\n\tleft: 0;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\toverflow: hidden;\n\tpointer-events: none;\n\tvisibility: hidden;\n\tz-index: -1;\n}\n\n.chartjs-size-monitor-expand > div {\n\tposition: absolute;\n\twidth: 1000000px;\n\theight: 1000000px;\n\tleft: 0;\n\ttop: 0;\n}\n\n.chartjs-size-monitor-shrink > div {\n\tposition: absolute;\n\twidth: 200%;\n\theight: 200%;\n\tleft: 0;\n\ttop: 0;\n}\n";
+var platform_dom = "/*\n * DOM element rendering detection\n * h-t-t-p-s://davidwalsh.name/detect-node-insertion\n */\n@keyframes chartjs-render-animation {\n\tfrom { opacity: 0.99; }\n\tto { opacity: 1; }\n}\n\n.chartjs-render-monitor {\n\tanimation: chartjs-render-animation 0.001s;\n}\n\n/*\n * DOM element resizing detection\n * h-t-t-p-s://github.com/marcj/css-element-queries\n */\n.chartjs-size-monitor,\n.chartjs-size-monitor-expand,\n.chartjs-size-monitor-shrink {\n\tposition: absolute;\n\tdirection: ltr;\n\tleft: 0;\n\ttop: 0;\n\tright: 0;\n\tbottom: 0;\n\toverflow: hidden;\n\tpointer-events: none;\n\tvisibility: hidden;\n\tz-index: -1;\n}\n\n.chartjs-size-monitor-expand > div {\n\tposition: absolute;\n\twidth: 1000000px;\n\theight: 1000000px;\n\tleft: 0;\n\ttop: 0;\n}\n\n.chartjs-size-monitor-shrink > div {\n\tposition: absolute;\n\twidth: 200%;\n\theight: 200%;\n\tleft: 0;\n\ttop: 0;\n}\n";
 
 var platform_dom$1 = /*#__PURE__*/Object.freeze({
 __proto__: null,
@@ -7462,7 +7462,7 @@ function initCanvas(canvas, config) {
 
 	// Force canvas to display as block to avoid extra space caused by inline
 	// elements, which would interfere with the responsive resize process.
-	// https://github.com/chartjs/Chart.js/issues/2538
+	//--github--.com/chartjs/Chart.js/issues/2538
 	style.display = style.display || 'block';
 
 	if (renderWidth === null || renderWidth === '') {
@@ -7491,7 +7491,7 @@ function initCanvas(canvas, config) {
 
 /**
  * Detects support for options object argument in addEventListener.
- * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Safely_detecting_option_support
+ * h-t-t-p-s://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Safely_detecting_option_support
  * @private
  */
 var supportsEventListenerOptions = (function() {
@@ -7511,7 +7511,7 @@ var supportsEventListenerOptions = (function() {
 }());
 
 // Default passive to true as expected by Chrome for 'touchstart' and 'touchend' events.
-// https://github.com/chartjs/Chart.js/issues/4287
+//--github--.com/chartjs/Chart.js/issues/4287
 var eventListenerOptions = supportsEventListenerOptions ? {passive: true} : false;
 
 function addListener(node, type, listener) {
@@ -7567,7 +7567,7 @@ function createResizer(handler) {
 	var maxSize = 1000000;
 
 	// NOTE(SB) Don't use innerHTML because it could be considered unsafe.
-	// https://github.com/chartjs/Chart.js/issues/5902
+	//--github--.com/chartjs/Chart.js/issues/5902
 	var resizer = createDiv(CSS_SIZE_MONITOR);
 	var expand = createDiv(CSS_SIZE_MONITOR + '-expand');
 	var shrink = createDiv(CSS_SIZE_MONITOR + '-shrink');
@@ -7595,7 +7595,7 @@ function createResizer(handler) {
 	return resizer;
 }
 
-// https://davidwalsh.name/detect-node-insertion
+//h-t-t-p-s://davidwalsh.name/detect-node-insertion
 function watchForRender(node, handler) {
 	var expando = node[EXPANDO_KEY] || (node[EXPANDO_KEY] = {});
 	var proxy = expando.renderProxy = function(e) {
@@ -7611,8 +7611,8 @@ function watchForRender(node, handler) {
 	// #4737: Chrome might skip the CSS animation when the CSS_RENDER_MONITOR class
 	// is removed then added back immediately (same animation frame?). Accessing the
 	// `offsetParent` property will force a reflow and re-evaluate the CSS animation.
-	// https://gist.github.com/paulirish/5d52fb081b3570c81e3a#box-metrics
-	// https://github.com/chartjs/Chart.js/issues/4737
+	//h-t-t-p-s://gist.github.com/paulirish/5d52fb081b3570c81e3a#box-metrics
+	//--github--.com/chartjs/Chart.js/issues/4737
 	expando.reflow = !!node.offsetParent;
 
 	node.classList.add(CSS_RENDER_MONITOR);
@@ -7688,7 +7688,7 @@ function removeResizeListener(node) {
  * @param {string} css - the CSS to be injected.
  */
 function injectCSS(rootNode, css) {
-	// https://stackoverflow.com/q/3922139
+	//--stackoverflow--.com/q/3922139
 	var expando = rootNode[EXPANDO_KEY] || (rootNode[EXPANDO_KEY] = {});
 	if (!expando.containsStyles) {
 		expando.containsStyles = true;
@@ -7726,7 +7726,7 @@ var platform_dom$2 = {
 		if (!this.disableCSSInjection) {
 			// If the canvas is in a shadow DOM, then the styles must also be inserted
 			// into the same shadow DOM.
-			// https://github.com/chartjs/Chart.js/issues/5763
+			//--github--.com/chartjs/Chart.js/issues/5763
 			var root = canvas.getRootNode ? canvas.getRootNode() : document;
 			var targetNode = root.host ? root : document.head;
 			injectCSS(targetNode, stylesheet);
@@ -7748,16 +7748,16 @@ var platform_dom$2 = {
 
 		// To prevent canvas fingerprinting, some add-ons undefine the getContext
 		// method, for example: https://github.com/kkapsner/CanvasBlocker
-		// https://github.com/chartjs/Chart.js/issues/2807
+		//--github--.com/chartjs/Chart.js/issues/2807
 		var context = item && item.getContext && item.getContext('2d');
 
 		// `instanceof HTMLCanvasElement/CanvasRenderingContext2D` fails when the item is
 		// inside an iframe or when running in a protected environment. We could guess the
 		// types from their toString() value but let's keep things flexible and assume it's
 		// a sufficient condition if the item has a context2D which has item as `canvas`.
-		// https://github.com/chartjs/Chart.js/issues/3887
-		// https://github.com/chartjs/Chart.js/issues/4102
-		// https://github.com/chartjs/Chart.js/issues/4152
+		//--github--.com/chartjs/Chart.js/issues/3887
+		//--github--.com/chartjs/Chart.js/issues/4102
+		//--github--.com/chartjs/Chart.js/issues/4152
 		if (context && context.canvas === item) {
 			// Load platform resources on first chart creation, to make it possible to
 			// import the library before setting platform options.
@@ -7792,7 +7792,7 @@ var platform_dom$2 = {
 		// The canvas render size might have been changed (and thus the state stack discarded),
 		// we can't use save() and restore() to restore the initial state. So make sure that at
 		// least the canvas context is reset to the default state by setting the canvas width.
-		// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
+		//h-t-t-p-s://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
 		// eslint-disable-next-line no-self-assign
 		canvas.width = canvas.width;
 
@@ -8068,7 +8068,7 @@ var core_plugins = {
 	/**
 	 * Invalidates cache for the given chart: descriptors hold a reference on plugin option,
 	 * but in some cases, this reference can be changed by the user when updating options.
-	 * https://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
+	 * h-t-t-p-s://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
 	 * @private
 	 */
 	_invalidate: function(chart) {
@@ -9348,7 +9348,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 			// The given item is not a compatible context2d element, let's return before finalizing
 			// the chart initialization but after setting basic chart / controller properties that
 			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
-			// https://github.com/chartjs/Chart.js/issues/2807
+			//--github--.com/chartjs/Chart.js/issues/2807
 			console.error("Failed to create chart: can't acquire context from the given item");
 			return;
 		}
@@ -9612,7 +9612,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		updateConfig(me);
 
 		// plugins options references might have change, let's invalidate the cache
-		// https://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
+		//--github--.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
 		core_plugins._invalidate(me);
 
 		if (core_plugins.notify(me, 'beforeUpdate') === false) {
@@ -10647,7 +10647,7 @@ var core_helpers = function() {
 
 		// Scale mouse coordinates into canvas coordinates
 		// by following the pattern laid out by 'jerryj' in the comments of
-		// https://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
+		//h-t-t-p-s://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
 		var paddingLeft = parseFloat(helpers$1.getStyle(canvas, 'padding-left'));
 		var paddingTop = parseFloat(helpers$1.getStyle(canvas, 'padding-top'));
 		var paddingRight = parseFloat(helpers$1.getStyle(canvas, 'padding-right'));
@@ -13490,7 +13490,7 @@ function fitWithPointLabels(scale) {
 	// This will mean we have a shape fitted to the canvas, as large as it can be with the labels
 	// and position it in the most space efficient manner
 	//
-	// https://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
+	//h-t-t-p-s://dl.dropboxusercontent.com/u/34601363/yeahscience.gif
 
 	var plFont = helpers$1.options._parseFont(scale.options.pointLabels);
 
@@ -15710,7 +15710,7 @@ var plugin_legend = {
 	 * Backward compatibility: since 2.1.5, the legend is registered as a plugin, making
 	 * Chart.Legend obsolete. To avoid a breaking change, we export the Legend as part of
 	 * the plugin, which one will be re-exposed in the chart.js file.
-	 * https://github.com/chartjs/Chart.js/pull/2640
+	 * h-t-t-p-s://github.com/chartjs/Chart.js/pull/2640
 	 * @private
 	 */
 	_element: Legend,
@@ -15954,7 +15954,7 @@ var plugin_title = {
 	 * Backward compatibility: since 2.1.5, the title is registered as a plugin, making
 	 * Chart.Title obsolete. To avoid a breaking change, we export the Title as part of
 	 * the plugin, which one will be re-exposed in the chart.js file.
-	 * https://github.com/chartjs/Chart.js/pull/2640
+	 * h-t-t-p-s://github.com/chartjs/Chart.js/pull/2640
 	 * @private
 	 */
 	_element: Title,

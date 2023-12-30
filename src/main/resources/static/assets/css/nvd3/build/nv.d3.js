@@ -22,7 +22,7 @@ nv.dispatch = d3.dispatch('render_start', 'render_end');
 
 // Function bind polyfill
 // Needed ONLY for phantomJS as it's missing until version 2.0 which is unreleased as of this comment
-// https://github.com/ariya/phantomjs/issues/10522
+//--github--.com/ariya/phantomjs/issues/10522
 // http://kangax.github.io/compat-table/es5/#Function.prototype.bind
 // phantomJS is used for running the test suite
 if (!Function.prototype.bind) {

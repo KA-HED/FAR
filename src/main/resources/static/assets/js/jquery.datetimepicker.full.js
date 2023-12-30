@@ -2416,7 +2416,7 @@ var datetimepickerFactory = function ($) {
 
 					    // fires multiple times for some reason
 
-					    // https://stackoverflow.com/a/30496488/1366033
+					    //--stackoverflow--.com/a/30496488/1366033
 					    var clipboardData = event.clipboardData || event.originalEvent.clipboardData || window.clipboardData,
 						pastedData = clipboardData.getData('text'),
 						val = this.value,

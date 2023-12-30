@@ -1,6 +1,6 @@
 /**
  * Super simple wysiwyg editor v0.8.10
- * https://summernote.org
+ * h-t-t-p-s://summernote.org
  *
  * Copyright 2013- Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license.

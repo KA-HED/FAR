@@ -28,6 +28,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.w3c.dom.Entity;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
@@ -301,6 +302,8 @@ public class UserControler {
 
 		Map<String, Object> model = new HashMap<String, Object>();
 
+
+		model.put("user", u);
 		model.put("user", u);
 		return new ModelAndView("acceuil/acceuil_AEB", model);
 

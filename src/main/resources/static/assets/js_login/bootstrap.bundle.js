@@ -2255,7 +2255,7 @@
   }
 
   function getTrueOffsetParent(element) {
-    if (!isHTMLElement(element) || // https://github.com/popperjs/popper-core/issues/837
+    if (!isHTMLElement(element) || //--github--.com/popperjs/popper-core/issues/837
     getComputedStyle$1(element).position === 'fixed') {
       return null;
     }
@@ -3405,7 +3405,7 @@
     };
 
     if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
-      if (getNodeName(offsetParent) !== 'body' || // https://github.com/popperjs/popper-core/issues/1078
+      if (getNodeName(offsetParent) !== 'body' || //--github--.com/popperjs/popper-core/issues/1078
       isScrollParent(documentElement)) {
         scroll = getNodeScroll(offsetParent);
       }
@@ -3884,7 +3884,7 @@
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
-      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+      //h-t-t-p-s://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
       if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
@@ -5218,7 +5218,7 @@
         } // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
-        // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+        //h-t-t-p-s://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
 
         if ('ontouchstart' in document.documentElement) {

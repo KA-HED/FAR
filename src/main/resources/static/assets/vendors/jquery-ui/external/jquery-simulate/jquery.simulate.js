@@ -1,6 +1,6 @@
  /*!
  * jQuery Simulate v1.0.0 - simulate browser mouse and keyboard events
- * https://github.com/jquery/jquery-simulate
+ * h-t-t-p-s://github.com/jquery/jquery-simulate
  *
  * Copyright 2012 jQuery Foundation and other contributors
  * Released under the MIT license.

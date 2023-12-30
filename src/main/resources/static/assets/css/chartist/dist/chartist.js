@@ -17,8 +17,8 @@
 /* Chartist.js 0.11.4
  * Copyright © 2019 Gion Kunz
  * Free to use under either the WTFPL license or the MIT license.
- * https://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-WTFPL
- * https://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-MIT
+ * h-t-t-p-s://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-WTFPL
+ * h-t-t-p-s://raw.githubusercontent.com/gionkunz/chartist-js/master/LICENSE-MIT
  */
 /**
  * The core module of Chartist that is mainly providing static functions and higher level functions for chart modules.

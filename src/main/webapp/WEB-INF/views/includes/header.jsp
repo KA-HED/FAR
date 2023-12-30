@@ -14,7 +14,6 @@
 <meta name="keywords" content="Dentaire,dent Landing,Bootstrap,App,Template,Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
 <link rel="icon" href="${pageContext.request.contextPath}/assets/images/logo_1.png">
-<%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"/>--%>
 
 <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/chartist/dist/chartist.css" type="text/css" media="all">--%>
 <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/nvd3/build/nv.d3.css">--%>
@@ -40,17 +39,12 @@
 <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/calendar.css" />--%>
 <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/fullcalendar.min.css" />--%>
 <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bt.css"/>--%>
-<%--<link href="https://fonts.cdnfonts.com/css/arvo" rel="stylesheet">--%>
-<%--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--%>
-<%--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--%>
-<%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"--%>
       <%--integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="--%>
       <%--crossorigin="anonymous"/>--%>
 <%----%>
 <%--<link href="${pageContext.request.contextPath}/assets/css/smart_wizard_all.min.css">--%>
 <%----%>
 <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font.css" >--%>
-<%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.css" integrity="sha512-YdYyWQf8AS4WSB0WWdc3FbQ3Ypdm0QCWD2k4hgfqbQbRCJBEgX0iAegkl2S1Evma5ImaVXLBeUkIlP6hQ1eYKQ==" crossorigin="anonymous" />--%>
 <!-- CSS Files -->
 
 <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.datetimepicker.min.css">--%>
@@ -118,9 +112,9 @@
 
     .bootstrap-select>.dropdown-toggle{
         color: #0a0a0a !important;
-        height: 30px !important;
+        height: 28px !important;
         background-color: white !important;
-        font-size: 13px;
+        font-size: 12px;
     }
 
 

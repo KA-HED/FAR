@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "OM", schema = "AEB")
+@Table(name = "OM"/*, schema = "AEB"*/)
 public class OM {
 
     // Constructors, getters, and setters
@@ -68,7 +68,26 @@ public class OM {
     @Column(name = "ZONE", length = 20)
     private String zone;
 
+    @Column(name = "DEMANDE_ID", length = 20)
+    private String demandeId;
+
     // Constructors, getters, and setters
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getDemandeId() {
+        return demandeId;
+    }
+
+    public void setDemandeId(String demandeId) {
+        this.demandeId = demandeId;
+    }
 
     public Long getOmId() {
         return omId;

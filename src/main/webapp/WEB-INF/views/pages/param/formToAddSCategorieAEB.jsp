@@ -7,8 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="../../menu/menu_verticale.jsp"/>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<%--eddaoudi--%>
 
 <div class="col-12 from_add"  style="margin: 60px 0px 20px 0px;">
     <div class="row p-0 m-0 justify-content-center">

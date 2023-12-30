@@ -2,7 +2,7 @@ package com.EIE.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "DTAIL_MAR", schema = "AEB")
+@Table(name = "DTAIL_MAR"/*, schema = "AEB"*/)
 public class DetailMar {
 
     @Id

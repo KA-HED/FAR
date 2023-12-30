@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "MA", schema = "AEB")
+@Table(name = "MA"/*, schema = "AEB"*/)
 public class MA {
 
     @Id

@@ -10,7 +10,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "ART", schema = "AEB")
+@Table(name = "ART"/*, schema = "AEB"*/)
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Art implements Serializable {
 
@@ -110,8 +110,9 @@ public class Art implements Serializable {
     @Column(name = "STCK_ELEM_ID")
     private Long stckElemId;
 
-    @Column(name = "MODELE_ID")
-    private Long modeleId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "MODELE_ID")
+    private ModeleAeb modeleId;
 
     @Column(name = "NBRE_MODIFICATION")
     private Long nbreModification;
@@ -423,11 +424,11 @@ public class Art implements Serializable {
         this.stckElemId = stckElemId;
     }
 
-    public Long getModeleId() {
+    public ModeleAeb getModeleId() {
         return modeleId;
     }
 
-    public void setModeleId(Long modeleId) {
+    public void setModeleId(ModeleAeb modeleId) {
         this.modeleId = modeleId;
     }
 

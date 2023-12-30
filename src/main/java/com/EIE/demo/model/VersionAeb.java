@@ -4,7 +4,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "VERSION_AEB", schema = "AEB")
+@Table(name = "VERSION_AEB"/*, schema = "AEB"*/)
 public class VersionAeb {
 
     // Constructors, getters, and setters

@@ -407,7 +407,7 @@
     };
     var getCloseButton = function getCloseButton() {
         return elementByClass(swalClasses.close);
-    }; // https://github.com/jkup/focusable/blob/master/index.js
+    }; //--github--.com/jkup/focusable/blob/master/index.js
 
     var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
     var getFocusableElements = function getFocusableElements() {
@@ -797,7 +797,7 @@
         return false;
     }();
 
-    // https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+    //--github--.com/twbs/bootstrap/blob/master/js/src/modal.js
 
     var measureScrollbar = function measureScrollbar() {
         var scrollDiv = document.createElement('div');
@@ -927,8 +927,8 @@
      * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
      * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
      * This is the approach that Babel will probably take to implement private methods/fields
-     *   https://github.com/tc39/proposal-private-methods
-     *   https://github.com/babel/babel/pull/7555
+     * h-t-t-p-s://github.com/tc39/proposal-private-methods
+     * h-t-t-p-s://github.com/babel/babel/pull/7555
      * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
      *   then we can use that language feature.
      */
@@ -2158,8 +2158,8 @@
      * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
      * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
      * This is the approach that Babel will probably take to implement private methods/fields
-     *   https://github.com/tc39/proposal-private-methods
-     *   https://github.com/babel/babel/pull/7555
+     * h-t-t-p-s://github.com/tc39/proposal-private-methods
+     * h-t-t-p-s://github.com/babel/babel/pull/7555
      * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
      *   then we can use that language feature.
      */
@@ -2872,7 +2872,7 @@
             inputOptions.forEach(function (inputOption) {
                 var optionValue = inputOption[0];
                 var optionLabel = inputOption[1]; // <optgroup> spec:
-                // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+                //h-t-t-p-s://www.w3.org/TR/html401/interact/forms.html#h-17.6
                 // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
                 // check whether this is a <optgroup>
 

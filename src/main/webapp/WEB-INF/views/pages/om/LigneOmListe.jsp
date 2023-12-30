@@ -6,8 +6,8 @@
 
     <c:forEach items="${lOM}" var="ed">
         <tr id="tr_${ed.ligneOmId}">
-            <td>${ed.art.numMoteur}</td>
-            <td>${ed.art.obsDesig}</td>
+            <td>${ed.art.nomineralogique}</td>
+            <td>${ed.art.obsDesig}</td> dessg de modul_AEB
             <%--<td>${ed.art.numChassis}</td>--%>
             <td>${ed.untDest.nomAbrege}</td>
             <td>${ed.posOrigine.posAbrev}</td>
@@ -16,7 +16,7 @@
             <td>${ed.untElementOrig.nomAbrege}</td>
             <td>${ed.untDetachDest.nomAbrege}</td>
             <td>${ed.detenteurDest.nom} ${ed.detenteurDest.prenom}</td>
-            <td>${ed.etatLigne==1?'Réserve':'Disponible'}</td>
+            <td>${ed.etatLigne=='R'?'Réserve':'Disponible'}</td>
             <td>
 
                 <button class="btn" onclick="deleteligneOm(${ed.ligneOmId})"

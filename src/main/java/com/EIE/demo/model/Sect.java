@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "SECT", schema = "AEB")
+@Table(name = "SECT"/*, schema = "AEB"*/)
 public class Sect {
 
     @Id

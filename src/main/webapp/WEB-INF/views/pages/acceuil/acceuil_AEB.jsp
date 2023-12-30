@@ -85,20 +85,13 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div id="calendar-events" class="">
-                                                    <c:if test="${auto.equals('ev')}">
-                                                        <div class="calendar-events mb-3" data-class="bg-success_1"><i class="event-1 bg-success_1"></i><spring:message code='label.Reuniondecommision'/></div>
-                                                    </c:if>
-                                                    <c:if test="${auto.equals('auto')}">
-                                                        <div class="calendar-events mb-3" data-class="bg-info"><i class="event-1 bg-info"></i><spring:message code='label.Visitedesite'/></div>
-                                                        <div class="calendar-events mb-3" data-class="bg-info"><i class="event-1 bg-info"></i><spring:message code='label.Reunion'/></div>
-                                                        <div class="calendar-events mb-3" data-class="bg-warning"><i class="event-1 bg-warning"></i><spring:message code='label.Autorisation'/></div>
-                                                    </c:if>
-                                                    <c:if test="${auto.equals('tous')}">
+
+
                                                         <div class="calendar-events mb-3" data-class="bg-success_1"><i class="event-1 bg-success_1"></i><spring:message code='label.Reuniondecommision'/></div>
                                                         <div class="calendar-events mb-3" data-class="bg-info"><i class="event-1 bg-info"></i><spring:message code='label.Visitedesite'/></div>
                                                         <div class="calendar-events mb-3" data-class="bg-info"><i class="event-1 bg-info"></i><spring:message code='label.Reunion'/></div>
                                                         <div class="calendar-events mb-3" data-class="bg-warning"><i class="event-1 bg-warning"></i><spring:message code='label.Autorisation'/></div>
-                                                    </c:if>
+
                                                 </div>
                                                                        </div>
                                         </div>

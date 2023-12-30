@@ -1,6 +1,6 @@
 /*!
  * chartjs-plugin-datalabels v0.6.0
- * https://chartjs-plugin-datalabels.netlify.com
+ * h-t-t-p-s://chartjs-plugin-datalabels.netlify.com
  * (c) 2019 Chart.js Contributors
  * Released under the MIT license
  */
@@ -21,8 +21,8 @@ var devicePixelRatio = (function() {
 		}
 
 		// devicePixelRatio is undefined on IE10
-		// https://stackoverflow.com/a/20204180/8837887
-		// https://github.com/chartjs/chartjs-plugin-datalabels/issues/85
+		//--stackoverflow--.com/a/20204180/8837887
+		//--github--.com/chartjs/chartjs-plugin-datalabels/issues/85
 		var screen = window.screen;
 		if (screen) {
 			return (screen.deviceXDPI || 1) / (screen.logicalXDPI || 1);
@@ -109,7 +109,7 @@ var utils = {
 	/**
 	 * Returns value bounded by min and max. This is equivalent to max(min, min(value, max)).
 	 * @todo move this method in Chart.helpers.bound
-	 * https://doc.qt.io/qt-5/qtglobal.html#qBound
+	 * h-t-t-p-s://doc.qt.io/qt-5/qtglobal.html#qBound
 	 */
 	bound: function(min, value, max) {
 		return Math.max(min, Math.min(value, max));
@@ -144,7 +144,7 @@ var utils = {
 	},
 
 	/**
-	 * https://github.com/chartjs/chartjs-plugin-datalabels/issues/70
+	 * h-t-t-p-s://github.com/chartjs/chartjs-plugin-datalabels/issues/70
 	 */
 	rasterize: function(v) {
 		return Math.round(v * devicePixelRatio) / devicePixelRatio;
@@ -217,7 +217,7 @@ function aligned(x, y, vx, vy, align) {
 }
 
 // Line clipping (Cohen–Sutherland algorithm)
-// https://en.wikipedia.org/wiki/Cohen–Sutherland_algorithm
+//h-t-t-p-s://en.wikipedia.org/wiki/Cohen–Sutherland_algorithm
 
 var R_INSIDE = 0;
 var R_LEFT = 1;
@@ -794,7 +794,7 @@ helpers$2.extend(HitBox.prototype, {
 	},
 
 	// Separating Axis Theorem
-	// https://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
+	//h-t-t-p-s://gamedevelopment.tutsplus.com/tutorials/collision-detection-using-the-separating-axis-theorem--gamedev-169
 	intersects: function(other) {
 		var r0 = this._points();
 		var r1 = other._points();
@@ -1178,7 +1178,7 @@ function handleClickEvents(chart, event) {
 	}
 }
 
-// https://github.com/chartjs/chartjs-plugin-datalabels/issues/108
+//--github--.com/chartjs/chartjs-plugin-datalabels/issues/108
 function invalidate(chart) {
 	if (chart.animating) {
 		return;
@@ -1271,8 +1271,8 @@ var plugin = {
 	},
 
 	// Draw labels on top of all dataset elements
-	// https://github.com/chartjs/chartjs-plugin-datalabels/issues/29
-	// https://github.com/chartjs/chartjs-plugin-datalabels/issues/32
+	//--github--.com/chartjs/chartjs-plugin-datalabels/issues/29
+	//--github--.com/chartjs/chartjs-plugin-datalabels/issues/32
 	afterDatasetsDraw: function(chart) {
 		layout.draw(chart, chart[EXPANDO_KEY]._labels);
 	},
@@ -1323,7 +1323,7 @@ var plugin = {
 };
 
 // TODO Remove at version 1, we shouldn't automatically register plugins.
-// https://github.com/chartjs/chartjs-plugin-datalabels/issues/42
+//--github--.com/chartjs/chartjs-plugin-datalabels/issues/42
 Chart.plugins.register(plugin);
 
 return plugin;

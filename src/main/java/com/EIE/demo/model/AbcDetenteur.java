@@ -2,7 +2,7 @@ package com.EIE.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ABC_DETENTEUR", schema = "AEB")
+@Table(name = "ABC_DETENTEUR"/*, schema = "AEB"*/)
 public class AbcDetenteur {
 
     @Id

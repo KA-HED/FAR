@@ -13,7 +13,7 @@ public interface ArtRepository extends JpaRepository<Art, Long> {
     @Query(value ="select max( N_NOMENCL)+1 from ART", nativeQuery = true)
     Long getmaxid();
 
-    @Query("from Art  where etat_om='Affecter' and disponibilite='1' ")
+    @Query("from Art  where etat_om='Affecter' ")//and disponibilite='1'
     public List<Art> getAllArt_Affecter();
 
 

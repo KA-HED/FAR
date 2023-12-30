@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 * */
 @Entity
-@Table(name = "S_CATEGORIE_AEB", schema = "AEB")
+@Table(name = "S_CATEGORIE_AEB"/*, schema = "AEB"*/)
 //@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 //@RequiredArgsConstructor
 public class SCategorieAEB  implements Serializable {

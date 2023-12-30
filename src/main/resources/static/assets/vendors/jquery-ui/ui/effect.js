@@ -41,7 +41,7 @@ $.effects = {
 
 /*!
  * jQuery Color Animations v2.1.2
- * https://github.com/jquery/jquery-color
+ * h-t-t-p-s://github.com/jquery/jquery-color
  *
  * Copyright 2014 jQuery Foundation and other contributors
  * Released under the MIT license.
@@ -470,7 +470,7 @@ color.fn = jQuery.extend( color.prototype, {
 color.fn.parse.prototype = color.fn;
 
 // Hsla conversions adapted from:
-// https://code.google.com/p/maashaack/source/browse/packages/graphics/trunk/src/graphics/colors/HUE2RGB.as?r=5021
+//h-t-t-p-s://code.google.com/p/maashaack/source/browse/packages/graphics/trunk/src/graphics/colors/HUE2RGB.as?r=5021
 
 function hue2rgb( p, q, h ) {
 	h = ( h + 1 ) % 1;
@@ -1004,7 +1004,7 @@ if ( $.uiBackCompat !== false ) {
 
 			// Support: Firefox
 			// Firefox incorrectly exposes anonymous content
-			// https://bugzilla.mozilla.org/show_bug.cgi?id=561664
+			//h-t-t-p-s://bugzilla.mozilla.org/show_bug.cgi?id=561664
 			try {
 				active.id;
 			} catch ( e ) {

@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "S_CAT_MQUE", schema = "AEB")
+@Table(name = "S_CAT_MQUE"/*, schema = "AEB"*/)
 public class SCatMque {
 
     @Id

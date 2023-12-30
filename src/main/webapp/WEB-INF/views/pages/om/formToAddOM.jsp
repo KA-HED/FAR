@@ -6,40 +6,174 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="../../menu/menu_verticale.jsp"/>
+<style>
+    .nav-wizard > li {
+        float: left;
+        line-height: 20px !important;
+    }
+    .nav-wizard > li > a {
+        position: relative !important;
+        background-color: #eeeeee !important;
+        padding: 10px 15px;
+        /* position: relative; */
+        padding-left: 100px !important;
+        padding-right: 70px !important;
+        display: block;
+    }
+    .nav-wizard > li > a .badge {
+        margin-left: 3px !important;
+        color: #eeeeee !important;
+        background-color: #428bca !important;
+    }
+    .nav-wizard > li:not(:first-child) > a:before {
+        width: 0px !important;
+        height: 0px !important;
+        border-top: 20px inset transparent !important;
+        border-bottom: 20px inset transparent !important;
+        border-left: 20px solid #ffffff !important;
+        position: absolute !important;
+        content: "" !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+    .nav-wizard > li:not(:last-child) > a {
+        margin-right: 6px !important;
+    }
+    .nav-wizard > li:not(:last-child) > a:after {
+        width: 0px !important;
+        height: 0px !important;
+        border-top: 20px inset transparent !important;
+        border-bottom: 20px inset transparent !important;
+        border-left: 20px solid #eeeeee !important;
+        position: absolute !important;
+        content: "" !important;
+        top: 0 !important;
+        right: -20px !important;
+        z-index: 2 !important;
+    }
+    .nav-wizard > li:first-child > a {
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+    }
+    .nav-wizard > li:last-child > a {
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+    }
+    .nav-wizard > li.done:hover > a,
+    .nav-wizard > li:hover > a {
+        background-color: #d5d5d5 !important;
+    }
+    .nav-wizard > li.done:hover > a:before,
+    .nav-wizard > li:hover > a:before {
+        border-right-color: #d5d5d5 !important;
+    }
+    .nav-wizard > li.done:hover > a:after,
+    .nav-wizard > li:hover > a:after {
+        border-left-color: #d5d5d5 !important;
+    }
+    .nav-wizard > li.done > a {
+        background-color: #e2e2e2 !important;
+    }
+    .nav-wizard > li.done > a:before {
+        border-right-color: #e2e2e2 !important;
+    }
+    .nav-wizard > li.done > a:after {
+        border-left-color: #e2e2e2 !important;
+    }
+    .nav-wizard > li.active > a,
+    .nav-wizard > li.active > a:hover,
+    .nav-wizard > li.active > a:focus {
+        color: #ffffff !important;
+        background-color: #428bca !important;
+    }
+    .nav-wizard > li.active > a:after {
+        border-left-color: #428bca !important;
+    }
+    .nav-wizard > li.active > a .badge {
+        color: #428bca !important;
+        background-color: #ffffff !important;
+    }
+    .nav-wizard > li.disabled > a {
+        color: #777777 !important;
+    }
+    .nav-wizard > li.disabled > a:hover,
+    .nav-wizard > li.disabled > a:focus {
+        color: #777777 !important;
+        text-decoration: none !important;
+        background-color: #eeeeee !important;
+        cursor: default !important;
+    }
+    .nav-wizard > li.disabled > a:before {
+        border-right-color: #eeeeee !important;
+    }
+    .nav-wizard > li.disabled > a:after {
+        border-left-color: #eeeeee !important;
+    }
+    .nav-wizard.nav-justified > li {
+        float: none !important;
+        line-height: 20px !important;
+    }
+    .nav-wizard.nav-justified > li > a {
+        padding: 10px 15px !important;
+    }
+    @media (max-width: 768px) {
+        .nav-wizard.nav-justified > li > a {
+            border-radius: 4px !important;
+            margin-right: 0 !important;
+        }
+        .nav-wizard.nav-justified > li > a:before,
+        .nav-wizard.nav-justified > li > a:after {
+            border: none  !important;
+        }
+    }
+</style>
 
 
 <div class="col-12"  style="margin: 60px 0px 0px 0px;">
     <div class="row p-0 m-0 justify-content-center">
         <div class="col-md-11 mt-5 col-sm-12">
             <div class="card-body col-md-12" style="background-color: white">
+                <div>
+                    <ul class='nav-wizard'>
+
+                        <li class=" ${OM.tracOM=='O' ? 'active' : ''}"><a href='#step1' data-toggle="tab">Order </a></li>
+
+                        <li class=" ${OM.tracOM=='R' ? 'active' : ''}" ><a href='#step2' data-toggle="tab">Receprion </a></li>
+
+                        <li class=" ${OM.tracOM=='A' ? 'active' : ''}"><a>Archivé</a></li>
+
+                    </ul>
+
+                </div><br>
+
+
                 <div class="tab-content" >
                     <div class="tab-pane active" id="div1">
                         <form id="myForm">
                             <div class="card" style="padding: 10px;    ">
-                            <label class="label_card">Référence </label>
+                                <label class="label_card">Référence </label>
                             <div class="form-row">
                                 <div class="col-md-1">
                                     <label>TEXTE N°</label>
                                 </div>
                                 <div class="col-md-2">
                                     <input type="hidden"  id="omId" name="omId" value="${OM.omId}">
-                                    <input class="form-control" type="text"   name="refOM" value="${OM.refOM}">
+                                    <input class="form-control" type="text"   name="nTO" value="${OM.nTO}">
                                 </div>
                                 <div class="col-md-1">
                                     <label>/EMG/4°B.N°</label>
                                 </div>
-                                <div class="col-md-2">  <input class="form-control" type="text" name="nTO" value="${OM.nTO}" >
+                                <div class="col-md-2">  <input class="form-control" type="text" name="dgmac" value="${OM.dgmac}" >
                                 </div>
                                 <div class="col-md-1">
                                     <label>/DMAC/</label>
                                 </div>
                                 <div class="col-md-1">
-                                    <select class="form-control " id="tracOM" NAME="tracOM" >
+                                    <select class="form-control " id="s" NAME="s" >
                                         <option selected>Choose...</option>
-                                        <option value="1" ${OM.tracOM=='1' ? 'selected' : ''}> SGM</option>
-                                        <option value="1" ${OM.tracOM=='2' ? 'selected' : ''}> SGS</option>
-                                        <option value="1" ${OM.tracOM=='3' ? 'selected' : ''}> SEN</option>
-
+                                        <option value="SGM" ${OM.s=='SGM' ? 'selected' : ''}>SGM</option>
+                                        <option value="SGS" ${OM.s=='SGS' ? 'selected' : ''}>SGS</option>
+                                        <option value="SEB" ${OM.s=='SEB' ? 'selected' : ''}>SEB</option>
                                     </select>
                                 </div>
                                 <div class="col-md-2">
@@ -79,6 +213,21 @@
                                 </div>
 
                             </div>
+
+                                <div class="form-row">
+                                    <div class="col-md-2">
+                                        <label>Degré d’urgence</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <select class="form-control"  id="tracOM" name="tracOM" >
+                                            <option selected value="0">Choose</option>
+                                            <option value="1" ${OM.tracOM=='1' ? 'selected' : ''}>Normal</option>
+                                            <option value="2" ${OM.tracOM=='2' ? 'selected' : ''}>Urgent</option>
+                                            <%--<option></option>--%>
+                                        </select>
+                                    </div>
+
+                                </div>
                         </div>
                             <div class="card" style="padding: 10px;    ">
                                 <label class="label_card">Acteurs </label>
@@ -98,7 +247,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-2">
-                                        <label>Réception </label>
+                                        <label>Validation  </label>
                                     </div>
                                     <div class="col-md-4">
                                         <select id="actReception" class="form-control" name="actReception" >
@@ -169,12 +318,12 @@
                                             <option selected  value="0">Choose...</option>
                                             <c:forEach items="${art}" var="ed">
                                                 <option value="${ed.nNomencl }" id="vl-${ed.nNomencl}"
-                                                        data-vl-${ed.nNomencl}="${ed.obsDesig}"
+                                                        data-vl-${ed.nNomencl}="${ed.modeleId.designation}"
                                                         data-n_cha-${ed.nNomencl}="${ed.numChassis}"
                                                         data-n_unt-${ed.nNomencl}="${ed.unitesCriblees.untId}"
                                                         data-n_pos-${ed.nNomencl}="${ed.pos.posId}"
                                                         data-n_mod-${ed.nNomencl}="${ed.modeleId}"
-                                                >${ed.obsDesig } </option>
+                                                >${ed.nomineralogique } </option>
                                             </c:forEach>
                                         </select></td>
                                         <td><input class="form-control" type="text"  id="desig"></td>
@@ -239,8 +388,8 @@
                                             <select class="form-control"  id="etatLigne" name="etatLigne" >
                                                 <%--<option selected  value="0">Choose...</option>--%>
                                                 <%--<c:forEach items="${unt}" var="ed">--%>
-                                                <option value="1" selected>Réserve</option>
-                                                <option value="2" >Affecter </option>
+                                                <option value="R" selected>Réserve</option>
+                                                <option value="L" >Affecter </option>
                                                 <%--</c:forEach>--%>
                                             </select>
                                         </td>
@@ -257,8 +406,8 @@
                                     <tbody id="LigneOmListe">
                                     <c:forEach items="${lOM}" var="ed">
                                         <tr id="tr_${ed.ligneOmId}">
-                                            <td>${ed.art.numMoteur}</td>
-                                            <td>${ed.art.obsDesig}</td>
+                                            <td>${ed.art.nomineralogique}</td>
+                                            <td>${ed.modeleAeb.designation}</td>
                                                 <%--<td>${ed.art.numChassis}</td>--%>
                                             <td>${ed.untDest.nomAbrege}</td>
                                             <td>${ed.posOrigine.posAbrev}</td>
@@ -270,7 +419,7 @@
                                             <td>${ed.untElementOrig.nomAbrege}</td>
                                             <td>${ed.untDetachDest.nomAbrege}</td>
                                             <td>${ed.detenteurDest.nom} ${ed.detenteurDest.prenom}</td>
-                                            <td>${ed.etatLigne==1?'Réserve':'Affecter'}</td>
+                                            <td>${ed.etatLigne=='R'?'Réserve':'Affecter'}</td>
                                             <td>
                                                 <button class="btn" onclick="deleteligneOm(${ed.ligneOmId})"
                                                         type="button" title="Supprimer">

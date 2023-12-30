@@ -7,8 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:include page="../../menu/menu_verticale.jsp"/>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<%--eddaoudi--%>
 <style>
     .form-container {
         margin-top: 80px;
@@ -121,6 +120,7 @@
                                                 <th class="text-center">Date OM</th>
                                                 <th class="text-center">Degré d’urgence</th>
                                                 <th class="text-center">Type OM</th>
+                                                <th class="text-center">Etat OM</th>
                                                 <%--<th class="text-center">typeOM</th>--%>
                                                 <th class="text-center"><spring:message code="label.Action"/></th>
                                             </tr>
@@ -134,6 +134,7 @@
                                                     <td>${f.degreUrg=='1'?'Normal':'Urgent'}</td>
                                                     <%--<td>${f.tracOM}</td>--%>
                                                     <td>${f.typeOM}</td>
+                                                    <td>${f.tracOM}</td>
                                                     <td class="text-center">
                                                         <ul class="list-inline m-0">
                                                             <li class="list-inline-item text-center">
@@ -254,14 +255,14 @@
 
     }
 
-    // $(document).ready(function(){
-    //     $("#myInput").on("keyup", function() {
-    //         var value = $(this).val().toLowerCase();
-    //         $("#myTable tr").filter(function() {
-    //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    //         });
-    //     });
-    // });
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 
 </script>
 

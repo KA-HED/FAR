@@ -1,11 +1,11 @@
 /**
  * QUnit Composite v1.0.5-pre
  *
- * https://github.com/JamesMGreene/qunit-composite
+ * h-t-t-p-s://github.com/JamesMGreene/qunit-composite
  *
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
- * https://jquery.org/license/
+ * h-t-t-p-s://jquery.org/license/
  */
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {

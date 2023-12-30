@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Detachement_Vehicules", schema = "AEB")
+@Table(name = "Detachement_Vehicules"/*, schema = "AEB"*/)
 public class Detachement_Vehicules {
 
     @Id

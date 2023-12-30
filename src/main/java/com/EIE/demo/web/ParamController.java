@@ -47,6 +47,8 @@ public class ParamController {
     @Autowired
     private PaysRepository paysRepository;
     @Autowired
+    private LigneOmRepository ligneOmRepository;
+    @Autowired
     WebService web;
 
     // CategorieAEB
@@ -689,6 +691,8 @@ public ModelAndView addVersionAeb(@RequestBody VersionAeb ed) {
 
         return new ModelAndView("param/listeCategorieAEB", model);
     }
+
+
 
 
 }

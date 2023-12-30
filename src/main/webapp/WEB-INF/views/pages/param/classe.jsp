@@ -4,8 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<%--eddaoudi--%>
 
 <div class="col-12 from_add" style=" padding-left: 15px; float: none; margin: 15px;">
 
@@ -91,7 +90,7 @@
                      style="text-align:center;display:none;">
 
                     <img class="n3VNCb text-center"
-                         src="https://www.shareicon.net/data/512x512/2016/08/18/814342_suit_512x512.png" data-noaft="1"
+                         src="#" data-noaft="1"
                          jsname="HiaYvf" jsaction="load:XAeZkd;" style="width: 100px; height: 100px; margin: 0px;">
                     <div class="row p-4 justify-content-center">
                         <div class="col-8">

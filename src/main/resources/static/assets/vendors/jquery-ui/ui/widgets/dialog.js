@@ -225,7 +225,7 @@ $.widget( "ui.dialog", {
 
 			// Hiding a focused element doesn't trigger blur in WebKit
 			// so in case we have nothing to focus on, explicitly blur the active element
-			// https://bugs.webkit.org/show_bug.cgi?id=47182
+			//h-t-t-p-s://bugs.webkit.org/show_bug.cgi?id=47182
 			$.ui.safeBlur( $.ui.safeActiveElement( this.document[ 0 ] ) );
 		}
 

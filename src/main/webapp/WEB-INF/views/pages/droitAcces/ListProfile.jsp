@@ -5,9 +5,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../../menu/menu_verticale.jsp" />
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<link href="https://www.wrappixel.com/demos/admin-templates/niceadmin-bt5/nice/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<%--eddaoudi--%>
+<%--<link href="https://www.wrappixel.com/demos/admin-templates/niceadmin-bt5/nice/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">--%>
 
 <c:if test="${pageContext.response.locale=='ar' }">
     <style>

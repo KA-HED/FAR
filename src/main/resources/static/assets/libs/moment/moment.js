@@ -1141,7 +1141,7 @@
 
     function createDate (y, m, d, h, M, s, ms) {
         // can't just apply() to create a date:
-        // https://stackoverflow.com/q/181348
+        //--stackoverflow--.com/q/181348
         var date = new Date(y, m, d, h, M, s, ms);
 
         // the date constructor remaps years 0-99 to 1900-1999
@@ -1171,7 +1171,7 @@
         return -fwdlw + fwd - 1;
     }
 
-    // https://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
+    //h-t-t-p-s://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
     function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
         var localWeekday = (7 + weekday - dow) % 7,
             weekOffset = firstWeekOffset(year, dow, doy),
@@ -2620,7 +2620,7 @@
             input = undefined;
         }
         // object construction must be done this way.
-        // https://github.com/moment/moment/issues/1423
+        //--github--.com/moment/moment/issues/1423
         c._isAMomentObject = true;
         c._useUTC = c._isUTC = isUTC;
         c._l = locale;
@@ -2845,7 +2845,7 @@
 
     function getDateOffset (m) {
         // On Firefox.24 Date#getTimezoneOffset returns a floating point.
-        // https://github.com/moment/moment/pull/1871
+        //--github--.com/moment/moment/pull/1871
         return -Math.round(m._d.getTimezoneOffset() / 15) * 15;
     }
 

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name = "TYPE_AEB", schema = "AEB")
+@Table(name = "TYPE_AEB"/*, schema = "AEB"*/)
 public class TypeAEB {
 
     // Constructors, getters, and setters

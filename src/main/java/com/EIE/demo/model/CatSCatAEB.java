@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "CAT_S_CAT_AEB", schema = "AEB")
+@Table(name = "CAT_S_CAT_AEB"/*, schema = "AEB"*/)
 public class CatSCatAEB {
 
     @Id

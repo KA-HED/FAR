@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "CATEGORIE_AEB", schema = "AEB")
+@Table(name = "CATEGORIE_AEB"/*, schema = "AEB"*/)
 public class CategorieAEB {
 
     @Id

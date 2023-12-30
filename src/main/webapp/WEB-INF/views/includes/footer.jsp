@@ -14,10 +14,11 @@
         </div>
     </div>
 </div>
-<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>--%>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>--%>
+<script src="${pageContext.request.contextPath}/assets/ED/bootstrap.bundle.min.js"></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>--%>
+<script src="${pageContext.request.contextPath}/assets/ED/bootstrap-select.min.js"></script>
 
 <!-- base:js -->
 <script src="${pageContext.request.contextPath}/assets/vendors/base/vendor.bundle.base.js"></script>
@@ -43,7 +44,6 @@
 <%--sweetAlert--%>
 <script src="${pageContext.request.contextPath}/assets/js/sweet-alert.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/sweetalert2.all.js"></script>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.29.2/sweetalert2.all.js"></script>--%>
 
 <%--VALIDATION FORM--%>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.validate.min.js"></script>

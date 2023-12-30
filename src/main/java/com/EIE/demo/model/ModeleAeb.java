@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "MODELE_AEB", schema = "AEB")
+@Table(name = "MODELE_AEB"/*, schema = "AEB"*/)
 public class ModeleAeb {
 
     // Constructors, getters, and setters

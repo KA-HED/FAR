@@ -54115,7 +54115,7 @@ var JSHINT = (function () {
 
   // Checks whether the 'typeof' operator is used with the correct
   // value. For docs on 'typeof' see:
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+  //h-t-t-p-s://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
   function isTypoTypeof(left, right) {
     if (state.option.notypeof)

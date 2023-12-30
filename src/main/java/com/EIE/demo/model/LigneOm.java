@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "LIGNE_OM", schema = "AEB")
+@Table(name = "LIGNE_OM"/*, schema = "AEB"*/)
 public class LigneOm {
 
     @Id

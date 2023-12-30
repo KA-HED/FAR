@@ -1,6 +1,6 @@
 /*
  * International Telephone Input v17.0.13
- * https://github.com/jackocnr/intl-tel-input.git
+ * h-t-t-p-s://github.com/jackocnr/intl-tel-input.git
  * Licensed under the MIT license
  */
 
@@ -113,7 +113,7 @@
         // specify the path to the libphonenumber script to enable validation/formatting
         utilsScript: ""
     };
-    // https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes#Non-geographic_area_codes
+    //h-t-t-p-s://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes#Non-geographic_area_codes
     var regionlessNanpNumbers = [ "800", "822", "833", "844", "855", "866", "877", "880", "881", "882", "883", "884", "885", "886", "887", "888", "889" ];
     // utility function to iterate over an object. can't use Object.entries or native forEach because
     // of IE11
